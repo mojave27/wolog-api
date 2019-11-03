@@ -2,9 +2,24 @@ var fs = require('fs')
 const exerciseDbPath = 'src/data-store/exercises.json'
 // import validate from 'validate.js'
 
-module.exports = {
+//TODO: add logger
+const exerciseDb = {
+  getExercises: function() {
+	console.log(`[exercise-db] getExercises()`)
+	// console.log(process.cwd())
+	// console.log(fs.existsSync('src/data-store/exercises.json'))
+	if (fs.existsSync(exerciseDbPath)) {
+	  var exercisesJson = fs.readFileSync(exerciseDbPath, 'utf8')
+	  var exercises = JSON.parse(exercisesJson)
+	  return exercises
+	} else {
+	  throw new Error('exercise db failure.')
+	}
+  },
+
   // returns array of unique, sorted ids
   getUniqueIds: function() {
+	console.log(`[exercise-db] getUniqueIds()`)
     const exercises = this.getExercises()
     // make an array of the ids
     var ids = Array.from(exercises, exercise => exercise.id)
@@ -12,18 +27,6 @@ module.exports = {
     let uniqueIds = Array.from(new Set(ids.sort()))
     console.log(uniqueIds)
     return uniqueIds
-  },
-  getExercises: function() {
-    this.getUniqueIds()
-    // console.log(process.cwd())
-    // console.log(fs.existsSync('src/data-store/exercises.json'))
-    if (fs.existsSync(exerciseDbPath)) {
-      var exercisesJson = fs.readFileSync(exerciseDbPath, 'utf8')
-      var exercises = JSON.parse(exercisesJson)
-      return exercises
-    } else {
-      throw new Error('exercise db failure.')
-    }
   },
 
   // getExerciseById: function(id){
@@ -39,6 +42,7 @@ module.exports = {
   // },
 
   addExercises: function(exercises) {
+	console.log(`[exercise-db] addExercises()`)
     if (Array.isArray(exercises)) {
       exercises.forEach(exercise => {
         this.addExercise(exercise)
@@ -48,6 +52,7 @@ module.exports = {
   },
 
   addExercise: function(exercise) {
+	console.log(`[exercise-db] addExercise()`)
     exercise.id = this.assignId(exercise)
     var exercises = this.getExercises()
     exercises.push(exercise)
@@ -75,6 +80,7 @@ module.exports = {
   // },
 
   assignId: function(item) {
+	  console.log(`[exercise-db]: assignId()`)
     // 		const exercises = this.getExercises()
     // 		const exerciseIds = exercises.map( exercise => exercise.id )
     // 		const exerciseIdsSet = new Set(exerciseIds)
@@ -91,11 +97,13 @@ module.exports = {
   },
 
   isIdInUse: function(id) {
+	console.log(`[exercise-db]: isIdInUse()`)
     if (typeof item.id === 'undefined' || item.id < 0) {
     }
   },
 
   generateNewId: function() {
+	console.log(`[exercise-db]: generateNewId()`)
     var exercises = this.getExercises()
     // make an array of the ids
     var ids = Array.from(exercises, exercise => exercise.id)
@@ -103,7 +111,7 @@ module.exports = {
     // ensure unique
     let uniqueIds = new Set(ids)
     // return a new number which isn't in the list
-    var newId = highestValue(ids) + 1
+    var newId = Math.max(...ids) + 1
     return newId
   },
 
@@ -113,7 +121,8 @@ module.exports = {
   // 	return itemIndex;
   // },
 
-  _writeToFile: function(foods) {
+  _writeToFile: function(exercises) {
+	console.log(`[exercise-db]: _writeToFile()`)
     fs.writeFileSync(
       exerciseDbPath,
       JSON.stringify(exercises),
@@ -123,7 +132,8 @@ module.exports = {
         console.log('updated exercises.json')
       }
     )
-    // refresh local foods obj
-    foods = JSON.parse(fs.readFileSync(exerciseDbPath, 'utf8'))
   }
+
 }
+
+export default exerciseDb
