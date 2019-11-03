@@ -1,0 +1,11 @@
+[{
+    name: 'test program',
+    id: 0,
+    workouts: [{
+        name: 'W1',
+        id: 0
+    }, {
+        name: 'W2',
+        id: 1
+    }]
+}]

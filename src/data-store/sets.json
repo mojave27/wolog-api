@@ -1,0 +1,15 @@
+[{
+        id: 0,
+        exercises: [{
+            id: 0,
+            reps: 'max'
+        }]
+    },
+    {
+        id: 2,
+        exercises: [{
+            id: 0,
+            reps: '6-8-10'
+        }]
+    }
+]
