@@ -1,0 +1,40 @@
+{
+  "name": "wolog-api",
+  "version": "1.0.0",
+  "description": "api for the wolog ui",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel src -d dist",
+    "start": "npm run build && node dist/index.js",
+    "start:dev": "nodemon --exec babel-node src/index.js",
+    "serve": "npm run build && node dist/index.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/mojave27/wolog-api.git"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.2",
+    "@babel/node": "^7.6.2",
+    "@babel/preset-env": "^7.6.2",
+    "nodemon": "^1.19.2"
+  },
+  "dependencies": {
+    "@babel/cli": "^7.6.2",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1"
+  },
+  "keywords": [
+    "wo",
+    "workout"
+  ],
+  "author": "Marcus Bailey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mojave27/wolog-api/issues"
+  },
+  "homepage": "https://github.com/mojave27/wolog-api#readme"
+}
