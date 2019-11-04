@@ -81,15 +81,10 @@ const exerciseDb = {
 
   assignId: function(item) {
 	  console.log(`[exercise-db]: assignId()`)
-    // 		const exercises = this.getExercises()
-    // 		const exerciseIds = exercises.map( exercise => exercise.id )
-    // 		const exerciseIdsSet = new Set(exerciseIds)
-    // 		console.loge
-    // 	},
     // if id is invalid, generate one.
     if (typeof item.id === 'undefined' || item.id < 0) {
       return this.generateNewId()
-    } else if (this.isIdInUse()) {
+    } else if (this.isIdInUse(item.id)) {
       return this.generateNewId()
     } else {
       return item.id
@@ -98,7 +93,7 @@ const exerciseDb = {
 
   isIdInUse: function(id) {
 	console.log(`[exercise-db]: isIdInUse()`)
-    if (typeof item.id === 'undefined' || item.id < 0) {
+    if (typeof id === 'undefined' || id < 0) {
     }
   },
 
