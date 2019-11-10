@@ -1,5 +1,6 @@
 var fs = require('fs')
 const exerciseDbPath = 'src/data-store/exercises.json'
+import dbUtils from './db-utils'
 // import validate from 'validate.js'
 
 //TODO: add logger
@@ -53,7 +54,7 @@ const exerciseDb = {
 
   addExercise: function(exercise) {
 	console.log(`[exercise-db] addExercise()`)
-    exercise.id = this.assignId(exercise)
+    exercise.id = dbUtils.assignId(exercise, this.getExercises())
     var exercises = this.getExercises()
     exercises.push(exercise)
     this._writeToFile(exercises)
@@ -79,13 +80,13 @@ const exerciseDb = {
   // 	this._writeToFile(foods)
   // },
 
-  assignId: function(item) {
+  assignId: function(item, items) {
 	  console.log(`[exercise-db]: assignId()`)
     // if id is invalid, generate one.
     if (typeof item.id === 'undefined' || item.id < 0) {
-      return this.generateNewId()
+      return dbUtils.generateNewId(this.getExercises())
     } else if (this.isIdInUse(item.id)) {
-      return this.generateNewId()
+      return dbUtils.generateNewId(this.getExercises())
     } else {
       return item.id
     }
@@ -97,18 +98,18 @@ const exerciseDb = {
     }
   },
 
-  generateNewId: function() {
-	console.log(`[exercise-db]: generateNewId()`)
-    var exercises = this.getExercises()
-    // make an array of the ids
-    var ids = Array.from(exercises, exercise => exercise.id)
-    ids.sort()
-    // ensure unique
-    let uniqueIds = new Set(ids)
-    // return a new number which isn't in the list
-    var newId = Math.max(...ids) + 1
-    return newId
-  },
+//   generateNewId: function() {
+// 	console.log(`[exercise-db]: generateNewId()`)
+//     var exercises = this.getExercises()
+//     // make an array of the ids
+//     var ids = Array.from(exercises, exercise => exercise.id)
+//     ids.sort()
+//     // ensure unique
+//     let uniqueIds = new Set(ids)
+//     // return a new number which isn't in the list
+//     var newId = Math.max(...ids) + 1
+//     return newId
+//   },
 
   // findItemIndex: function(id){
   // 	// var foods = this.getFoodItems();
