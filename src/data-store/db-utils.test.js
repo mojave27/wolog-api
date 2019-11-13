@@ -1,4 +1,4 @@
-import dbUtil from './db-utils'
+import DbUtil from './db-utils'
 
 const exercises = [
   { name: 'chins', type: 'compound', id: 0 },
@@ -10,8 +10,15 @@ const exercises = [
   { name: 'calf raise', type: 'isolation', id: 6 }
 ]
 
+const getItems = () => {
+  return exercises
+}
 
 describe('isIdInUse tests', () => {
+  let dbUtil = null
+  beforeEach( () => {
+    dbUtil = new DbUtil(getItems)
+  })
 
   it('returns false when id is invalid', () => {
     const id = -1
@@ -25,6 +32,6 @@ describe('isIdInUse tests', () => {
 
   it('returns true when id IS in the array', () => {
     const id = 3
-    expect(dbUtil.isIdInUse(id, exercises)).toEqual(true)
+    expect(dbUtil.isIdInUse(id)).toEqual(true)
   })
 })

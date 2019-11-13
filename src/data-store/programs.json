@@ -1,11 +1,23 @@
 [{
-    name: 'test program',
-    id: 0,
-    workouts: [{
-        name: 'W1',
-        id: 0
+    "name": "test program",
+    "id": 0,
+    "description": "this is only a test... program",
+    "workouts": [{
+        "name": "W1",
+        "id": 1
     }, {
-        name: 'W2',
-        id: 1
+        "name": "W2",
+        "id": 2
+    }]
+}, {
+    "name": "Natties Test",
+    "description": "this will be the nattie program",
+    "id": 1,
+    "workouts": [{
+        "name": "W1",
+        "id": 1
+    }, {
+        "name": "W2",
+        "id": 2
     }]
 }]

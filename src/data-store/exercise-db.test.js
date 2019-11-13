@@ -1,7 +1,5 @@
-import exerciseDb from './exercise-db'
 import fs from 'fs'
-import { JestEnvironment } from '@jest/environment'
-import { exportAllDeclaration } from '@babel/types'
+import ExerciseDb from './exercise-db'
 
 jest.mock('fs')
 
@@ -23,13 +21,17 @@ const setupFsMocks = () => {
     })
 }
 
-describe('assignId tests', () => {
+describe('getExercises tests', () => {
+    let exerciseDb = null
     beforeEach(() => {
         setupFsMocks()
+        exerciseDb = new ExerciseDb()
     })
 
-  it('returns same id, if valid', () => {
-    const item = { id: 3 }
-    expect(exerciseDb.assignId(item)).toBe(3)
+  it('returns expected exercises', () => {
+    let exerciseList = exerciseDb.getExercises()
+    expect(exerciseList.length).toBe(7)
+    expect(exerciseList).toEqual(expect.arrayContaining(exercises));
   })
+  
 })

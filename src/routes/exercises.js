@@ -1,8 +1,9 @@
 import express from 'express'
-import exerciseDb from '../data-store/exercise-db'
+import ExerciseDb from '../data-store/exercise-db'
 const router = express.Router()
 
 // router.use(bodyParser.json())
+const exerciseDb = new ExerciseDb()
 
 router.get('/', (req, res, next) => {
     const data = exerciseDb.getExercises();

@@ -1,39 +1,29 @@
 import express from 'express'
 const router = express.Router()
 import ProgramsDb from '../data-store/programs-db'
-const programsDb = new ProgramsDb()
 import WorkoutsDb from '../data-store/workouts-db'
+const programsDb = new ProgramsDb()
 const workoutsDb = new WorkoutsDb()
 
-// gets simple program - not the inflated one
 router.get('/', (req, res, next) => {
-    const programs = programsDb.getPrograms()
-    res.json(programs)
-})
-
-router.post('/', (req, res, next) => {
-    console.log(req.body)
-    const data = programsDb.addPrograms(req.body)
-    res.json()
-})
-
-// gets full inflated program
-router.get('/:id', (req, res, next) => {
+    console.log(`queryId: ${req.query.id}`)
     // get program from id
-    const program = programsDb.getProgramById(req.params.id)
+    const program = programsDb.getProgramById(req.query.id)
+    console.log(program)
 
     // get each workout for the program
     const workouts = program.workouts.map(workout => {
         let fullWorkout = workoutsDb.getWorkoutById(workout.id)
         return fullWorkout
     })
+    console.log(JSON.stringify(workouts))
 
     let fullProgram = {...program}
     fullProgram.workouts = workouts
+    console.log(JSON.stringify(fullProgram))
 
     // return the program AND its set of workouts
     res.json({fullProgram: fullProgram})
 })
-
 
 export default router;

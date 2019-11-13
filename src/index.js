@@ -4,6 +4,7 @@ import bodyParser from 'body-parser'
 import cors from 'cors'
 import programsRouter from './routes/programs'
 import workoutsRouter from './routes/workouts'
+// import programWorkoutsRouter from './routes/workoutsByProgram'
 import exercisesRouter from './routes/exercises'
 
 const PORT = process.env.PORT || 3030
@@ -24,6 +25,7 @@ app.get('/', (req, res) => {
 
 app.use('/programs', programsRouter)
 app.use('/workouts', workoutsRouter)
+// app.use('/program-workouts', programWorkoutsRouter)
 app.use('/exercises', exercisesRouter)
 
 
