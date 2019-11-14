@@ -1,12 +1,10 @@
-import DbUtils from './DbUtils'
+import DbUtils from '../DbUtils'
 var fs = require('fs')
+import { programsDbPath } from '../../config/local-db-config'
 // import validate from 'validate.js'
 
-// externalize the file/db path to a config or env
-const programsDbPath = 'src/data-store/programs.json'
-
 //TODO: add logger
-class ProgramsDb {
+class ProgramsDao {
   constructor() {
 		this.dbUtils = new DbUtils(this.getPrograms)
   }
@@ -24,7 +22,6 @@ class ProgramsDb {
   getProgramById = id => {
     // console.log(`getProgramById ${id}`)
     // TODO: validate the id
-
     const programs = this.getPrograms()
     let foundProgram = programs.find( program => {
       return program.id == id
@@ -63,26 +60,6 @@ class ProgramsDb {
     this._updateDb(programs)
   }
 
-  // /* TODO: externalize management of the array even further
-  // *       like you would abstract a database in java, and
-  // * 		 use a manager                                   */
-  // updatedExercise: function(program){
-  // 	// TODO: Add typescript to this project and ensure program is of the correct type.
-  // 	program.id = this.assignExerciseId(program)
-  // 	// var foods = this.getFoodItems();
-  // 	// find the index of the desired item
-  // 	var indexOfItemToReplace = this.findItemIndex(foodItem.id)
-  // 	console.log(`index of item ${indexOfItemToReplace}`)
-  // 	// if index is -1, then no match, and we can just add the item
-  // 	if (indexOfItemToReplace == -1){
-  // 		foods.push(foodItem)
-  // 	}else{
-  // 		// if there is a match replace that item with the updated one
-  // 		foods.splice(indexOfItemToReplace, 1, foodItem);
-  // 	}
-  // 	this.updateDb(foods)
-  // },
-
   assignId = (item) => {
     // console.log(`[program-db]: assignId()`)
     // if id is invalid, generate one.
@@ -100,4 +77,4 @@ class ProgramsDb {
   }
 }
 
-export default ProgramsDb
+export default ProgramsDao

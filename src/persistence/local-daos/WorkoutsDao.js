@@ -1,12 +1,10 @@
-import DbUtils from './DbUtils'
+import DbUtils from '../DbUtils'
 var fs = require('fs')
+import { workoutsDbPath } from '../../config/local-db-config'
 // import validate from 'validate.js'
 
-// externalize the file/db path to a config or env
-const workoutsDbPath = 'src/data-store/workouts.json'
-
 //TODO: add logger
-class WorkoutsDb {
+class WorkoutsDao {
   constructor() {
 		this.dbUtils = new DbUtils(this.getWorkouts)
   }
@@ -75,4 +73,4 @@ class WorkoutsDb {
   }
 }
 
-export default WorkoutsDb
+export default WorkoutsDao

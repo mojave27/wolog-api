@@ -1,9 +1,7 @@
-import DbUtils from './DbUtils'
+import DbUtils from '../DbUtils'
 var fs = require('fs')
+import { setsDbPath } from '../../config/local-db-config'
 // import validate from 'validate.js'
-
-// externalize the file/db path to a config or env
-const setsDbPath = 'src/data-store/sets.json'
 
 //TODO: add logger
 class SetsDao {

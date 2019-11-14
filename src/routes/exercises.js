@@ -1,5 +1,5 @@
 import express from 'express'
-import ExerciseDao from '../data-store/ExerciseDao'
+import ExerciseDao from '../persistence/local-daos/ExerciseDao'
 const router = express.Router()
 
 // router.use(bodyParser.json())

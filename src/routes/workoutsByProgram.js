@@ -1,19 +1,19 @@
 import express from 'express'
 const router = express.Router()
-import ProgramsDb from '../data-store/programs-db'
-import WorkoutsDb from '../data-store/workouts-db'
-const programsDb = new ProgramsDb()
-const workoutsDb = new WorkoutsDb()
+import ProgramsDao from '../persistence/ProgramsDao'
+import WorkoutsDao from '../persistence/WorkoutsDao'
+const programsDao = new ProgramsDao()
+const workoutsDao = new WorkoutsDao()
 
 router.get('/', (req, res, next) => {
     console.log(`queryId: ${req.query.id}`)
     // get program from id
-    const program = programsDb.getProgramById(req.query.id)
+    const program = programsDao.getProgramById(req.query.id)
     console.log(program)
 
     // get each workout for the program
     const workouts = program.workouts.map(workout => {
-        let fullWorkout = workoutsDb.getWorkoutById(workout.id)
+        let fullWorkout = workoutsDao.getWorkoutById(workout.id)
         return fullWorkout
     })
     console.log(JSON.stringify(workouts))

@@ -1,6 +1,6 @@
 var fs = require('fs')
-const exerciseDbPath = 'src/data-store/exercises.json'
-import DbUtils from './DbUtils'
+import { exerciseDbPath } from '../../config/local-db-config'
+import DbUtils from '../DbUtils'
 // import validate from 'validate.js'
 
 //TODO: add logger
@@ -12,7 +12,7 @@ class ExerciseDb {
   getExercises = () => {
 	console.log(`[exercise-db] getExercises()`)
 	// console.log(process.cwd())
-	// console.log(fs.existsSync('src/data-store/exercises.json'))
+	// console.log(fs.existsSync('src/persistence/exercises.json'))
 	if (fs.existsSync(exerciseDbPath)) {
 	  var exercisesJson = fs.readFileSync(exerciseDbPath, 'utf8')
 	  var exercises = JSON.parse(exercisesJson)
