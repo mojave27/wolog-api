@@ -1,44 +1,64 @@
 import ProgramsDao from './local-daos/ProgramsDao'
 import WorkoutsDao from './local-daos/WorkoutsDao'
+import ExerciseDao from './local-daos/ExerciseDao'
 import SetsDao from './local-daos/SetsDao'
+import { consoleLog as log } from '../logging/log'
 
+const exerciseDao = new ExerciseDao()
 const programsDao = new ProgramsDao()
-const workoutsDao = new WorkoutsDao()
 const setsDao = new SetsDao()
+const workoutsDao = new WorkoutsDao()
 
 export const retrieveFullProgram = programId => {
+  const program = programsDao.getProgramById(programId)
+  console.log('\n============================================================')
+  log('program', program, true)
 
-    const program = programsDao.getProgramById(programId)
-    
-    console.log(`program workouts: ${JSON.stringify(program.workouts)}`)
-    
-    // get each workout for the program
-    const workouts = program.workouts.map(workout => {
-        console.log(`workout: ${JSON.stringify(workout)}`)
-        
-        let workoutWithSets = workoutsDao.getWorkoutById(workout.id)
-        console.log(`workoutWithSets: ${JSON.stringify(workoutWithSets)}`)
-        
-        // get the workout sets
-        let inflatedSets = workoutWithSets.sets.map( set => {
-            let inflatedSet = setsDao.getSetById(set.id)
-            //inflatedSet: {"id":1,"exercises":[{"id":0,"reps":"6-8-10"}]}
-            // get the ex
-            let setsWithExercises = inflatedSet.exercises.map( exercise => {
-                
-            })
-            console.log(`set: ${JSON.stringify(set)}`)
-            console.log(`inflatedSet: ${JSON.stringify(inflatedSet)}`)
-            // console.log(JSON.stringify(sets))
-        })
-        
-        // return fullWorkout
-        return workoutWithSets
+//   log('program workouts', program.workouts, true)
+
+  // get each workout for the program
+  const workouts = program.workouts.map(workout => {
+    console.log('\n------------------------------------')
+    // log('workout', workout, true)
+
+    let workoutWithSets = workoutsDao.getWorkoutById(workout.id)
+    // log(' workoutWithSets', workoutWithSets, true)
+
+    // get the workout sets
+    let inflatedSets = workoutWithSets.sets.map(set => {
+      let inflatedSet = setsDao.getSetById(set.id)
+    //   log('  set', set, true)
+    //   log('  inflatedSet', inflatedSet, true)
+      //inflatedSet: {"id":1,"exercises":[{"id":0,"reps":"6-8-10"}]}
+
+      // get the ex
+      let setWithExercises = inflatedSet.exercises.map(exercise => {
+        // log('    element', exercise, true)
+        let tempExercise = exerciseDao.getExerciseById(exercise.id)
+        // log('    tempExercise', tempExercise, true)
+        let fullExercise = {...exercise, ...tempExercise}
+        // log('    fullExercise', fullExercise, true)
+        return fullExercise
+      })
+
+      inflatedSet.exercises = {...setWithExercises}
+
+    //   log('  inflatedSet-updated', inflatedSet, true)
+      return inflatedSet
     })
-    
-    let fullProgram = {...program}
-    fullProgram.workouts = workouts
-    
-    // return the program AND its set of workouts
-    return fullProgram
+
+    workoutWithSets.sets = inflatedSets
+    // log('  workoutWithSets-updated', workoutWithSets, true)
+
+    // return fullWorkout
+    return workoutWithSets
+  })
+
+  let fullProgram = { ...program }
+  fullProgram.workouts = workouts
+
+  log('fullProgram', fullProgram)
+
+  // return the program AND its set of workouts
+  return fullProgram
 }

@@ -10,7 +10,7 @@ class ExerciseDb {
 	}
 
   getExercises = () => {
-	console.log(`[exercise-db] getExercises()`)
+	// console.log(`[exercise-db] getExercises()`)
 	// console.log(process.cwd())
 	// console.log(fs.existsSync('src/persistence/exercises.json'))
 	if (fs.existsSync(exerciseDbPath)) {
@@ -22,11 +22,11 @@ class ExerciseDb {
 	}
   }
 
-  // getExerciseById: function(id){
-  // 	const exercises = getExercises()
-  // 	const result = exercises.find( exercise => exercise.id == id );
-  // 	return result;
-  // },
+  getExerciseById = id => {
+  	const exercises = this.getExercises()
+  	const result = exercises.find( exercise => exercise.id == id );
+  	return result;
+  }
 
   // updateExerciseItems: function(newExercises){
   // 	newExercises.forEach( updatedExerciseItem => {
