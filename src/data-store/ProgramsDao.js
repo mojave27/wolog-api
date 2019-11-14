@@ -1,4 +1,4 @@
-import DbUtils from './db-utils'
+import DbUtils from './DbUtils'
 var fs = require('fs')
 // import validate from 'validate.js'
 
@@ -12,9 +12,6 @@ class ProgramsDb {
   }
 
   getPrograms = () => {
-    // console.log(`[program-db] getPrograms()`)
-    // console.log(process.cwd())
-    // console.log(fs.existsSync('src/data-store/programs.json'))
     if (fs.existsSync(programsDbPath)) {
       var programsJson = fs.readFileSync(programsDbPath, 'utf8')
       var programs = JSON.parse(programsJson)
@@ -28,7 +25,7 @@ class ProgramsDb {
     // console.log(`getProgramById ${id}`)
     // TODO: validate the id
 
-    const programs = this.getPrograms(id)
+    const programs = this.getPrograms()
     let foundProgram = programs.find( program => {
       return program.id == id
     })

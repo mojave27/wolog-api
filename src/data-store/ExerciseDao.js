@@ -1,6 +1,6 @@
 var fs = require('fs')
 const exerciseDbPath = 'src/data-store/exercises.json'
-import DbUtils from './db-utils'
+import DbUtils from './DbUtils'
 // import validate from 'validate.js'
 
 //TODO: add logger

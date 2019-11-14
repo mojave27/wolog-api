@@ -1,18 +1,18 @@
 import express from 'express'
-import ExerciseDb from '../data-store/exercise-db'
+import ExerciseDao from '../data-store/ExerciseDao'
 const router = express.Router()
 
 // router.use(bodyParser.json())
-const exerciseDb = new ExerciseDb()
+const exerciseDao = new ExerciseDao()
 
 router.get('/', (req, res, next) => {
-    const data = exerciseDb.getExercises();
+    const data = exerciseDao.getExercises();
     res.json(data)
 })
 
 router.post('/', (req, res, next) => {
     console.log(req.body)
-    const data = exerciseDb.addExercises(req.body)
+    const data = exerciseDao.addExercises(req.body)
     res.json(req.body)
 })
 

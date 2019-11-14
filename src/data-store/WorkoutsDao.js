@@ -1,4 +1,4 @@
-import DbUtils from './db-utils'
+import DbUtils from './DbUtils'
 var fs = require('fs')
 // import validate from 'validate.js'
 
