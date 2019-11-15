@@ -1,80 +1,58 @@
-import DbUtils from '../DbUtils'
-var fs = require('fs')
-import { programsDbPath } from '../../config/local-db-config'
-// import validate from 'validate.js'
+import ProgramsDataSource from './ProgramsDataSourceLocal'
+import WorkoutsDao from './WorkoutsDao'
+import ExerciseDao from './ExerciseDao'
+import SetsDao from './SetsDao'
 
-//TODO: add logger
-class ProgramsDao {
-  constructor() {
-		this.dbUtils = new DbUtils(this.getPrograms)
-  }
+const exerciseDao = new ExerciseDao()
+const programsDataSource = new ProgramsDataSource()
+const setsDao = new SetsDao()
+const workoutsDao = new WorkoutsDao()
 
-  getPrograms = () => {
-    if (fs.existsSync(programsDbPath)) {
-      var programsJson = fs.readFileSync(programsDbPath, 'utf8')
-      var programs = JSON.parse(programsJson)
-      return programs
-    } else {
-      throw new Error('program db failure.')
-    }
-  }
-
-  getProgramById = id => {
-    // console.log(`getProgramById ${id}`)
-    // TODO: validate the id
-    const programs = this.getPrograms()
-    let foundProgram = programs.find( program => {
-      return program.id == id
-    })
-
-    return foundProgram
-  }
-
-  // returns array of unique, sorted ids
-  getUniqueIds = () => {
-    // console.log(`[program-db] getUniqueIds()`)
-    const programs = this.getPrograms()
-    // make an array of the ids
-    let ids = Array.from(programs, program => program.id)
-    // sort and ensure unique by converting to Set and back to array :)
-    let uniqueIds = Array.from(new Set(ids.sort()))
-    // console.log(uniqueIds)
-    return uniqueIds
-  }
-
-  addPrograms = (programs) => {
-    // console.log(`[program-db] addPrograms()`)
-    if (Array.isArray(programs)) {
-      programs.forEach(program => {
-        this.addProgram(program)
-      })
-    }
-    // validate()
-  }
-
-  addProgram = (program) => {
-    // console.log(`[program-db] addProgram()`)
-    program.id = this.dbUtils.assignId(program)
-    var programs = this.getPrograms()
-    programs.push(program)
-    this._updateDb(programs)
-  }
-
-  assignId = (item) => {
-    // console.log(`[program-db]: assignId()`)
-    // if id is invalid, generate one.
-    if (typeof item.id === 'undefined' || item.id < 0) {
-      return this.generateNewId()
-    } else if (this.isIdInUse(item.id)) {
-      return this.generateNewId()
-    } else {
-      return item.id
-    }
-  }
-
-  _updateDb = (programs) => {
-    this.dbUtils.updateDb(programs, programsDbPath)
-  }
+// export const ProgramsDao = {
+// NEED TO CHANGE THIS TO A CLASS SO IT CAN
+// INSTANTIATE A CLASS OF ProgramsDataSource
+exports.getPrograms = () => {
+  return programsDataSource.getPrograms()
 }
 
-export default ProgramsDao
+exports.getProgramById = programId => {
+  return programsDataSource.getProgramById()
+}
+
+exports.getFullProgram = programId => {
+  const program = programsDataSource.getProgramById(programId)
+
+  // get each workout for the program
+  const workouts = program.workouts.map(workout => {
+    let workoutWithSets = workoutsDao.getWorkoutById(workout.id)
+
+    // get the inflated workout sets
+    let inflatedSets = workoutWithSets.sets.map(set => {
+      let inflatedSet = setsDao.getSetById(set.id)
+
+      // get the inflated exercises
+      let setWithExercises = inflatedSet.exercises.map(exercise => {
+        let tempExercise = exerciseDao.getExerciseById(exercise.id)
+        let fullExercise = { ...exercise, ...tempExercise }
+        return fullExercise
+      })
+
+      inflatedSet.exercises = { ...setWithExercises }
+
+      return inflatedSet
+    })
+
+    workoutWithSets.sets = inflatedSets
+
+    return workoutWithSets
+  })
+
+  let fullProgram = { ...program }
+  fullProgram.workouts = workouts
+
+  return fullProgram
+}
+
+exports.addProgram = program => {
+  return programsDataSource.addProgram(program)
+}

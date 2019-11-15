@@ -1,25 +1,23 @@
 import express from 'express'
-import ProgramsDb from '../persistence/local-daos/ProgramsDao'
-import { retrieveFullProgram } from '../persistence/fullProgram'
+import { getPrograms, addProgram, getFullProgram } from '../persistence/local-daos/ProgramsDao'
 
-const programsDb = new ProgramsDb()
+// const programsDao = new ProgramsDao()
 const router = express.Router()
 
 // gets simple program - not the inflated one
 router.get('/', (req, res, next) => {
-    const programs = programsDb.getPrograms()
+    const programs = getPrograms()
     res.json(programs)
 })
 
 router.post('/', (req, res, next) => {
-    console.log(req.body)
-    const data = programsDb.addPrograms(req.body)
-    res.json()
+    const data = addProgram(req.body)
+    res.json(data)
 })
 
 // gets full inflated program
 router.get('/:id', (req, res, next) => {
-    const fullProgram = retrieveFullProgram(req.params.id)
+    const fullProgram = getFullProgram(req.params.id)
     res.json({fullProgram: fullProgram})
 })
 
