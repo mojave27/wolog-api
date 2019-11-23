@@ -1,15 +1,61 @@
 [{
         "id": 0,
         "exercises": [{
-            "id": 0,
-            "reps": "max"
-        }]
+                "id": 0,
+                "reps": "max"
+            },
+            {
+                "id": 8,
+                "reps": "max"
+            },
+            {
+                "id": 9,
+                "reps": "max"
+            },
+            {
+                "id": 10,
+                "reps": "max"
+            },
+            {
+                "id": 11,
+                "reps": "max"
+            }
+        ]
     },
     {
         "id": 1,
         "exercises": [{
-            "id": 3,
-            "reps": "6-8-10"
-        }]
+                "id": 0,
+                "reps": "6-8-10"
+            },
+            {
+                "id": 8,
+                "reps": "myo reps"
+            },
+            {
+                "id": 9,
+                "reps": "myo reps"
+            },
+            {
+                "id": 10,
+                "reps": "myo reps"
+            },
+            {
+                "id": 11,
+                "reps": "bb curl"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "exercises": [{
+                "id": 12,
+                "reps": "2x12"
+            },
+            {
+                "id": 12,
+                "reps": "2x12"
+            }
+        ]
     }
 ]

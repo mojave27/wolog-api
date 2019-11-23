@@ -1,18 +1,16 @@
 import express from 'express'
-import ExerciseDao from '../persistence/local-daos/ExerciseDao'
+import { getExercises, addExercise } from '../persistence/dao/ExerciseDao'
 const router = express.Router()
 
-// router.use(bodyParser.json())
-const exerciseDao = new ExerciseDao()
 
 router.get('/', (req, res, next) => {
-    const data = exerciseDao.getExercises();
+    const data = getExercises();
     res.json(data)
 })
 
 router.post('/', (req, res, next) => {
     console.log(req.body)
-    const data = exerciseDao.addExercises(req.body)
+    const data = addExercises(req.body)
     res.json(req.body)
 })
 

@@ -1,6 +1,6 @@
-import DbUtils from '../DbUtils'
+import DbUtils from '../../DbUtils'
 var fs = require('fs')
-import { programsDbPath } from '../../config/local-db-config'
+import { programsDbPath } from '../../../config/local-db-config'
 // import validate from 'validate.js'
 
 //TODO: add logger
@@ -20,7 +20,6 @@ class ProgramsDataSourceLocal {
   }
 
   getProgramById = id => {
-    // console.log(`getProgramById ${id}`)
     // TODO: validate the id
     const programs = this.getPrograms()
     let foundProgram = programs.find( program => {
@@ -30,18 +29,7 @@ class ProgramsDataSourceLocal {
     return foundProgram
   }
 
-  // addPrograms = (programs) => {
-  //   // console.log(`[program-db] addPrograms()`)
-  //   if (Array.isArray(programs)) {
-  //     programs.forEach(program => {
-  //       this.addProgram(program)
-  //     })
-  //   }
-  //   // validate()
-  // }
-
   addProgram = (program) => {
-    // console.log(`[program-db] addProgram()`)
     program.id = this.dbUtils.assignId(program)
     var programs = this.getPrograms()
     programs.push(program)

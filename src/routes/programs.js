@@ -1,5 +1,5 @@
 import express from 'express'
-import { getPrograms, addProgram, getFullProgram } from '../persistence/local-daos/ProgramsDao'
+import { getPrograms, addProgram, getFullProgram } from '../persistence/dao/ProgramsDao'
 
 // const programsDao = new ProgramsDao()
 const router = express.Router()

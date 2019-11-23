@@ -1,14 +1,18 @@
 [{
-    "name": "W1",
     "id": 1,
+    "name": "Nattie W1",
+    "description": "n/a",
+    "type": "pull",
     "sets": [{
         "id": 0
     }, {
         "id": 1
     }]
 }, {
-    "name": "W2",
     "id": 2,
+    "name": "Nattie W2",
+    "description": "n/a",
+    "type": "push",
     "sets": [{
         "id": 0
     }, {

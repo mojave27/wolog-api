@@ -11,7 +11,7 @@
     "type": "isolation",
     "id": 2
 }, {
-    "name": "lat raise",
+    "name": "jammer",
     "type": "isolation",
     "id": 3
 }, {
@@ -31,11 +31,27 @@
     "type": "compound",
     "id": 7
 }, {
-    "name": "TEST",
+    "name": "glute bridge",
     "type": "compound",
     "id": 8
 }, {
-    "name": "TEST2",
+    "name": "inv row",
     "type": "compound",
     "id": 9
+}, {
+    "name": "leg curl",
+    "type": "isolation",
+    "id": 10
+}, {
+    "name": "bb curl",
+    "type": "isolation",
+    "id": 11
+}, {
+    "name": "shrugs",
+    "type": "isolation",
+    "id": 12
+}, {
+    "name": "face pulls",
+    "type": "isolation",
+    "id": 13
 }]

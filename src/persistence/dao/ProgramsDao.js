@@ -1,22 +1,16 @@
-import ProgramsDataSource from './ProgramsDataSourceLocal'
-import WorkoutsDao from './WorkoutsDao'
-import ExerciseDao from './ExerciseDao'
-import SetsDao from './SetsDao'
+import ProgramsDataSource from '../datasources/local/ProgramsDataSource'
+import { getExerciseById } from './ExerciseDao'
+import { getWorkoutById } from './WorkoutsDao'
+import { getSetById } from './SetsDao'
 
-const exerciseDao = new ExerciseDao()
 const programsDataSource = new ProgramsDataSource()
-const setsDao = new SetsDao()
-const workoutsDao = new WorkoutsDao()
 
-// export const ProgramsDao = {
-// NEED TO CHANGE THIS TO A CLASS SO IT CAN
-// INSTANTIATE A CLASS OF ProgramsDataSource
 exports.getPrograms = () => {
   return programsDataSource.getPrograms()
 }
 
 exports.getProgramById = programId => {
-  return programsDataSource.getProgramById()
+  return programsDataSource.getProgramById(programId)
 }
 
 exports.getFullProgram = programId => {
@@ -24,20 +18,20 @@ exports.getFullProgram = programId => {
 
   // get each workout for the program
   const workouts = program.workouts.map(workout => {
-    let workoutWithSets = workoutsDao.getWorkoutById(workout.id)
+    let workoutWithSets = getWorkoutById(workout.id)
 
     // get the inflated workout sets
     let inflatedSets = workoutWithSets.sets.map(set => {
-      let inflatedSet = setsDao.getSetById(set.id)
+      let inflatedSet = getSetById(set.id)
 
       // get the inflated exercises
       let setWithExercises = inflatedSet.exercises.map(exercise => {
-        let tempExercise = exerciseDao.getExerciseById(exercise.id)
+        let tempExercise = getExerciseById(exercise.id)
         let fullExercise = { ...exercise, ...tempExercise }
         return fullExercise
       })
 
-      inflatedSet.exercises = { ...setWithExercises }
+      inflatedSet.exercises = [ ...setWithExercises ]
 
       return inflatedSet
     })

@@ -1,6 +1,6 @@
-import DbUtils from '../DbUtils'
+import DbUtils from '../../DbUtils'
 var fs = require('fs')
-import { setsDbPath } from '../../config/local-db-config'
+import { setsDbPath } from '../../../config/local-db-config'
 // import validate from 'validate.js'
 
 //TODO: add logger
