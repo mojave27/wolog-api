@@ -5,6 +5,7 @@ import cors from 'cors'
 import programsRouter from './routes/programs'
 import workoutsRouter from './routes/workouts'
 import exercisesRouter from './routes/exercises'
+import setsRouter from './routes/sets'
 
 const PORT = process.env.PORT || 3030
 
@@ -26,6 +27,7 @@ app.use('/programs', programsRouter)
 app.use('/workouts', workoutsRouter)
 // app.use('/program-workouts', programWorkoutsRouter)
 app.use('/exercises', exercisesRouter)
+app.use('/sets', setsRouter)
 
 
 app.listen(PORT, () => {

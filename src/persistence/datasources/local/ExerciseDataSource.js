@@ -13,7 +13,7 @@ class ExerciseDataSourceLocal {
 	if (fs.existsSync(exerciseDbPath)) {
 	  var exercisesJson = fs.readFileSync(exerciseDbPath, 'utf8')
 	  var exercises = JSON.parse(exercisesJson)
-	  return exercises
+	  return [...exercises]
 	} else {
 	  throw new Error('exercise db failure.')
 	}
@@ -26,11 +26,19 @@ class ExerciseDataSourceLocal {
   }
 
   addExercise = (exercise) => {
-	console.log(`[exercise-db] addExercise()`)
+	console.log(`[exercise-db] addExercise( ${JSON.stringify(exercise)})`)
     exercise.id = this.dbUtils.assignId(exercise, this.getExercises())
     var exercises = this.getExercises()
     exercises.push(exercise)
     this._updateDb(exercises)
+  }
+
+  deleteExerciseById = id => {
+  	const exercises = this.getExercises()
+	const index = exercises.findIndex( exercise => exercise.id == id )
+	if ( index < 0 ) throw new Exception(`No exercise found for id ${id}`)
+	exercises.splice(index, 1)
+	this._updateDb(exercises)
   }
 
   _updateDb = (exercises) => {

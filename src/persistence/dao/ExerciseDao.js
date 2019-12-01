@@ -15,3 +15,7 @@ exports.getExerciseById = id => {
 exports.addExercise = exercise => {
   exerciseDataSource.addExercise(exercise)
 }
+
+exports.deleteExerciseById = id => {
+  exerciseDataSource.deleteExerciseById(id)
+}
