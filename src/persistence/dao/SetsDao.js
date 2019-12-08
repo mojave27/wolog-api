@@ -12,6 +12,10 @@ exports.getSetById = id => {
   return setsDataSource.getSetById(id)
 }
 
+exports.getInflatedSetById = id => {
+  return setsDataSource.getInflatedSetById(id)
+}
+
 exports.addSet = set => {
   return setsDataSource.addSet(set)
 }

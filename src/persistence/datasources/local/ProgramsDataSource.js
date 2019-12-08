@@ -6,7 +6,7 @@ import { programsDbPath } from '../../../config/local-db-config'
 //TODO: add logger
 class ProgramsDataSourceLocal {
   constructor() {
-		this.dbUtils = new DbUtils(this.getPrograms)
+    this.dbUtils = new DbUtils(this.getPrograms)
   }
 
   getPrograms = () => {
@@ -22,14 +22,14 @@ class ProgramsDataSourceLocal {
   getProgramById = id => {
     // TODO: validate the id
     const programs = this.getPrograms()
-    let foundProgram = programs.find( program => {
+    let foundProgram = programs.find(program => {
       return program.id == id
     })
 
     return foundProgram
   }
 
-  addProgram = (program) => {
+  addProgram = program => {
     program.id = this.dbUtils.assignId(program)
     var programs = this.getPrograms()
     programs.push(program)
@@ -37,19 +37,33 @@ class ProgramsDataSourceLocal {
     return program
   }
 
-  updateProgram = (update) => {
+  updateProgram = update => {
     let programs = this.getPrograms()
-    let index = programs.findIndex( program => {
+    let index = programs.findIndex(program => {
       return Number(program.id) === Number(update.id)
     })
-    let currentProgram = {...programs[index]}
-    let merged = {...currentProgram, ...update};
+    let currentProgram = { ...programs[index] }
+    let merged = { ...currentProgram, ...update }
     programs[index] = merged
     this._updateDb(programs)
     return merged
   }
 
-  _updateDb = (programs) => {
+  removeWorkoutFromPrograms = workoutId => {
+    let programs = this.getPrograms()
+    let cleanedPrograms = programs.map( program => {
+      let programWorkouts = [...program.workouts]
+      let index = programWorkouts.findIndex( programWorkout => Number(programWorkout.id) === Number(workoutId))
+      if( index >= 0) {
+        programWorkouts.splice(index, 1)  
+      }
+      program.workouts = programWorkouts
+      return program
+    })
+    this._updateDb(cleanedPrograms)
+  }
+
+  _updateDb = programs => {
     this.dbUtils.updateDb(programs, programsDbPath)
   }
 }

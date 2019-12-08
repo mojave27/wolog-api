@@ -26,7 +26,6 @@ router.put('/:id', (req, res, next) => {
 // gets full inflated program
 router.get('/:id', (req, res, next) => {
     const fullProgram = getFullProgram(req.params.id)
-    console.log(JSON.stringify(fullProgram))
     res.json({fullProgram: fullProgram})
 })
 

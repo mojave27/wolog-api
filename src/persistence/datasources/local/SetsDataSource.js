@@ -1,12 +1,13 @@
 import DbUtils from '../../DbUtils'
 var fs = require('fs')
 import { setsDbPath } from '../../../config/local-db-config'
+import { getExerciseById } from '../../dao/ExerciseDao'
 // import validate from 'validate.js'
 
 //TODO: add logger
 class SetsDao {
   constructor() {
-		this.dbUtils = new DbUtils(this.getSets)
+    this.dbUtils = new DbUtils(this.getSets)
   }
 
   getSets = () => {
@@ -23,14 +24,28 @@ class SetsDao {
     // TODO: validate the id
 
     const sets = this.getSets()
-    let foundSet = sets.find( set => {
+    let foundSet = sets.find(set => {
       return set.id == id
     })
 
     return foundSet
   }
 
-  addSets = (sets) => {
+  getInflatedSetById = id => {
+    let inflatedSet = this.getSetById(id)
+    // get the inflated exercises
+    let setWithExercises = inflatedSet.exercises.map(exercise => {
+      let tempExercise = getExerciseById(exercise.id)
+      let fullExercise = { ...exercise, ...tempExercise }
+      return fullExercise
+    })
+
+    inflatedSet.exercises = [...setWithExercises]
+
+    return inflatedSet
+  }
+
+  addSets = sets => {
     // console.log(`[set-db] addSets()`)
     if (Array.isArray(sets)) {
       sets.forEach(set => {
@@ -40,7 +55,7 @@ class SetsDao {
     // validate()
   }
 
-  addSet = (set) => {
+  addSet = set => {
     // console.log(`[set-db] addSet()`)
     set.id = this.dbUtils.assignId(set)
     var sets = this.getSets()
@@ -48,7 +63,7 @@ class SetsDao {
     this._updateDb(sets)
   }
 
-  _updateDb = (sets) => {
+  _updateDb = sets => {
     this.dbUtils.updateDb(sets, setsDbPath)
   }
 }

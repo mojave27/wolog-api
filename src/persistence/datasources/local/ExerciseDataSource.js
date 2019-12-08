@@ -26,7 +26,7 @@ class ExerciseDataSourceLocal {
   }
 
   addExercise = (exercise) => {
-	console.log(`[exercise-db] addExercise( ${JSON.stringify(exercise)})`)
+	// console.log(`[exercise-db] addExercise( ${JSON.stringify(exercise)})`)
     exercise.id = this.dbUtils.assignId(exercise, this.getExercises())
     var exercises = this.getExercises()
     exercises.push(exercise)
