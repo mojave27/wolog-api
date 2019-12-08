@@ -14,3 +14,7 @@ exports.getWorkoutById = id => {
 exports.addWorkout = workout => {
   return workoutsDataSource.addWorkout(workout)
 }
+
+exports.updateWorkout = workout => {
+  return workoutsDataSource.updateWorkout(workout)
+}

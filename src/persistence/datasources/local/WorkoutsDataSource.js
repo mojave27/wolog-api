@@ -28,6 +28,8 @@ class WorkoutsDao {
       return workout.id == id
     })
 
+    //TODO: handle error if workout not found
+
     return foundWorkout
   }
 
@@ -55,6 +57,20 @@ class WorkoutsDao {
     var workouts = this.getWorkouts()
     workouts.push(workout)
     this._updateDb(workouts)
+    return workout
+  }
+
+  updateWorkout = (update) => {
+    // workout.id = this.dbUtils.assignId(workout)
+    let workouts = this.getWorkouts()
+    let index = workouts.findIndex( workout => {
+      return Number(workout.id) === Number(update.id)
+    })
+    let currentWorkout = {...workouts[index]}
+    let merged = {...currentWorkout, ...update};
+    workouts[index] = merged
+    this._updateDb(workouts)
+    return merged
   }
 
   assignId = (item) => {

@@ -1,5 +1,5 @@
 import express from 'express'
-import { getPrograms, addProgram, getFullProgram } from '../persistence/dao/ProgramsDao'
+import { getPrograms, addProgram, getFullProgram, updateProgram } from '../persistence/dao/ProgramsDao'
 
 // const programsDao = new ProgramsDao()
 const router = express.Router()
@@ -12,6 +12,14 @@ router.get('/', (req, res, next) => {
 
 router.post('/', (req, res, next) => {
     const data = addProgram(req.body)
+    res.json(data)
+})
+
+router.put('/:id', (req, res, next) => {
+    console.log('/programs put')
+    // if the program in the body has an id, overwrite it with the one requested on the url.
+    let update = {...req.body, id: req.params.id }
+    const data = updateProgram(update)
     res.json(data)
 })
 

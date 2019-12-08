@@ -2,6 +2,7 @@ import ProgramsDataSource from '../datasources/local/ProgramsDataSource'
 import { getExerciseById } from './ExerciseDao'
 import { getWorkoutById } from './WorkoutsDao'
 import { getSetById } from './SetsDao'
+import { isUndefined } from 'lodash'
 
 const programsDataSource = new ProgramsDataSource()
 
@@ -18,25 +19,30 @@ exports.getFullProgram = programId => {
 
   // get each workout for the program
   const workouts = program.workouts.map(workout => {
+    console.log('-----------------------------------')
+    console.log(JSON.stringify(workout))
     let workoutWithSets = getWorkoutById(workout.id)
+    console.log(JSON.stringify(workoutWithSets))
 
     // get the inflated workout sets
-    let inflatedSets = workoutWithSets.sets.map(set => {
-      let inflatedSet = getSetById(set.id)
+    if (!isUndefined(workoutWithSets.sets)) {
+      let inflatedSets = workoutWithSets.sets.map(set => {
+        let inflatedSet = getSetById(set.id)
 
-      // get the inflated exercises
-      let setWithExercises = inflatedSet.exercises.map(exercise => {
-        let tempExercise = getExerciseById(exercise.id)
-        let fullExercise = { ...exercise, ...tempExercise }
-        return fullExercise
+        // get the inflated exercises
+        let setWithExercises = inflatedSet.exercises.map(exercise => {
+          let tempExercise = getExerciseById(exercise.id)
+          let fullExercise = { ...exercise, ...tempExercise }
+          return fullExercise
+        })
+
+        inflatedSet.exercises = [...setWithExercises]
+
+        return inflatedSet
       })
 
-      inflatedSet.exercises = [ ...setWithExercises ]
-
-      return inflatedSet
-    })
-
-    workoutWithSets.sets = inflatedSets
+      workoutWithSets.sets = inflatedSets
+    }
 
     return workoutWithSets
   })
@@ -49,4 +55,8 @@ exports.getFullProgram = programId => {
 
 exports.addProgram = program => {
   return programsDataSource.addProgram(program)
+}
+
+exports.updateProgram = update => {
+  return programsDataSource.updateProgram(update)
 }

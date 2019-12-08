@@ -34,6 +34,19 @@ class ProgramsDataSourceLocal {
     var programs = this.getPrograms()
     programs.push(program)
     this._updateDb(programs)
+    return program
+  }
+
+  updateProgram = (update) => {
+    let programs = this.getPrograms()
+    let index = programs.findIndex( program => {
+      return Number(program.id) === Number(update.id)
+    })
+    let currentProgram = {...programs[index]}
+    let merged = {...currentProgram, ...update};
+    programs[index] = merged
+    this._updateDb(programs)
+    return merged
   }
 
   _updateDb = (programs) => {
