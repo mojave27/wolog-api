@@ -1,9 +1,14 @@
 import express from 'express'
 const router = express.Router()
-import { addWorkout, deleteWorkout, getWorkouts, updateWorkout } from '../persistence/dao/WorkoutsDao'
+import { addWorkout, deleteWorkout, getWorkouts, getWorkoutById, updateWorkout } from '../persistence/dao/WorkoutsDao'
 
 router.get('/', (req, res, next) => {
     const data = getWorkouts()
+    res.json(data)
+})
+
+router.get('/:id', (req, res, next) => {
+    const data = getWorkoutById(req.params.id)
     res.json(data)
 })
 

@@ -20,6 +20,19 @@ class SetsDao {
     }
   }
 
+  getInflatedSets = () => {
+    if (fs.existsSync(setsDbPath)) {
+      var setsJson = fs.readFileSync(setsDbPath, 'utf8')
+      var sets = JSON.parse(setsJson)
+      let inflatedSets = sets.map( set => {
+        return this.getInflatedSetById(set.id)
+      })
+      return inflatedSets
+    } else {
+      throw new Error('set db failure.')
+    }
+  }
+
   getSetById = id => {
     // TODO: validate the id
 
@@ -39,7 +52,6 @@ class SetsDao {
       let fullExercise = { ...exercise, ...tempExercise }
       return fullExercise
     })
-
     inflatedSet.exercises = [...setWithExercises]
 
     return inflatedSet
@@ -61,6 +73,38 @@ class SetsDao {
     var sets = this.getSets()
     sets.push(set)
     this._updateDb(sets)
+  }
+
+  updateSet = update => {
+    let sets = this.getSets()
+    let index = sets.findIndex(set => {
+      return Number(set.id) === Number(update.id)
+    })
+    let currentSet = { ...sets[index] }
+    let merged = { ...currentSet, ...update }
+    sets[index] = merged
+    this._updateDb(sets)
+    return merged
+  }
+
+  deleteSet = id => {
+    // TODO: validate the id
+
+    const sets = this.getSets()
+    let index = sets.findIndex(set => {
+      return set.id == id
+    })
+
+    console.log(`found index ${index} for set id ${id}`)
+    console.log(`sets size before delete: ${sets.length}`)
+
+    if (index > -1) {
+      sets.splice(index,1)
+    }
+    console.log(`sets size after delete: ${sets.length}`)
+    this._updateDb(sets)
+
+    return true
   }
 
   _updateDb = sets => {
