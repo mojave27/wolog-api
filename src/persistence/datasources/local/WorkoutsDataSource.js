@@ -97,6 +97,7 @@ class WorkoutsDao {
     })
     let deletedWorkout = workouts.splice(index, 1);
     this._updateDb(workouts)
+    console.log(`deleted workout with id ${deletedWorkout.id}`)
     // clean up deleted workout from any programs.
     removeWorkoutFromPrograms(id)
     return deletedWorkout
