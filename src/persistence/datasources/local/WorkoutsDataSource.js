@@ -1,6 +1,9 @@
 import DbUtils from '../../DbUtils'
 var fs = require('fs')
 import { workoutsDbPath } from '../../../config/local-db-config'
+import { getInflatedSetById } from '../../dao/SetsDao'
+import { removeWorkoutFromPrograms } from '../../dao/ProgramsDao'
+import { isUndefined } from 'lodash'
 // import validate from 'validate.js'
 
 //TODO: add logger
@@ -11,24 +14,38 @@ class WorkoutsDao {
 
   getWorkouts = () => {
     if (fs.existsSync(workoutsDbPath)) {
-      var workoutsJson = fs.readFileSync(workoutsDbPath, 'utf8')
-      var workouts = JSON.parse(workoutsJson)
-      return workouts
+      let workoutsJson = fs.readFileSync(workoutsDbPath, 'utf8')
+      let workouts = JSON.parse(workoutsJson)
+      let fullWorkouts = this.inflateWorkouts(workouts)
+      return fullWorkouts
     } else {
       throw new Error('workout db failure.')
     }
   }
 
-  getWorkoutById = id => {
-    // console.log(`getWorkoutById ${id}`)
-    // TODO: validate the id
+  inflateWorkouts = workouts => {
+    // let inflatedWorkouts = workouts.map( wo => {
+    return workouts.map( wo => {
+      let inflatedSets = wo.sets.map( set => {
+        return getInflatedSetById(set.id)
+      })
+      let inflatedWorkout = {...wo}
+      inflatedWorkout.sets = inflatedSets
+      return inflatedWorkout
+    })
+  }
 
+  getWorkoutById = id => {
+    // TODO: validate the id
     const workouts = this.getWorkouts(id)
     let foundWorkout = workouts.find( workout => {
       return workout.id == id
     })
 
     //TODO: handle error if workout not found
+    if (isUndefined(foundWorkout)){
+      throw new Error('no workout found with id: ' + id)
+    }
 
     return foundWorkout
   }
@@ -71,6 +88,18 @@ class WorkoutsDao {
     workouts[index] = merged
     this._updateDb(workouts)
     return merged
+  }
+
+  deleteWorkout = id => {
+    let workouts = this.getWorkouts()
+    let index = workouts.findIndex( workout => {
+      return Number(workout.id) === Number(id)
+    })
+    let deletedWorkout = workouts.splice(index, 1);
+    this._updateDb(workouts)
+    // clean up deleted workout from any programs.
+    removeWorkoutFromPrograms(id)
+    return deletedWorkout
   }
 
   assignId = (item) => {
