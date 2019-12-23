@@ -1,7 +1,7 @@
 import DbUtils from '../../DbUtils'
 var fs = require('fs')
 import { workoutsDbPath } from '../../../config/local-db-config'
-import { getInflatedSetById } from '../../dao/SetsDao'
+import { addSet, getInflatedSetById, updateSet } from '../../dao/SetsDao'
 import { removeWorkoutFromPrograms } from '../../dao/ProgramsDao'
 import { isUndefined } from 'lodash'
 // import validate from 'validate.js'
@@ -16,6 +16,16 @@ class WorkoutsDao {
     if (fs.existsSync(workoutsDbPath)) {
       let workoutsJson = fs.readFileSync(workoutsDbPath, 'utf8')
       let workouts = JSON.parse(workoutsJson)
+      return workouts
+    } else {
+      throw new Error('workout db failure.')
+    }
+  }
+
+  getFullWorkouts = () => {
+    if (fs.existsSync(workoutsDbPath)) {
+      let workoutsJson = fs.readFileSync(workoutsDbPath, 'utf8')
+      let workouts = JSON.parse(workoutsJson)
       let fullWorkouts = this.inflateWorkouts(workouts)
       return fullWorkouts
     } else {
@@ -26,13 +36,23 @@ class WorkoutsDao {
   inflateWorkouts = workouts => {
     // let inflatedWorkouts = workouts.map( wo => {
     return workouts.map( wo => {
-      let inflatedSets = wo.sets.map( set => {
+      return this.inflateWorkout(wo)
+      // let inflatedSets = wo.sets.map( set => {
+      //   return getInflatedSetById(set.id)
+      // })
+      // let inflatedWorkout = {...wo}
+      // inflatedWorkout.sets = inflatedSets
+      // return inflatedWorkout
+    })
+  }
+
+  inflateWorkout = workout => {
+      let inflatedSets = workout.sets.map( set => {
         return getInflatedSetById(set.id)
       })
-      let inflatedWorkout = {...wo}
+      let inflatedWorkout = {...workout}
       inflatedWorkout.sets = inflatedSets
       return inflatedWorkout
-    })
   }
 
   getWorkoutById = id => {
@@ -73,21 +93,37 @@ class WorkoutsDao {
     workout.id = this.dbUtils.assignId(workout)
     var workouts = this.getWorkouts()
     workouts.push(workout)
+    this.saveSets(workout.sets)
     this._updateDb(workouts)
-    return workout
+    return this.inflateWorkout(workout)
   }
 
   updateWorkout = (update) => {
-    // workout.id = this.dbUtils.assignId(workout)
+    let updatedWorkout = this.clearExercisesFromSets(update)
     let workouts = this.getWorkouts()
     let index = workouts.findIndex( workout => {
       return Number(workout.id) === Number(update.id)
     })
     let currentWorkout = {...workouts[index]}
-    let merged = {...currentWorkout, ...update};
+    let merged = {...currentWorkout, ...updatedWorkout};
     workouts[index] = merged
+    this.saveSets(updatedWorkout.sets)
     this._updateDb(workouts)
-    return merged
+    return this.inflateWorkout(merged)
+  }
+
+  clearExercisesFromSets = workout => {
+    let cleanedSets = []
+    workout.sets.forEach( set => {
+      let exercises = set.exercises.map( exercise => {
+        return { id: exercise.id, reps: exercise.reps }
+      })
+      set.exercises = exercises
+      cleanedSets.push(set)
+    })
+
+    workout.sets = cleanedSets
+    return workout
   }
 
   deleteWorkout = id => {
@@ -103,6 +139,16 @@ class WorkoutsDao {
     return deletedWorkout
   }
 
+  saveSets = sets => {
+    sets.forEach( set => {
+      if ( set.id ){
+        addSet(set)
+      }else{
+        updateSet(set)
+      }
+    })
+  }
+
   assignId = (item) => {
     // if id is invalid, generate one.
     if (typeof item.id === 'undefined' || item.id < 0) {
@@ -114,7 +160,7 @@ class WorkoutsDao {
     }
   }
 
-  _updateDb = (workouts) => {
+  _updateDb = workouts => {
     this.dbUtils.updateDb(workouts, workoutsDbPath)
   }
 }

@@ -2,10 +2,11 @@ import 'dotenv/config'
 import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
-import programsRouter from './routes/programs'
-import workoutsRouter from './routes/workouts'
+import adminRouter from './routes/admin'
 import exercisesRouter from './routes/exercises'
+import programsRouter from './routes/programs'
 import setsRouter from './routes/sets'
+import workoutsRouter from './routes/workouts'
 
 const PORT = process.env.PORT || 3030
 
@@ -23,6 +24,7 @@ app.get('/', (req, res) => {
     res.json({msg: 'it works!'})
 })
 
+app.use('/admin', adminRouter)
 app.use('/programs', programsRouter)
 app.use('/workouts', workoutsRouter)
 // app.use('/program-workouts', programWorkoutsRouter)

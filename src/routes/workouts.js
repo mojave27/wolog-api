@@ -13,11 +13,13 @@ router.get('/:id', (req, res, next) => {
 })
 
 router.post('/', (req, res, next) => {
+    console.log(`adding workout: ${JSON.stringify(req.body)}`)
     const data = addWorkout(req.body)
     res.json(data)
 })
 
 router.put('/:id', (req, res, next) => {
+    console.log(`updating workout: ${JSON.stringify(req.body)}`)
     const data = updateWorkout(req.body)
     res.json(data)
 })

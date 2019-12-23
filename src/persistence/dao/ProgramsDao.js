@@ -15,21 +15,25 @@ exports.getProgramById = programId => {
 
 exports.getFullProgram = programId => {
   const program = programsDataSource.getProgramById(programId)
+  let workouts = []
+  let workoutWithSets = {}
 
-  // get each workout for the program
-  const workouts = program.workouts.map(workout => {
-    let workoutWithSets = getWorkoutById(workout.id)
+  if (program.workouts) {
+    // get each workout for the program
+    workouts = program.workouts.map(workout => {
+      let workoutWithSets = getWorkoutById(workout.id)
 
-    // get the inflated workout sets
-    if (!isUndefined(workoutWithSets.sets)) {
-      let inflatedSets = workoutWithSets.sets.map(set => {
-        return getInflatedSetById(set.id)
-      })
-      workoutWithSets.sets = inflatedSets
-    }
+      // get the inflated workout sets
+      if (!isUndefined(workoutWithSets.sets)) {
+        let inflatedSets = workoutWithSets.sets.map(set => {
+          return getInflatedSetById(set.id)
+        })
+        workoutWithSets.sets = inflatedSets
+      }
 
-    return workoutWithSets
-  })
+      return workoutWithSets
+    })
+  }
 
   let fullProgram = { ...program }
   fullProgram.workouts = workouts

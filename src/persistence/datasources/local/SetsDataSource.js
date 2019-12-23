@@ -58,7 +58,6 @@ class SetsDao {
   }
 
   addSets = sets => {
-    // console.log(`[set-db] addSets()`)
     if (Array.isArray(sets)) {
       sets.forEach(set => {
         this.addSet(set)
@@ -68,20 +67,30 @@ class SetsDao {
   }
 
   addSet = set => {
-    // console.log(`[set-db] addSet()`)
     set.id = this.dbUtils.assignId(set)
+    let sanitizedSet = this.clearExercisesFromSet(set)
     var sets = this.getSets()
-    sets.push(set)
+    sets.push(sanitizedSet)
     this._updateDb(sets)
+    return set
+  }
+
+  clearExercisesFromSet = set => {
+    let exercises = set.exercises.map( exercise => {
+        return { id: exercise.id, reps: exercise.reps }
+    })
+    set.exercises = exercises
+    return set
   }
 
   updateSet = update => {
+    let updatedSet = this.clearExercisesFromSet(update)
     let sets = this.getSets()
     let index = sets.findIndex(set => {
       return Number(set.id) === Number(update.id)
     })
     let currentSet = { ...sets[index] }
-    let merged = { ...currentSet, ...update }
+    let merged = { ...currentSet, ...updatedSet }
     sets[index] = merged
     this._updateDb(sets)
     return merged
