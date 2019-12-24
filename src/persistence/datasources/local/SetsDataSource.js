@@ -2,6 +2,7 @@ import DbUtils from '../../DbUtils'
 var fs = require('fs')
 import { setsDbPath } from '../../../config/local-db-config'
 import { getExerciseById } from '../../dao/ExerciseDao'
+import { isUndefined } from 'util'
 // import validate from 'validate.js'
 
 //TODO: add logger
@@ -40,6 +41,10 @@ class SetsDao {
     let foundSet = sets.find(set => {
       return set.id == id
     })
+
+    if(isUndefined(foundSet)){
+      throw new Error(`No set found matching id ${id}`)
+    }
 
     return foundSet
   }
@@ -101,7 +106,7 @@ class SetsDao {
 
     const sets = this.getSets()
     let index = sets.findIndex(set => {
-      return set.id == id
+      return Number(set.id) === Number(id)
     })
 
     console.log(`found index ${index} for set id ${id}`)
