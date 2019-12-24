@@ -103,22 +103,16 @@ class SetsDao {
 
   deleteSet = id => {
     // TODO: validate the id
-
-    const sets = this.getSets()
+    let sets = this.getSets()
     let index = sets.findIndex(set => {
       return Number(set.id) === Number(id)
     })
-
     console.log(`found index ${index} for set id ${id}`)
-    console.log(`sets size before delete: ${sets.length}`)
-
-    if (index > -1) {
-      sets.splice(index,1)
-    }
-    console.log(`sets size after delete: ${sets.length}`)
+    let deletedSet = sets.splice(index,1)
     this._updateDb(sets)
+    console.log(`deleted set with id ${id}`)
 
-    return true
+    return deletedSet
   }
 
   _updateDb = sets => {

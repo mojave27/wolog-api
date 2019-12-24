@@ -30,9 +30,6 @@ exports.updateSet = set => {
 }
 
 exports.deleteSet = id => {
-  /*
-   * also remove set from any workouts
-   */
   console.log(`deleting set with id ${id}`)
   removeSetFromWorkouts(id)
   return setsDataSource.deleteSet(id)

@@ -28,12 +28,8 @@ router.put('/:id', (req, res, next) => {
 })
 
 router.delete('/:id', (req, res, next) => {
-    const isDeleted = deleteSet(req.params.id);
-    if( isDeleted ){
-        res.status(200).end()
-    }else{
-        res.status(500).end()
-    }
+    const data = deleteSet(req.params.id);
+    res.json(data)
 })
 
 export default router;

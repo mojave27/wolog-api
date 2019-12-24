@@ -57,10 +57,12 @@ class WorkoutsDao {
 
   getWorkoutById = id => {
     // TODO: validate the id
-    const workouts = this.getWorkouts(id)
+    const workouts = this.getFullWorkouts()
     let foundWorkout = workouts.find(workout => {
       return workout.id == id
     })
+
+    console.log(JSON.stringify(foundWorkout))
 
     //TODO: handle error if workout not found
     if (isUndefined(foundWorkout)) {
@@ -129,10 +131,12 @@ class WorkoutsDao {
   }
 
   deleteWorkout = id => {
+    // TODO: validate the id
     let workouts = this.getWorkouts()
     let index = workouts.findIndex(workout => {
       return Number(workout.id) === Number(id)
     })
+    console.log(`found index ${index} for workout id ${id}`)
     let deletedWorkout = workouts.splice(index, 1)
     this._updateDb(workouts)
     console.log(`deleted workout with id ${deletedWorkout.id}`)
@@ -144,9 +148,9 @@ class WorkoutsDao {
   saveSets = sets => {
     sets.forEach(set => {
       if (set.id) {
-        addSet(set)
-      } else {
         updateSet(set)
+      } else {
+        addSet(set)
       }
     })
   }
