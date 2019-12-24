@@ -10,7 +10,7 @@ router.get('/', (req, res, next) => {
 })
 
 router.get('/:id', (req, res, next) => {
-    const data = getSetById(req.params.id);
+    const data = getInflatedSetById(req.params.id);
     res.json(data)
 })
 
