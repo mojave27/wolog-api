@@ -55,6 +55,7 @@ class ProgramsDataSourceLocal {
       let programWorkouts = [...program.workouts]
       let index = programWorkouts.findIndex( programWorkout => Number(programWorkout.id) === Number(workoutId))
       if( index >= 0) {
+        console.log(`removing workout with id ${workoutId} from program with id ${program.id}`)
         programWorkouts.splice(index, 1)  
       }
       program.workouts = programWorkouts

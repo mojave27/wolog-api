@@ -2,6 +2,7 @@ import DbUtils from '../../DbUtils'
 var fs = require('fs')
 import { setsDbPath } from '../../../config/local-db-config'
 import { getExerciseById } from '../../dao/ExerciseDao'
+import { isUndefined } from 'util'
 // import validate from 'validate.js'
 
 //TODO: add logger
@@ -41,6 +42,10 @@ class SetsDao {
       return set.id == id
     })
 
+    if(isUndefined(foundSet)){
+      throw new Error(`No set found matching id ${id}`)
+    }
+
     return foundSet
   }
 
@@ -58,7 +63,6 @@ class SetsDao {
   }
 
   addSets = sets => {
-    // console.log(`[set-db] addSets()`)
     if (Array.isArray(sets)) {
       sets.forEach(set => {
         this.addSet(set)
@@ -68,20 +72,30 @@ class SetsDao {
   }
 
   addSet = set => {
-    // console.log(`[set-db] addSet()`)
     set.id = this.dbUtils.assignId(set)
+    let sanitizedSet = this.clearExercisesFromSet(set)
     var sets = this.getSets()
-    sets.push(set)
+    sets.push(sanitizedSet)
     this._updateDb(sets)
+    return set
+  }
+
+  clearExercisesFromSet = set => {
+    let exercises = set.exercises.map( exercise => {
+        return { id: exercise.id, reps: exercise.reps }
+    })
+    set.exercises = exercises
+    return set
   }
 
   updateSet = update => {
+    let updatedSet = this.clearExercisesFromSet(update)
     let sets = this.getSets()
     let index = sets.findIndex(set => {
       return Number(set.id) === Number(update.id)
     })
     let currentSet = { ...sets[index] }
-    let merged = { ...currentSet, ...update }
+    let merged = { ...currentSet, ...updatedSet }
     sets[index] = merged
     this._updateDb(sets)
     return merged
@@ -89,22 +103,16 @@ class SetsDao {
 
   deleteSet = id => {
     // TODO: validate the id
-
-    const sets = this.getSets()
+    let sets = this.getSets()
     let index = sets.findIndex(set => {
-      return set.id == id
+      return Number(set.id) === Number(id)
     })
-
     console.log(`found index ${index} for set id ${id}`)
-    console.log(`sets size before delete: ${sets.length}`)
-
-    if (index > -1) {
-      sets.splice(index,1)
-    }
-    console.log(`sets size after delete: ${sets.length}`)
+    let deletedSet = sets.splice(index,1)
     this._updateDb(sets)
+    console.log(`deleted set with id ${id}`)
 
-    return true
+    return deletedSet
   }
 
   _updateDb = sets => {

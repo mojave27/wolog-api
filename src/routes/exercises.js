@@ -1,5 +1,5 @@
 import express from 'express'
-import { addExercise, deleteExerciseById, getExercises } from '../persistence/dao/ExerciseDao'
+import { addExercise, deleteExerciseById, getExercises, getExerciseById } from '../persistence/dao/ExerciseDao'
 const router = express.Router()
 
 
@@ -8,14 +8,19 @@ router.get('/', (req, res, next) => {
     res.json(data)
 })
 
+router.get('/:id', (req, res, next) => {
+    const data = getExerciseById(req.params.id);
+    res.json(data)
+})
+
 router.post('/', (req, res, next) => {
-    console.log(req.body)
+    // console.log(req.body)
     const data = addExercise(req.body)
     res.json(req.body)
 })
 
 router.delete('/:id', (req, res, next) => {
-    console.log(req.params.id)
+    // console.log(req.params.id)
     try {
         deleteExerciseById(req.params.id)
         res.json({ message: `exercise with id ${req.params.id} successfully deleted.`}).status(200)

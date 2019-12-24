@@ -4,6 +4,7 @@ import { getPrograms, addProgram, getFullProgram, updateProgram } from '../persi
 // const programsDao = new ProgramsDao()
 const router = express.Router()
 
+
 // gets simple program - not the inflated one
 router.get('/', (req, res, next) => {
     const programs = getPrograms()

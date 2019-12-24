@@ -7,8 +7,9 @@ exports.addWorkout = workout => {
   return workoutsDataSource.addWorkout(workout)
 }
 
+// gets full workouts (inflates exercises in sets)
 exports.getWorkouts = () => {
-  return workoutsDataSource.getWorkouts()
+  return workoutsDataSource.getFullWorkouts()
 }
 
 exports.getWorkoutById = id => {
