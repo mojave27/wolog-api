@@ -1,7 +1,6 @@
 import express from 'express'
 import { getPrograms, addProgram, getFullProgram, updateProgram } from '../persistence/dao/ProgramsDao'
 
-// const programsDao = new ProgramsDao()
 const router = express.Router()
 
 
