@@ -1,7 +1,10 @@
 import DbUtils from '../../DbUtils'
 var fs = require('fs')
 import { programsDbPath } from '../../../config/local-db-config'
+import Logger from '../../../logging/Logger'
 // import validate from 'validate.js'
+
+const log = new Logger('ProgramsDataSource')
 
 //TODO: add logger
 class ProgramsDataSourceLocal {
@@ -10,6 +13,7 @@ class ProgramsDataSourceLocal {
   }
 
   getPrograms = () => {
+    log.info(`getting programs`)
     if (fs.existsSync(programsDbPath)) {
       var programsJson = fs.readFileSync(programsDbPath, 'utf8')
       var programs = JSON.parse(programsJson)
@@ -20,6 +24,7 @@ class ProgramsDataSourceLocal {
   }
 
   getProgramById = id => {
+    log.info(`getting program with id ${id}`)
     // TODO: validate the id
     const programs = this.getPrograms()
     let foundProgram = programs.find(program => {
@@ -30,6 +35,11 @@ class ProgramsDataSourceLocal {
   }
 
   addProgram = program => {
+    if (program.id){
+      log.info(`program with id ${program.id} already exists, not adding.`)
+      return program
+    }
+    log.info(`adding new program ${JSON.stringify(program)}`)
     program.id = this.dbUtils.assignId(program)
     var programs = this.getPrograms()
     programs.push(program)
@@ -38,6 +48,8 @@ class ProgramsDataSourceLocal {
   }
 
   updateProgram = update => {
+    log.info(`updating existing program with id ${update.id}`)
+    log.info(`  program is: ${JSON.stringify(update)}`)
     let programs = this.getPrograms()
     let index = programs.findIndex(program => {
       return Number(program.id) === Number(update.id)
@@ -46,6 +58,7 @@ class ProgramsDataSourceLocal {
     let merged = { ...currentProgram, ...update }
     programs[index] = merged
     this._updateDb(programs)
+    log.info(`  updated programs with: ${JSON.stringify(merged)}`)
     return merged
   }
 
@@ -55,7 +68,7 @@ class ProgramsDataSourceLocal {
       let programWorkouts = [...program.workouts]
       let index = programWorkouts.findIndex( programWorkout => Number(programWorkout.id) === Number(workoutId))
       if( index >= 0) {
-        console.log(`removing workout with id ${workoutId} from program with id ${program.id}`)
+        log.info(`removing workout with id ${workoutId} from program with id ${program.id}`)
         programWorkouts.splice(index, 1)  
       }
       program.workouts = programWorkouts

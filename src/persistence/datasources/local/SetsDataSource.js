@@ -3,7 +3,10 @@ var fs = require('fs')
 import { setsDbPath } from '../../../config/local-db-config'
 import { getExerciseById } from '../../dao/ExerciseDao'
 import { isUndefined } from 'util'
+import Logger from '../../../logging/Logger'
 // import validate from 'validate.js'
+
+const log = new Logger('SetsDataSource')
 
 //TODO: add logger
 class SetsDao {
@@ -12,6 +15,7 @@ class SetsDao {
   }
 
   getSets = () => {
+    // log.info(`getting sets`)
     if (fs.existsSync(setsDbPath)) {
       var setsJson = fs.readFileSync(setsDbPath, 'utf8')
       var sets = JSON.parse(setsJson)
@@ -22,10 +26,11 @@ class SetsDao {
   }
 
   getInflatedSets = () => {
+    log.info(`getting inflated sets`)
     if (fs.existsSync(setsDbPath)) {
       var setsJson = fs.readFileSync(setsDbPath, 'utf8')
       var sets = JSON.parse(setsJson)
-      let inflatedSets = sets.map( set => {
+      let inflatedSets = sets.map(set => {
         return this.getInflatedSetById(set.id)
       })
       return inflatedSets
@@ -35,6 +40,7 @@ class SetsDao {
   }
 
   getSetById = id => {
+    log.info(`getting set with id ${id}`)
     // TODO: validate the id
 
     const sets = this.getSets()
@@ -42,7 +48,7 @@ class SetsDao {
       return set.id == id
     })
 
-    if(isUndefined(foundSet)){
+    if (isUndefined(foundSet)) {
       throw new Error(`No set found matching id ${id}`)
     }
 
@@ -50,6 +56,7 @@ class SetsDao {
   }
 
   getInflatedSetById = id => {
+    log.info(`getting inflated set with id ${id}`)
     let inflatedSet = this.getSetById(id)
     // get the inflated exercises
     let setWithExercises = inflatedSet.exercises.map(exercise => {
@@ -63,6 +70,7 @@ class SetsDao {
   }
 
   addSets = sets => {
+    log.info(`adding sets`)
     if (Array.isArray(sets)) {
       sets.forEach(set => {
         this.addSet(set)
@@ -72,23 +80,24 @@ class SetsDao {
   }
 
   addSet = set => {
-    set.id = this.dbUtils.assignId(set)
-    let sanitizedSet = this.clearExercisesFromSet(set)
-    var sets = this.getSets()
-    sets.push(sanitizedSet)
-    this._updateDb(sets)
-    return set
-  }
-
-  clearExercisesFromSet = set => {
-    let exercises = set.exercises.map( exercise => {
-        return { id: exercise.id, reps: exercise.reps }
-    })
-    set.exercises = exercises
-    return set
+    if (set.id) {
+      log.info(`set already has id ${id}, not adding.`)
+      return set
+    } else {
+      log.info(`adding set ${JSON.stringify(set)}`)
+      set.id = this.dbUtils.assignId(set)
+      log.info(`  assigning id ${set.id}`)
+      let sanitizedSet = this.clearExercisesFromSet(set)
+      var sets = this.getSets()
+      sets.push(sanitizedSet)
+      this._updateDb(sets)
+      log.info(`  added set ${JSON.stringify(sanitizedSet)}`)
+      return set
+    }
   }
 
   updateSet = update => {
+    log.info(`updating set with id ${update.id}`)
     let updatedSet = this.clearExercisesFromSet(update)
     let sets = this.getSets()
     let index = sets.findIndex(set => {
@@ -101,14 +110,23 @@ class SetsDao {
     return merged
   }
 
+  clearExercisesFromSet = set => {
+    let exercises = set.exercises.map(exercise => {
+      return { id: exercise.id, reps: exercise.reps }
+    })
+    set.exercises = exercises
+    return set
+  }
+
   deleteSet = id => {
+    log.info(`deleting set with id ${id}`)
     // TODO: validate the id
     let sets = this.getSets()
     let index = sets.findIndex(set => {
       return Number(set.id) === Number(id)
     })
     console.log(`found index ${index} for set id ${id}`)
-    let deletedSet = sets.splice(index,1)
+    let deletedSet = sets.splice(index, 1)
     this._updateDb(sets)
     console.log(`deleted set with id ${id}`)
 

@@ -45,6 +45,7 @@ const checkDataInconsistencies = (getValidIds, getTargetData, targetList) => {
     getTargetData().forEach( dataObject => {
         let badItems = [] 
         dataObject[targetList].forEach( item => {
+            console.log(`item: ${JSON.stringify(item)}`)
             let index = validIds.findIndex( id => Number(id) === Number(item.id))
             if (index < 0) { badItems.push(item.id) }
         })

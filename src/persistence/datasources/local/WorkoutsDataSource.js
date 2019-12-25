@@ -4,7 +4,10 @@ import { workoutsDbPath } from '../../../config/local-db-config'
 import { addSet, getInflatedSetById, updateSet } from '../../dao/SetsDao'
 import { removeWorkoutFromPrograms } from '../../dao/ProgramsDao'
 import { isUndefined } from 'lodash'
+import Logger from '../../../logging/Logger'
+
 // import validate from 'validate.js'
+const log = new Logger('WorkoutsDataSource')
 
 //TODO: add logger
 class WorkoutsDao {
@@ -13,6 +16,8 @@ class WorkoutsDao {
   }
 
   getWorkouts = () => {
+    // console.log(`getting workouts`)
+    log.info(`getting workouts`)
     if (fs.existsSync(workoutsDbPath)) {
       let workoutsJson = fs.readFileSync(workoutsDbPath, 'utf8')
       let workouts = JSON.parse(workoutsJson)
@@ -23,6 +28,7 @@ class WorkoutsDao {
   }
 
   getFullWorkouts = () => {
+    log.info(`getting full workouts`)
     if (fs.existsSync(workoutsDbPath)) {
       let workoutsJson = fs.readFileSync(workoutsDbPath, 'utf8')
       let workouts = JSON.parse(workoutsJson)
@@ -34,19 +40,14 @@ class WorkoutsDao {
   }
 
   inflateWorkouts = workouts => {
-    // let inflatedWorkouts = workouts.map( wo => {
+    log.info(`inflating workouts`)
     return workouts.map(wo => {
       return this.inflateWorkout(wo)
-      // let inflatedSets = wo.sets.map( set => {
-      //   return getInflatedSetById(set.id)
-      // })
-      // let inflatedWorkout = {...wo}
-      // inflatedWorkout.sets = inflatedSets
-      // return inflatedWorkout
     })
   }
 
   inflateWorkout = workout => {
+    log.info(`inflating workout`)
     let inflatedSets = workout.sets.map(set => {
       return getInflatedSetById(set.id)
     })
@@ -56,18 +57,19 @@ class WorkoutsDao {
   }
 
   getWorkoutById = id => {
+    log.info(`getting workout with id ${id}`)
     // TODO: validate the id
     const workouts = this.getFullWorkouts()
     let foundWorkout = workouts.find(workout => {
       return workout.id == id
     })
 
-    console.log(JSON.stringify(foundWorkout))
-
+    
     //TODO: handle error if workout not found
     if (isUndefined(foundWorkout)) {
       throw new Error('no workout found with id: ' + id)
     }
+    log.info(`found workout: ${JSON.stringify(foundWorkout)}`)
 
     return foundWorkout
   }
@@ -83,6 +85,7 @@ class WorkoutsDao {
   }
 
   addWorkouts = workouts => {
+    log.info(`adding workouts`)
     if (Array.isArray(workouts)) {
       workouts.forEach(workout => {
         this.addWorkout(workout)
@@ -92,15 +95,24 @@ class WorkoutsDao {
   }
 
   addWorkout = workout => {
+    if (workout.id) {
+      // TODO: do a real lookup of the id to verify whether it exists.
+      log(NAME,`workout already has an id ${workout.id}, will not add.`)
+      return workout
+    }
+    log.info(`adding new workout ${JSON.stringify(workout)}`)
     workout.id = this.dbUtils.assignId(workout)
+    log.info(`  assigning id ${workout.id} to workout.`)
     var workouts = this.getWorkouts()
     workouts.push(workout)
     this.saveSets(workout.sets)
     this._updateDb(workouts)
+    log.info(`  added new workout ${JSON.stringify(workout)}`)
     return this.inflateWorkout(workout)
   }
 
   updateWorkout = update => {
+    log.info(`updating existing workout with id ${update.id}`)
     let updatedWorkout = this.clearExercisesFromSets(update)
     let workouts = this.getWorkouts()
     let index = workouts.findIndex(workout => {
@@ -131,15 +143,16 @@ class WorkoutsDao {
   }
 
   deleteWorkout = id => {
+    log.info(`deleting existing workout with id ${id}`)
     // TODO: validate the id
     let workouts = this.getWorkouts()
     let index = workouts.findIndex(workout => {
       return Number(workout.id) === Number(id)
     })
-    console.log(`found index ${index} for workout id ${id}`)
+    log.info(`found index ${index} for workout id ${id}`)
     let deletedWorkout = workouts.splice(index, 1)
     this._updateDb(workouts)
-    console.log(`deleted workout with id ${deletedWorkout.id}`)
+    log.info(`deleted workout with id ${deletedWorkout.id}`)
     // clean up deleted workout from any programs.
     removeWorkoutFromPrograms(id)
     return deletedWorkout
@@ -148,8 +161,10 @@ class WorkoutsDao {
   saveSets = sets => {
     sets.forEach(set => {
       if (set.id) {
+        log.info(`updating existing set with id ${set.id}`)
         updateSet(set)
       } else {
+        log.info(`updating existing set with id ${set.id}`)
         addSet(set)
       }
     })
