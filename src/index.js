@@ -6,6 +6,7 @@ import adminRouter from './routes/admin'
 import exercisesRouter from './routes/exercises'
 import programsRouter from './routes/programs'
 import setsRouter from './routes/sets'
+import trackerRouter from './routes/tracker'
 import workoutsRouter from './routes/workouts'
 
 const PORT = process.env.PORT || 3030
@@ -30,6 +31,7 @@ app.use('/workouts', workoutsRouter)
 // app.use('/program-workouts', programWorkoutsRouter)
 app.use('/exercises', exercisesRouter)
 app.use('/sets', setsRouter)
+app.use('/tracker', trackerRouter)
 
 
 app.listen(PORT, () => {
