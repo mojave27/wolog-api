@@ -1,13 +1,1 @@
-[{
-    "exercises": [{
-        "id": 0,
-        "reps": "max"
-    }],
-    "id": 361
-}, {
-    "id": 10,
-    "exercises": [{
-        "id": 3,
-        "reps": ""
-    }]
-}]
+[{"exercises":[{"id":0,"reps":"max"}],"id":361},{"id":10,"exercises":[{"id":3,"reps":""}]}]
