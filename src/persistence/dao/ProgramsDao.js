@@ -1,6 +1,6 @@
 import ProgramsDataSource from '../datasources/local/ProgramsDataSource'
-import { getWorkoutById } from './WorkoutsDao'
-import { getInflatedSetById } from './SetsDao'
+import { getWorkoutById, updateWorkout } from './WorkoutsDao'
+import { getInflatedSetById, updateSet } from './SetsDao'
 import { isUndefined } from 'lodash'
 
 const programsDataSource = new ProgramsDataSource()
@@ -46,9 +46,23 @@ exports.addProgram = program => {
 }
 
 exports.updateProgram = update => {
+  _updateWorkouts(update.workouts)
   return programsDataSource.updateProgram(update)
 }
 
 exports.removeWorkoutFromPrograms = workoutId => {
   return programsDataSource.removeWorkoutFromPrograms(workoutId)
+}
+
+const _updateWorkouts = workouts => {
+  workouts.forEach( wo => {
+    updateWorkout(wo)
+    _updateSets(wo.sets)
+  })
+}
+
+const _updateSets = sets => {
+  sets.forEach( set => {
+    updateSet(set)
+  })
 }
