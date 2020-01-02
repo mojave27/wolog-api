@@ -13,6 +13,8 @@ exports.getProgramById = programId => {
   return programsDataSource.getProgramById(programId)
 }
 
+//FIXME: This is where we're losing the second exercise
+//FIXME: The problem is workouts.json doesn't have the added exercise in days or sets.
 exports.getFullProgram = programId => {
   const program = programsDataSource.getProgramById(programId)
   let workouts = []
