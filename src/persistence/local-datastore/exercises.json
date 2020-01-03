@@ -1,17 +1,14 @@
 [{
     "id": 0,
     "name": "chins",
-    "dates": [],
     "type": "compound"
 }, {
     "id": 1,
     "name": "dips",
-    "dates": [],
     "type": "compound"
 }, {
     "name": "lat raise",
     "type": "isolation",
-    "dates": [],
     "id": 2
 }, {
     "name": "jammer",
@@ -20,81 +17,65 @@
 }, {
     "name": "squat",
     "type": "compound",
-    "dates": [],
     "id": 4
 }, {
     "name": "deadlift",
     "type": "compound",
-    "dates": [],
     "id": 5
 }, {
     "name": "calf raise",
     "type": "isolation",
-    "dates": [],
     "id": 6
 }, {
     "name": "RDL",
     "type": "compound",
-    "dates": [],
     "id": 7
 }, {
     "name": "glute bridge",
     "type": "compound",
-    "dates": [],
     "id": 8
 }, {
     "name": "inv row",
     "type": "compound",
-    "dates": [],
     "id": 9
 }, {
     "name": "leg curl",
     "type": "isolation",
-    "dates": [],
     "id": 10
 }, {
     "name": "bb curl",
     "type": "isolation",
-    "dates": [],
     "id": 11
 }, {
     "name": "shrugs",
     "type": "isolation",
-    "dates": [],
     "id": 12
 }, {
     "name": "face pulls",
     "type": "isolation",
-    "dates": [],
     "id": 13
 }, {
     "name": "lumberjack",
     "type": "compound",
-    "dates": [],
     "id": 14
 }, {
     "name": "calves",
     "type": "isolation",
-    "dates": [],
     "id": 15
 }, {
     "name": "leg-ext",
     "type": "isolation",
-    "dates": [],
     "id": 16
 }, {
     "name": "rear delt raises",
     "type": "isolation",
-    "dates": [],
     "id": 17
 }, {
     "name": "test-exercise",
     "type": "compound",
-    "dates": [],
     "id": 18
 }, {
     "name": "another-test-exercise",
     "type": "compound",
-    "dates": [],
     "id": 19
 }]

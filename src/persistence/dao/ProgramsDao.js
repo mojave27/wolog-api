@@ -1,6 +1,6 @@
 import ProgramsDataSource from '../datasources/local/ProgramsDataSource'
-import { getWorkoutById, updateWorkout } from './WorkoutsDao'
-import { getInflatedSetById, updateSet } from './SetsDao'
+// import { getWorkoutById, updateWorkout } from './WorkoutsDao'
+// import { getInflatedSetById, updateSet } from './SetsDao'
 import { isUndefined } from 'lodash'
 
 const programsDataSource = new ProgramsDataSource()
@@ -15,40 +15,40 @@ exports.getProgramById = programId => {
 
 //FIXME: This is where we're losing the second exercise
 //FIXME: The problem is workouts.json doesn't have the added exercise in days or sets.
-exports.getFullProgram = programId => {
-  const program = programsDataSource.getProgramById(programId)
-  let workouts = []
-  let workoutWithSets = {}
+// exports.getFullProgram = programId => {
+//   const program = programsDataSource.getProgramById(programId)
+//   let workouts = []
+//   let workoutWithSets = {}
 
-  if (program.workouts) {
-    // get each workout for the program
-    workouts = program.workouts.map(workout => {
-      let workoutWithSets = getWorkoutById(workout.id)
+//   if (program.workouts) {
+//     // get each workout for the program
+//     workouts = program.workouts.map(workout => {
+//       let workoutWithSets = getWorkoutById(workout.id)
 
-      // get the inflated workout sets
-      if (!isUndefined(workoutWithSets.sets)) {
-        let inflatedSets = workoutWithSets.sets.map(set => {
-          return getInflatedSetById(set.id)
-        })
-        workoutWithSets.sets = inflatedSets
-      }
+//       // get the inflated workout sets
+//       if (!isUndefined(workoutWithSets.sets)) {
+//         let inflatedSets = workoutWithSets.sets.map(set => {
+//           return getInflatedSetById(set.id)
+//         })
+//         workoutWithSets.sets = inflatedSets
+//       }
 
-      return workoutWithSets
-    })
-  }
+//       return workoutWithSets
+//     })
+//   }
 
-  let fullProgram = { ...program }
-  fullProgram.workouts = workouts
+//   let fullProgram = { ...program }
+//   fullProgram.workouts = workouts
 
-  return fullProgram
-}
+//   return fullProgram
+// }
 
 exports.addProgram = program => {
   return programsDataSource.addProgram(program)
 }
 
 exports.updateProgram = update => {
-  _updateWorkouts(update.workouts)
+  // _updateWorkouts(update.workouts)
   return programsDataSource.updateProgram(update)
 }
 
@@ -56,15 +56,15 @@ exports.removeWorkoutFromPrograms = workoutId => {
   return programsDataSource.removeWorkoutFromPrograms(workoutId)
 }
 
-const _updateWorkouts = workouts => {
-  workouts.forEach( wo => {
-    updateWorkout(wo)
-    _updateSets(wo.sets)
-  })
-}
+// const _updateWorkouts = workouts => {
+//   workouts.forEach( wo => {
+//     updateWorkout(wo)
+//     _updateSets(wo.sets)
+//   })
+// }
 
-const _updateSets = sets => {
-  sets.forEach( set => {
-    updateSet(set)
-  })
-}
+// const _updateSets = sets => {
+//   sets.forEach( set => {
+//     updateSet(set)
+//   })
+// }

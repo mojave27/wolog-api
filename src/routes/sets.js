@@ -2,7 +2,6 @@ import express from 'express'
 import { addSet, deleteSet, getSetById, getInflatedSets, getInflatedSetById, updateSet } from '../persistence/dao/SetsDao'
 const router = express.Router()
 
-
 router.get('/', (req, res, next) => {
     const data = getInflatedSets();
     // console.log(JSON.stringify(data))
