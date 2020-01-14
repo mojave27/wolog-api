@@ -1,5 +1,5 @@
 import express from 'express'
-import { getPrograms, addProgram, getFullProgram, updateProgram } from '../persistence/dao/ProgramsDao'
+import { getPrograms, addProgram, getProgramById, updateProgram } from '../persistence/dao/ProgramsDao'
 
 const router = express.Router()
 
@@ -24,8 +24,8 @@ router.put('/:id', (req, res, next) => {
 
 // gets full inflated program
 router.get('/:id', (req, res, next) => {
-    const fullProgram = getFullProgram(req.params.id)
-    res.json({fullProgram: fullProgram})
+    const program = getProgramById(req.params.id)
+    res.json({fullProgram: program})
 })
 
 
