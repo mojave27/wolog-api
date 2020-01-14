@@ -8,6 +8,7 @@ import programsRouter from './routes/programs'
 import setsRouter from './routes/sets'
 import trackerRouter from './routes/tracker'
 import workoutsRouter from './routes/workouts'
+import woDaysRouter from './routes/wodays'
 
 const PORT = process.env.PORT || 3030
 
@@ -28,6 +29,7 @@ app.get('/', (req, res) => {
 app.use('/admin', adminRouter)
 app.use('/programs', programsRouter)
 app.use('/workouts', workoutsRouter)
+app.use('/wodays', woDaysRouter)
 // app.use('/program-workouts', programWorkoutsRouter)
 app.use('/exercises', exercisesRouter)
 app.use('/sets', setsRouter)

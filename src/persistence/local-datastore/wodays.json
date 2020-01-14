@@ -1,0 +1,57 @@
+[{
+    "exercises": [{
+            "id": 0,
+            "name": "dips",
+            "targets": "3x8"
+        },
+        {
+            "id": 1,
+            "name": "chins",
+            "targets": "3x8"
+        },
+        {
+            "id": 2,
+            "name": "squats",
+            "targets": "1x20"
+        }
+    ],
+    "sets": [{
+            "id": 0,
+            "exercises": [{
+                    "id": 0,
+                    "weight": "45",
+                    "reps": "8"
+                },
+                {
+                    "id": 1,
+                    "weight": "15",
+                    "reps": "7"
+                },
+                {
+                    "id": 2,
+                    "weight": "105",
+                    "reps": "20"
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "exercises": [{
+                    "id": 0,
+                    "weight": "45",
+                    "reps": "8"
+                },
+                {
+                    "id": 1,
+                    "weight": "15",
+                    "reps": "6"
+                },
+                {
+                    "id": 2,
+                    "weight": "0",
+                    "reps": "0"
+                }
+            ]
+        }
+    ]
+}]
