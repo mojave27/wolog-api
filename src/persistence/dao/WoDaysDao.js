@@ -3,35 +3,22 @@ const woDaysDataSource = new WoDaysDataSource()
 // import validate from 'validate.js'
 
 //TODO: add logger
-// exports.addWorkout = workout => {
-//   return workoutsDataSource.addWorkout(workout)
-// }
+exports.addWoDay = woday => {
+  return woDaysDataSource.addWoDay(woday)
+}
 
-// gets full workouts (inflates exercises in sets)
 exports.getWoDays = () => {
   return woDaysDataSource.getWoDays()
 }
 
-// exports.getWorkoutById = id => {
-//   return workoutsDataSource.getWorkoutById(id)
-// }
+exports.getWoDayById = id => {
+  return woDaysDataSource.getWoDayById(id)
+}
 
-// exports.updateWorkout = workout => {
-//   return workoutsDataSource.updateWorkout(workout)
-// }
+exports.updateWoDay = woday => {
+  return woDaysDataSource.updateWoDay(woday)
+}
 
-// exports.deleteWorkout = id => {
-//   return workoutsDataSource.deleteWorkout(id)
-// }
-
-// exports.removeSetFromWorkouts = id => {
-//   let workouts = workoutsDataSource.getWorkouts()
-//   workouts.forEach( workout => {
-//     let index = workout.sets.findIndex( set => Number(set.id) === Number(id))
-//     if ( index >= 0 ) {
-//       console.log(`found set with id ${id} in workout with id ${workout.id}`)
-//       workout.sets.splice(index,1)      
-//       workoutsDataSource.updateWorkout(workout)
-//     }
-//   })
-// }
+exports.deleteWoDay = id => {
+  return woDaysDataSource.deleteWoDay(id)
+}

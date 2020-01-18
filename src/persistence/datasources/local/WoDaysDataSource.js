@@ -1,7 +1,7 @@
 import DbUtils from '../../DbUtils'
 var fs = require('fs')
 import { woDaysDbPath } from '../../../config/local-db-config'
-// import { isUndefined } from 'lodash'
+import { isUndefined } from 'lodash'
 import Logger from '../../../logging/Logger'
 
 // import validate from 'validate.js'
@@ -25,161 +25,79 @@ class WoDaysDao {
     }
   }
 
-  // getFullWorkouts = () => {
-  //   log.info(`getting full workouts`)
-  //   if (fs.existsSync(workoutsDbPath)) {
-  //     let workoutsJson = fs.readFileSync(workoutsDbPath, 'utf8')
-  //     let workouts = JSON.parse(workoutsJson)
-  //     let fullWorkouts = this.inflateWorkouts(workouts)
-  //     return fullWorkouts
-  //   } else {
-  //     throw new Error('workout db failure.')
-  //   }
-  // }
 
-  // inflateWorkouts = workouts => {
-  //   log.info(`inflating workouts`)
-  //   return workouts.map(wo => {
-  //     return this.inflateWorkout(wo)
-  //   })
-  // }
+  getWoDayById = id => {
+    log.info(`getting woday with id ${id}`)
+    // TODO: validate the id
+    const woDays = this.getWoDays()
+    let foundWoDay = woDays.find(woDay => {
+      return woDay.id == id
+    })
+    //TODO: handle error if woday not found
+    if (isUndefined(foundWoDay)) {
+      throw new Error('no woday found with id: ' + id)
+    }
+    log.info(`found woDay: ${JSON.stringify(foundWoDay)}`)
 
-  // inflateWorkout = workout => {
-  //   log.info(`inflating workout`)
-  //   let inflatedSets = workout.sets.map(set => {
-  //     return getInflatedSetById(set.id)
-  //   })
-  //   let inflatedWorkout = { ...workout }
-  //   inflatedWorkout.sets = inflatedSets
-  //   return inflatedWorkout
-  // }
+    return foundWoDay
+  }
 
-  // getWorkoutById = id => {
-  //   log.info(`getting workout with id ${id}`)
-  //   // TODO: validate the id
-  //   const workouts = this.getFullWorkouts()
-  //   let foundWorkout = workouts.find(workout => {
-  //     return workout.id == id
-  //   })
 
-    
-  //   //TODO: handle error if workout not found
-  //   if (isUndefined(foundWorkout)) {
-  //     throw new Error('no workout found with id: ' + id)
-  //   }
-  //   log.info(`found workout: ${JSON.stringify(foundWorkout)}`)
+  addWoDays = wodays => {
+    log.info(`adding wodays`)
+    if (Array.isArray(wodays)) {
+      wodays.forEach(woday => {
+        this.addWoDay(woday)
+      })
+    }
+    // validate()
+  }
 
-  //   return foundWorkout
-  // }
+  addWoDay = woday => {
+    if (woday.id) {
+      // TODO: do a real lookup of the id to verify whether it exists.
+      log(NAME,`woday already has an id ${workout.id}, will not add.`)
+      return woday
+    }
+    log.info(`adding new woday ${JSON.stringify(woday)}`)
+    woday.id = this.dbUtils.assignId(woday)
+    log.info(`  assigning id ${woday.id} to woday.`)
+    var wodays = this.getWoDays()
+    wodays.push(woday)
+    this._updateDb(wodays)
+    log.info(`  added new woday ${JSON.stringify(woday)}`)
+    return woday
+  }
 
-  // // returns array of unique, sorted ids
-  // getUniqueIds = () => {
-  //   const workouts = this.getWorkouts()
-  //   // make an array of the ids
-  //   let ids = Array.from(workouts, workout => workout.id)
-  //   // sort and ensure unique by converting to Set and back to array :)
-  //   let uniqueIds = Array.from(new Set(ids.sort()))
-  //   return uniqueIds
-  // }
+  updateWoDay = update => {
+    log.info(`updating existing woday with id ${update.id}`)
+    let wodays = this.getWodays()
+    let index = wodays.findIndex(woday => {
+      return Number(woday.id) === Number(update.id)
+    })
+    let currentWoday = { ...wodays[index] }
+    let merged = { ...currentWoday, ...update }
+    wodays[index] = merged
+    this._updateDb(wodays)
+    return merged
+  }
 
-  // addWorkouts = workouts => {
-  //   log.info(`adding workouts`)
-  //   if (Array.isArray(workouts)) {
-  //     workouts.forEach(workout => {
-  //       this.addWorkout(workout)
-  //     })
-  //   }
-  //   // validate()
-  // }
+  deleteWoday = id => {
+    log.info(`deleting existing woday with id ${id}`)
+    // TODO: validate the id
+    let wodays = this.getWoDays()
+    let index = wodays.findIndex(woday => {
+      return Number(woday.id) === Number(id)
+    })
+    log.info(`found index ${index} for woday id ${id}`)
+    let deletedWoday = wodays.splice(index, 1)
+    this._updateDb(wodays)
+    log.info(`deleted woday with id ${deletedWoday.id}`)
+    return deletedWoday
+  }
 
-  // addWorkout = workout => {
-  //   if (workout.id) {
-  //     // TODO: do a real lookup of the id to verify whether it exists.
-  //     log(NAME,`workout already has an id ${workout.id}, will not add.`)
-  //     return workout
-  //   }
-  //   log.info(`adding new workout ${JSON.stringify(workout)}`)
-  //   workout.id = this.dbUtils.assignId(workout)
-  //   log.info(`  assigning id ${workout.id} to workout.`)
-  //   var workouts = this.getWorkouts()
-  //   workouts.push(workout)
-  //   this.saveSets(workout.sets)
-  //   this._updateDb(workouts)
-  //   log.info(`  added new workout ${JSON.stringify(workout)}`)
-  //   return this.inflateWorkout(workout)
-  // }
 
-  // updateWorkout = update => {
-  //   log.info(`updating existing workout with id ${update.id}`)
-  //   let updatedWorkout = this.clearExercisesFromSets(update)
-  //   let workouts = this.getWorkouts()
-  //   let index = workouts.findIndex(workout => {
-  //     return Number(workout.id) === Number(update.id)
-  //   })
-  //   let currentWorkout = { ...workouts[index] }
-  //   let merged = { ...currentWorkout, ...updatedWorkout }
-  //   workouts[index] = merged
-  //   this.saveSets(updatedWorkout.sets)
-  //   this._updateDb(workouts)
-  //   return this.inflateWorkout(merged)
-  // }
-
-  // clearExercisesFromSets = workout => {
-  //   let cleanedSets = []
-  //   workout.sets.forEach(set => {
-  //     if (set.exercises) {
-  //       let exercises = set.exercises.map(exercise => {
-  //         return { id: exercise.id, reps: exercise.reps }
-  //       })
-  //       set.exercises = exercises
-  //     }
-  //     cleanedSets.push(set)
-  //   })
-
-  //   workout.sets = cleanedSets
-  //   return workout
-  // }
-
-  // deleteWorkout = id => {
-  //   log.info(`deleting existing workout with id ${id}`)
-  //   // TODO: validate the id
-  //   let workouts = this.getWorkouts()
-  //   let index = workouts.findIndex(workout => {
-  //     return Number(workout.id) === Number(id)
-  //   })
-  //   log.info(`found index ${index} for workout id ${id}`)
-  //   let deletedWorkout = workouts.splice(index, 1)
-  //   this._updateDb(workouts)
-  //   log.info(`deleted workout with id ${deletedWorkout.id}`)
-  //   // clean up deleted workout from any programs.
-  //   removeWorkoutFromPrograms(id)
-  //   return deletedWorkout
-  // }
-
-  // saveSets = sets => {
-  //   sets.forEach(set => {
-  //     if (set.id) {
-  //       log.info(`updating existing set with id ${set.id}`)
-  //       updateSet(set)
-  //     } else {
-  //       log.info(`updating existing set with id ${set.id}`)
-  //       addSet(set)
-  //     }
-  //   })
-  // }
-
-  // assignId = item => {
-  //   // if id is invalid, generate one.
-  //   if (typeof item.id === 'undefined' || item.id < 0) {
-  //     return this.generateNewId()
-  //   } else if (this.isIdInUse(item.id)) {
-  //     return this.generateNewId()
-  //   } else {
-  //     return item.id
-  //   }
-  // }
-
-  _updateDb = workouts => {
+  _updateDb = wodays => {
     this.dbUtils.updateDb(wodays, woDaysDbPath)
   }
 }

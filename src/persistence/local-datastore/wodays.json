@@ -1,4 +1,14 @@
 [{
+    "id":0,
+    "date":"2020-01-14",
+    "goals":"get jacked",
+    "weight":"140.8",
+    "energy": 85,
+    "sleep": 80,
+    "cardio":{
+        "exercises": []
+    },
+    "wo": {
     "exercises": [{
             "id": 0,
             "name": "dips",
@@ -53,5 +63,5 @@
                 }
             ]
         }
-    ]
+    ]}
 }]
