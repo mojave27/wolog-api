@@ -1,0 +1,85 @@
+[
+    {
+        "name": "WD1",
+        "description": "n/a",
+        "id": 0,
+        "sets": [
+            {
+                "id": 0,
+                "exercises": [
+                    {
+                        "id": 3,
+                        "reps": "",
+                        "name": "jammer",
+                        "type": "isolation"
+                    },
+                    {
+                        "id": 1,
+                        "reps": "",
+                        "name": "dips",
+                        "type": "compound"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1,
+        "name": "WD2",
+        "description": "8x8 DAY 1",
+        "type": "",
+        "sets": [
+            {
+                "id": 1,
+                "exercises": [
+                    {
+                        "id": 0,
+                        "reps": "8x8",
+                        "name": "chins",
+                        "type": "compound"
+                    },
+                    {
+                        "id": 1,
+                        "reps": "8x8",
+                        "name": "bench press",
+                        "type": "compound"
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "exercises": [
+                    {
+                        "id": 2,
+                        "reps": "8x8",
+                        "name": "row",
+                        "type": "compound"
+                    },
+                    {
+                        "id": 3,
+                        "reps": "8x8",
+                        "name": "dips",
+                        "type": "compound"
+                    }
+                ]
+            },
+            {
+                "id": 3,
+                "exercises": [
+                    {
+                        "id": 4,
+                        "reps": "8x8",
+                        "name": "curls",
+                        "type": "compound"
+                    },
+                    {
+                        "id": 5,
+                        "reps": "8x8",
+                        "name": "tricep pushdowns",
+                        "type": "compound"
+                    }
+                ]
+            }
+        ]
+    }
+]

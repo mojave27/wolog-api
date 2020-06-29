@@ -71,7 +71,7 @@ class WoDaysDao {
 
   updateWoDay = update => {
     log.info(`updating existing woday with id ${update.id}`)
-    let wodays = this.getWodays()
+    let wodays = this.getWoDays()
     let index = wodays.findIndex(woday => {
       return Number(woday.id) === Number(update.id)
     })
