@@ -1,37 +1,37 @@
 import WorkoutsDataSource from '../datasources/local/WorkoutsDataSource'
-const workoutsDataSource = new WorkoutsDataSource()
+const dataSource = new WorkoutsDataSource()
 // import validate from 'validate.js'
 
 //TODO: add logger
 exports.addWorkout = workout => {
-  return workoutsDataSource.addWorkout(workout)
+  return dataSource.addWorkout(workout)
 }
 
 // gets full workouts (inflates exercises in sets)
 exports.getWorkouts = () => {
-  return workoutsDataSource.getFullWorkouts()
+  return dataSource.getWorkouts()
 }
 
 exports.getWorkoutById = id => {
-  return workoutsDataSource.getWorkoutById(id)
+  return dataSource.getWorkoutById(id)
 }
 
 exports.updateWorkout = workout => {
-  return workoutsDataSource.updateWorkout(workout)
+  return dataSource.updateWorkout(workout)
 }
 
 exports.deleteWorkout = id => {
-  return workoutsDataSource.deleteWorkout(id)
+  return dataSource.deleteWorkout(id)
 }
 
 exports.removeSetFromWorkouts = id => {
-  let workouts = workoutsDataSource.getWorkouts()
+  let workouts = dataSource.getWorkouts()
   workouts.forEach( workout => {
     let index = workout.sets.findIndex( set => Number(set.id) === Number(id))
     if ( index >= 0 ) {
       console.log(`found set with id ${id} in workout with id ${workout.id}`)
       workout.sets.splice(index,1)      
-      workoutsDataSource.updateWorkout(workout)
+      dataSource.updateWorkout(workout)
     }
   })
 }

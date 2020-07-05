@@ -8,16 +8,33 @@
                 "id": 0,
                 "exercises": [
                     {
-                        "id": 3,
+                        "id": 0,
                         "reps": "",
-                        "name": "jammer",
-                        "type": "isolation"
+                        "name": "squats",
+                        "type": "compound"
                     },
                     {
                         "id": 1,
                         "reps": "",
-                        "name": "dips",
-                        "type": "compound"
+                        "name": "jammer",
+                        "type": "isolation"
+                    }
+                ]
+            },
+            {
+                "id": 1,
+                "exercises": [
+                    {
+                        "id": 2,
+                        "reps": "",
+                        "name": "lat raise",
+                        "type": "isolation"
+                    },
+                    {
+                        "id": 3,
+                        "reps": "",
+                        "name": "shrugs",
+                        "type": "isolation"
                     }
                 ]
             }

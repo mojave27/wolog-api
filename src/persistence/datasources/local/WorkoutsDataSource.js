@@ -1,7 +1,7 @@
 import DbUtils from '../../DbUtils'
 var fs = require('fs')
 import { workoutsDbPath } from '../../../config/local-db-config'
-import { addSet, getInflatedSetById, updateSet } from '../../dao/SetsDao'
+// import { addSet, getInflatedSetById, updateSet } from '../../dao/SetsDao'
 import { removeWorkoutFromPrograms } from '../../dao/ProgramsDao'
 import { isUndefined } from 'lodash'
 import Logger from '../../../logging/Logger'
@@ -27,39 +27,39 @@ class WorkoutsDao {
     }
   }
 
-  getFullWorkouts = () => {
-    log.info(`getting full workouts`)
-    if (fs.existsSync(workoutsDbPath)) {
-      let workoutsJson = fs.readFileSync(workoutsDbPath, 'utf8')
-      let workouts = JSON.parse(workoutsJson)
-      let fullWorkouts = this.inflateWorkouts(workouts)
-      return fullWorkouts
-    } else {
-      throw new Error('workout db failure.')
-    }
-  }
+  // getFullWorkouts = () => {
+  //   log.info(`getting full workouts`)
+  //   if (fs.existsSync(workoutsDbPath)) {
+  //     let workoutsJson = fs.readFileSync(workoutsDbPath, 'utf8')
+  //     let workouts = JSON.parse(workoutsJson)
+  //     let fullWorkouts = this.inflateWorkouts(workouts)
+  //     return fullWorkouts
+  //   } else {
+  //     throw new Error('workout db failure.')
+  //   }
+  // }
 
-  inflateWorkouts = workouts => {
-    log.info(`inflating workouts`)
-    return workouts.map(wo => {
-      return this.inflateWorkout(wo)
-    })
-  }
+  // inflateWorkouts = workouts => {
+  //   log.info(`inflating workouts`)
+  //   return workouts.map(wo => {
+  //     return this.inflateWorkout(wo)
+  //   })
+  // }
 
-  inflateWorkout = workout => {
-    log.info(`inflating workout`)
-    let inflatedSets = workout.sets.map(set => {
-      return getInflatedSetById(set.id)
-    })
-    let inflatedWorkout = { ...workout }
-    inflatedWorkout.sets = inflatedSets
-    return inflatedWorkout
-  }
+  // inflateWorkout = workout => {
+  //   log.info(`inflating workout`)
+  //   let inflatedSets = workout.sets.map(set => {
+  //     return getInflatedSetById(set.id)
+  //   })
+  //   let inflatedWorkout = { ...workout }
+  //   inflatedWorkout.sets = inflatedSets
+  //   return inflatedWorkout
+  // }
 
   getWorkoutById = id => {
     log.info(`getting workout with id ${id}`)
     // TODO: validate the id
-    const workouts = this.getFullWorkouts()
+    const workouts = this.getWorkouts()
     let foundWorkout = workouts.find(workout => {
       return workout.id == id
     })
@@ -105,10 +105,10 @@ class WorkoutsDao {
     log.info(`  assigning id ${workout.id} to workout.`)
     var workouts = this.getWorkouts()
     workouts.push(workout)
-    this.saveSets(workout.sets)
+    // this.saveSets(workout.sets)
     this._updateDb(workouts)
     log.info(`  added new workout ${JSON.stringify(workout)}`)
-    return this.inflateWorkout(workout)
+    return workout
   }
 
   updateWorkout = update => {
@@ -121,9 +121,9 @@ class WorkoutsDao {
     let currentWorkout = { ...workouts[index] }
     let merged = { ...currentWorkout, ...updatedWorkout }
     workouts[index] = merged
-    this.saveSets(updatedWorkout.sets)
+    // this.saveSets(updatedWorkout.sets)
     this._updateDb(workouts)
-    return this.inflateWorkout(merged)
+    return merged
   }
 
   clearExercisesFromSets = workout => {
@@ -131,7 +131,8 @@ class WorkoutsDao {
     workout.sets.forEach(set => {
       if (set.exercises) {
         let exercises = set.exercises.map(exercise => {
-          return { id: exercise.id, reps: exercise.reps }
+          console.log(exercise)
+          return { id: exercise.id, name: exercise.name, reps: exercise.reps }
         })
         set.exercises = exercises
       }
@@ -158,17 +159,17 @@ class WorkoutsDao {
     return deletedWorkout
   }
 
-  saveSets = sets => {
-    sets.forEach(set => {
-      if (set.id) {
-        log.info(`updating existing set with id ${set.id}`)
-        updateSet(set)
-      } else {
-        log.info(`updating existing set with id ${set.id}`)
-        addSet(set)
-      }
-    })
-  }
+  // saveSets = sets => {
+  //   sets.forEach(set => {
+  //     if (set.id) {
+  //       log.info(`updating existing set with id ${set.id}`)
+  //       updateSet(set)
+  //     } else {
+  //       log.info(`updating existing set with id ${set.id}`)
+  //       addSet(set)
+  //     }
+  //   })
+  // }
 
   assignId = item => {
     // if id is invalid, generate one.
