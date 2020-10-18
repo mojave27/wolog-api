@@ -127,19 +127,20 @@ class WorkoutsDao {
   }
 
   clearExercisesFromSets = workout => {
-    let cleanedSets = []
-    workout.sets.forEach(set => {
-      if (set.exercises) {
-        let exercises = set.exercises.map(exercise => {
+    console.log(JSON.stringify(workout))
+    let cleanedExGroups = []
+    workout.exerciseGroups.forEach(exGroup => {
+      if (exGroup.exercises) {
+        let exercises = exGroup.exercises.map(exercise => {
           console.log(exercise)
           return { id: exercise.id, name: exercise.name, reps: exercise.reps }
         })
-        set.exercises = exercises
+        exGroup.exercises = exercises
       }
-      cleanedSets.push(set)
+      cleanedExGroups.push(exGroup)
     })
 
-    workout.sets = cleanedSets
+    workout.exGroup = cleanedExGroups
     return workout
   }
 

@@ -25,7 +25,6 @@ class WoDaysDao {
     }
   }
 
-
   getWoDayById = id => {
     log.info(`getting woday with id ${id}`)
     // TODO: validate the id
@@ -42,7 +41,6 @@ class WoDaysDao {
     return foundWoDay
   }
 
-
   addWoDays = wodays => {
     log.info(`adding wodays`)
     if (Array.isArray(wodays)) {
@@ -54,10 +52,10 @@ class WoDaysDao {
   }
 
   addWoDay = woday => {
-    if (woday.id) {
-      // TODO: do a real lookup of the id to verify whether it exists.
-      log(NAME,`woday already has an id ${workout.id}, will not add.`)
-      return woday
+    if (woday.id !== -1) {
+      throw new Error(
+        `woday already has an id ${woday.id}, will not add. try updating instead.`
+      )
     }
     log.info(`adding new woday ${JSON.stringify(woday)}`)
     woday.id = this.dbUtils.assignId(woday)
@@ -75,6 +73,9 @@ class WoDaysDao {
     let index = wodays.findIndex(woday => {
       return Number(woday.id) === Number(update.id)
     })
+    if (index === -1) {
+      this.addWoDay(update)
+    }
     let currentWoday = { ...wodays[index] }
     let merged = { ...currentWoday, ...update }
     wodays[index] = merged
@@ -82,7 +83,7 @@ class WoDaysDao {
     return merged
   }
 
-  deleteWoday = id => {
+  deleteWoDay = id => {
     log.info(`deleting existing woday with id ${id}`)
     // TODO: validate the id
     let wodays = this.getWoDays()
@@ -95,7 +96,6 @@ class WoDaysDao {
     log.info(`deleted woday with id ${deletedWoday.id}`)
     return deletedWoday
   }
-
 
   _updateDb = wodays => {
     this.dbUtils.updateDb(wodays, woDaysDbPath)

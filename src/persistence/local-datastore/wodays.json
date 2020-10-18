@@ -1,1 +1,3681 @@
-[{"id":0,"date":{"day":14,"month":5,"year":2020},"goals":"grow","weight":"150.2","energy":3,"sleep":7,"cardio":{"headers":["type","duration","distance","heart rate"],"exercises":[{"id":0,"type":"steady state jog","duration":"30 min","distance":"","heartRate":"120 bpm"},{"id":1,"type":"HIIT","duration":"20 min","distance":"","heartRate":"150 bpm"}]},"wo":{"exerciseGroups":[{"id":0,"exercises":[{"id":0,"name":"dips","targets":"8x8"},{"id":1,"name":"chins","targets":"10x3"}]},{"id":1,"exercises":[{"id":2,"name":"squats","targets":"10x3"},{"id":3,"name":"tri pshdn","targets":"3x10"}]},{"id":2,"exercises":[{"id":4,"name":"curls","targets":"3x10"},{"id":5,"name":"lat raise","targets":"3x10"},{"id":6,"name":"partial rear delts","targets":"3x10"}]}],"sets":[{"id":0,"exerciseGroups":[{"id":0,"exercises":[{"id":0,"weight":"20","reps":"8"},{"id":1,"weight":0,"reps":"8"}]},{"id":1,"exercises":[{"id":2,"weight":0,"reps":"8"},{"id":3,"weight":45,"reps":"8"}]},{"id":2,"exercises":[{"id":4,"weight":45,"reps":"8"},{"id":5,"weight":45,"reps":"8"},{"id":6,"weight":45,"reps":"8"}]}]}]}}]
+[{
+  "id": 0,
+  "date": {
+    "day": 25,
+    "month": 8,
+    "year": 2020
+  },
+  "goals": "cut",
+  "weight": "143",
+  "energy": 3,
+  "sleep": 7,
+  "cardio": {
+    "headers": ["type", "duration", "distance", "heart rate"],
+    "exercises": [{
+      "id": 0,
+      "type": "steady state jog",
+      "duration": "30 min",
+      "distance": "",
+      "heartRate": "120 bpm"
+    }, {
+      "id": 1,
+      "type": "HIIT",
+      "duration": "20 min",
+      "distance": "",
+      "heartRate": "150 bpm"
+    }]
+  },
+  "wo": {
+    "id": 1,
+    "name": "WD2",
+    "description": "8x8 DAY 1",
+    "type": "",
+    "exerciseGroups": [{
+      "id": 1,
+      "exercises": [{
+        "id": 0,
+        "reps": "8x8",
+        "name": "chins",
+        "type": "compound"
+      }, {
+        "id": 1,
+        "reps": "8x8",
+        "name": "bench press",
+        "type": "compound"
+      }]
+    }, {
+      "id": 2,
+      "exercises": [{
+        "id": 2,
+        "reps": "8x8",
+        "name": "row",
+        "type": "compound"
+      }, {
+        "id": 3,
+        "reps": "8x8",
+        "name": "dips",
+        "type": "compound"
+      }]
+    }, {
+      "id": 3,
+      "exercises": [{
+        "id": 4,
+        "reps": "8x8",
+        "name": "curls",
+        "type": "compound"
+      }, {
+        "id": 5,
+        "reps": "8x8",
+        "name": "tricep pushdowns",
+        "type": "compound"
+      }]
+    }],
+    "sets": [{
+      "id": 0,
+      "exerciseGroups": [{
+        "id": 1,
+        "exercises": [{
+          "id": 0,
+          "reps": 0,
+          "name": "chins",
+          "weight": 0
+        }, {
+          "id": 1,
+          "reps": 0,
+          "name": "bench press",
+          "weight": 0
+        }]
+      }, {
+        "id": 2,
+        "exercises": [{
+          "id": 2,
+          "reps": 0,
+          "name": "row",
+          "weight": 0
+        }, {
+          "id": 3,
+          "reps": 0,
+          "name": "dips",
+          "weight": 0
+        }]
+      }, {
+        "id": 3,
+        "exercises": [{
+          "id": 4,
+          "reps": 0,
+          "name": "curls",
+          "weight": 0
+        }, {
+          "id": 5,
+          "reps": 0,
+          "name": "tricep pushdowns",
+          "weight": 0
+        }]
+      }]
+    }]
+  }
+}, {
+  "id": 1,
+  "date": {
+    "day": "6",
+    "month": "6",
+    "year": "2020"
+  },
+  "goals": "",
+  "weight": "",
+  "energy": 50,
+  "sleep": 50,
+  "cardio": {
+    "headers": ["type", "duration", "distance", "heart rate"],
+    "exercises": []
+  },
+  "wo": {
+    "exerciseGroups": [{
+      "id": 0,
+      "exercises": []
+    }],
+    "sets": [{
+      "id": 0,
+      "exerciseGroups": [{
+        "id": 0,
+        "exercises": []
+      }]
+    }]
+  }
+}, {
+  "id": 2,
+  "date": {
+    "day": "7",
+    "month": "6",
+    "year": "2020"
+  },
+  "goals": "",
+  "weight": "",
+  "energy": 50,
+  "sleep": 50,
+  "cardio": {
+    "headers": ["type", "duration", "distance", "heart rate"],
+    "exercises": []
+  },
+  "wo": {
+    "exerciseGroups": [{
+      "id": 0,
+      "exercises": []
+    }],
+    "sets": [{
+      "id": 0,
+      "exerciseGroups": [{
+        "id": 0,
+        "exercises": []
+      }]
+    }]
+  }
+}, {
+  "id": 3,
+  "date": {
+    "day": "7",
+    "month": "6",
+    "year": "2020"
+  },
+  "goals": "",
+  "weight": "",
+  "energy": 50,
+  "sleep": 50,
+  "cardio": {
+    "headers": ["type", "duration", "distance", "heart rate"],
+    "exercises": []
+  },
+  "wo": {
+    "name": "test",
+    "description": " test",
+    "exerciseGroups": [{
+      "exercises": [{
+        "id": 22,
+        "name": "bench press",
+        "reps": "8x8"
+      }],
+      "id": 1
+    }, {
+      "id": 2,
+      "exercises": [{
+        "id": 0,
+        "name": "chins",
+        "reps": "8x8",
+        "weight": 0
+      }]
+    }],
+    "sets": [{
+      "id": 0,
+      "exerciseGroups": [{
+        "id": 1,
+        "exercises": [{
+          "id": 22,
+          "name": "bench press",
+          "reps": 0,
+          "weight": 0
+        }]
+      }, {
+        "id": 2,
+        "exercises": [{
+          "id": 0,
+          "name": "chins",
+          "reps": "8x8",
+          "weight": 0
+        }]
+      }]
+    }],
+    "id": 2,
+    "exGroup": [{
+      "exercises": [{
+        "id": 22,
+        "name": "bench press",
+        "reps": "11"
+      }],
+      "id": 1
+    }]
+  }
+}, {
+  "id": 4,
+  "date": {
+    "day": "7",
+    "month": "6",
+    "year": "2020"
+  },
+  "goals": "testing",
+  "weight": "150",
+  "energy": 3,
+  "sleep": 4,
+  "cardio": {
+    "headers": ["type", "duration", "distance", "heart rate"],
+    "exercises": []
+  },
+  "wo": {
+    "name": "test",
+    "description": " test",
+    "exerciseGroups": [{
+      "exercises": [{
+        "id": 22,
+        "name": "bench press",
+        "reps": "8x8"
+      }],
+      "id": 1
+    }, {
+      "id": 2,
+      "exercises": [{
+        "id": 0,
+        "name": "chins",
+        "reps": "8x8",
+        "weight": 0
+      }]
+    }],
+    "sets": [{
+      "id": 0,
+      "exerciseGroups": [{
+        "id": 1,
+        "exercises": [{
+          "id": 22,
+          "name": "bench press",
+          "reps": "8",
+          "weight": "52"
+        }]
+      }, {
+        "id": 2,
+        "exercises": [{
+          "id": 0,
+          "name": "",
+          "reps": "8",
+          "weight": "bw"
+        }]
+      }]
+    }],
+    "id": 2,
+    "exGroup": [{
+      "exercises": [{
+        "id": 22,
+        "name": "bench press",
+        "reps": "11"
+      }],
+      "id": 1
+    }]
+  }
+}, {
+  "id": 5,
+  "date": {
+    "day": "7",
+    "month": "6",
+    "year": "2020"
+  },
+  "goals": "",
+  "weight": "",
+  "energy": 50,
+  "sleep": 50,
+  "cardio": {
+    "headers": ["type", "duration", "distance", "heart rate"],
+    "exercises": []
+  },
+  "wo": {
+    "exerciseGroups": [{
+      "id": 0,
+      "exercises": []
+    }, {
+      "id": 1,
+      "exercises": [{
+        "id": 0,
+        "name": "some exercise",
+        "reps": "some reps",
+        "weight": 0
+      }]
+    }],
+    "sets": [{
+      "id": 0,
+      "exerciseGroups": [{
+        "id": 0,
+        "exercises": []
+      }, {
+        "id": 1,
+        "exercises": [{
+          "id": 0,
+          "name": "",
+          "reps": "10",
+          "weight": "10"
+        }]
+      }]
+    }]
+  }
+}, {
+  "id": 6,
+  "date": {
+    "day": "7",
+    "month": "6",
+    "year": "2020"
+  },
+  "goals": "build 8x8",
+  "weight": "",
+  "energy": 8,
+  "sleep": 7,
+  "cardio": {
+    "headers": ["type", "duration", "distance", "heart rate"],
+    "exercises": []
+  },
+  "wo": {
+    "name": "shoulders only 8x8",
+    "description": "",
+    "exerciseGroups": [{
+      "exercises": [{
+        "name": "lat raise",
+        "type": "isolation",
+        "id": 2,
+        "reps": "8x8"
+      }, {
+        "name": "shrugs",
+        "type": "isolation",
+        "id": 12,
+        "reps": "8x8"
+      }],
+      "id": 1
+    }, {
+      "exercises": [{
+        "name": "jammer",
+        "type": "isolation",
+        "id": 3,
+        "reps": "8x8"
+      }],
+      "id": 2
+    }],
+    "sets": [{
+      "id": 0,
+      "exerciseGroups": [{
+        "id": 1,
+        "exercises": [{
+          "name": "lat raise",
+          "id": 2,
+          "reps": "8",
+          "weight": "25"
+        }, {
+          "name": "shrugs",
+          "id": 12,
+          "reps": "8",
+          "weight": "112"
+        }]
+      }, {
+        "id": 2,
+        "exercises": [{
+          "name": "jammer",
+          "id": 3,
+          "reps": "8",
+          "weight": "40"
+        }]
+      }]
+    }, {
+      "id": 1,
+      "exerciseGroups": [{
+        "id": 1,
+        "exercises": [{
+          "id": 2,
+          "weight": "25",
+          "reps": "8"
+        }, {
+          "id": 12,
+          "weight": "112",
+          "reps": "8"
+        }]
+      }, {
+        "id": 2,
+        "exercises": [{
+          "id": 3,
+          "weight": "40",
+          "reps": "8"
+        }]
+      }]
+    }, {
+      "id": 2,
+      "exerciseGroups": [{
+        "id": 1,
+        "exercises": [{
+          "id": 2,
+          "weight": "",
+          "reps": ""
+        }, {
+          "id": 12,
+          "weight": "",
+          "reps": ""
+        }]
+      }, {
+        "id": 2,
+        "exercises": [{
+          "id": 3,
+          "weight": "",
+          "reps": ""
+        }]
+      }]
+    }],
+    "id": 3
+  }
+}, {
+  "id": 7,
+  "date": {
+    "day": "27",
+    "month": "8",
+    "year": "2020"
+  },
+  "goals": "none",
+  "weight": "143",
+  "energy": 3,
+  "sleep": 8,
+  "cardio": {
+    "headers": ["type", "duration", "distance", "heart rate"],
+    "exercises": []
+  },
+  "wo": {
+    "exerciseGroups": [{
+      "id": 0,
+      "exercises": []
+    }],
+    "sets": [{
+      "id": 0,
+      "exerciseGroups": [{
+        "id": 0,
+        "exercises": []
+      }]
+    }]
+  }
+}, {
+  "id": 8,
+  "date": {
+    "day": "27",
+    "month": "8",
+    "year": "2020"
+  },
+  "goals": "none",
+  "weight": "143",
+  "energy": 5,
+  "sleep": 9,
+  "cardio": {
+    "headers": ["type", "duration", "distance", "heart rate"],
+    "exercises": [{
+      "id": "0-1",
+      "name": "duration",
+      "value": "t"
+    }]
+  },
+  "wo": {
+    "id": 1,
+    "name": "WD2",
+    "description": "8x8 DAY 1",
+    "type": "",
+    "exerciseGroups": [{
+      "id": 1,
+      "exercises": [{
+        "id": 0,
+        "reps": "8x8",
+        "name": "chins",
+        "type": "compound"
+      }, {
+        "id": 1,
+        "reps": "8x8",
+        "name": "bench press",
+        "type": "compound"
+      }]
+    }, {
+      "id": 2,
+      "exercises": [{
+        "id": 2,
+        "reps": "8x8",
+        "name": "row",
+        "type": "compound"
+      }, {
+        "id": 3,
+        "reps": "8x8",
+        "name": "dips",
+        "type": "compound"
+      }]
+    }, {
+      "id": 3,
+      "exercises": [{
+        "id": 4,
+        "reps": "8x8",
+        "name": "curls",
+        "type": "compound"
+      }, {
+        "id": 5,
+        "reps": "8x8",
+        "name": "tricep pushdowns",
+        "type": "compound"
+      }]
+    }],
+    "sets": [{
+      "id": 0,
+      "exerciseGroups": [{
+        "id": 1,
+        "exercises": [{
+          "id": 0,
+          "reps": 0,
+          "name": "chins",
+          "weight": 0
+        }, {
+          "id": 1,
+          "reps": 0,
+          "name": "bench press",
+          "weight": 0
+        }]
+      }, {
+        "id": 2,
+        "exercises": [{
+          "id": 2,
+          "reps": 0,
+          "name": "row",
+          "weight": 0
+        }, {
+          "id": 3,
+          "reps": 0,
+          "name": "dips",
+          "weight": 0
+        }]
+      }, {
+        "id": 3,
+        "exercises": [{
+          "id": 4,
+          "reps": 0,
+          "name": "curls",
+          "weight": 0
+        }, {
+          "id": 5,
+          "reps": 0,
+          "name": "tricep pushdowns",
+          "weight": 0
+        }]
+      }]
+    }]
+  }
+}, {
+  "id": 9,
+  "date": {
+    "day": "27",
+    "month": "8",
+    "year": "2020"
+  },
+  "goals": "none",
+  "weight": "143",
+  "energy": 5,
+  "sleep": 7,
+  "cardio": {
+    "headers": ["type", "duration", "distance", "heart rate"],
+    "exercises": [{
+      "id": 0,
+      "type": "",
+      "duration": "",
+      "distance": "",
+      "heartRate": "? bpm"
+    }]
+  },
+  "wo": {
+    "exerciseGroups": [{
+      "id": 0,
+      "exercises": []
+    }],
+    "sets": [{
+      "id": 0,
+      "exerciseGroups": [{
+        "id": 0,
+        "exercises": []
+      }]
+    }]
+  }
+}, {
+  "id": 10,
+  "date": {
+    "day": "27",
+    "month": "8",
+    "year": "2020"
+  },
+  "goals": "",
+  "weight": "",
+  "energy": 50,
+  "sleep": 50,
+  "cardio": {
+    "headers": ["type", "duration", "distance", "heart rate"],
+    "exercises": []
+  },
+  "wo": {
+    "exerciseGroups": [{
+      "id": 0,
+      "exercises": []
+    }],
+    "sets": [{
+      "id": 0,
+      "exerciseGroups": [{
+        "id": 0,
+        "exercises": []
+      }]
+    }]
+  }
+}, {
+  "id": 11,
+  "date": {
+    "day": "27",
+    "month": "8",
+    "year": "2020"
+  },
+  "goals": "",
+  "weight": "",
+  "energy": 50,
+  "sleep": 50,
+  "cardio": {
+    "headers": ["type", "duration", "distance", "heart rate"],
+    "exercises": [{
+      "id": "0-1",
+      "name": "duration",
+      "value": "t"
+    }]
+  },
+  "wo": {
+    "id": 1,
+    "name": "WD2",
+    "description": "8x8 DAY 1",
+    "type": "",
+    "exerciseGroups": [{
+      "id": 1,
+      "exercises": [{
+        "id": 0,
+        "reps": "8x8",
+        "name": "chins",
+        "type": "compound"
+      }, {
+        "id": 1,
+        "reps": "8x8",
+        "name": "bench press",
+        "type": "compound"
+      }]
+    }, {
+      "id": 2,
+      "exercises": [{
+        "id": 2,
+        "reps": "8x8",
+        "name": "row",
+        "type": "compound"
+      }, {
+        "id": 3,
+        "reps": "8x8",
+        "name": "dips",
+        "type": "compound"
+      }]
+    }, {
+      "id": 3,
+      "exercises": [{
+        "id": 4,
+        "reps": "8x8",
+        "name": "curls",
+        "type": "compound"
+      }, {
+        "id": 5,
+        "reps": "8x8",
+        "name": "tricep pushdowns",
+        "type": "compound"
+      }]
+    }],
+    "sets": [{
+      "id": 0,
+      "exerciseGroups": [{
+        "id": 1,
+        "exercises": [{
+          "id": 0,
+          "reps": "8",
+          "name": "chins",
+          "weight": "2"
+        }, {
+          "id": 1,
+          "reps": "8",
+          "name": "bench press",
+          "weight": "57"
+        }]
+      }, {
+        "id": 2,
+        "exercises": [{
+          "id": 2,
+          "reps": 0,
+          "name": "row",
+          "weight": 0
+        }, {
+          "id": 3,
+          "reps": 0,
+          "name": "dips",
+          "weight": 0
+        }]
+      }, {
+        "id": 3,
+        "exercises": [{
+          "id": 4,
+          "reps": 0,
+          "name": "curls",
+          "weight": 0
+        }, {
+          "id": 5,
+          "reps": 0,
+          "name": "tricep pushdowns",
+          "weight": 0
+        }]
+      }]
+    }, {
+      "id": 1,
+      "exerciseGroups": [{
+        "id": 1,
+        "exercises": [{
+          "id": 0,
+          "weight": "2",
+          "reps": "8"
+        }, {
+          "id": 1,
+          "weight": "57",
+          "reps": "8"
+        }]
+      }, {
+        "id": 2,
+        "exercises": [{
+          "id": 2,
+          "weight": "",
+          "reps": ""
+        }, {
+          "id": 3,
+          "weight": "",
+          "reps": ""
+        }]
+      }, {
+        "id": 3,
+        "exercises": [{
+          "id": 4,
+          "weight": "",
+          "reps": ""
+        }, {
+          "id": 5,
+          "weight": "",
+          "reps": ""
+        }]
+      }]
+    }, {
+      "id": 2,
+      "exerciseGroups": [{
+        "id": 1,
+        "exercises": [{
+          "id": 0,
+          "weight": "2",
+          "reps": "8"
+        }, {
+          "id": 1,
+          "weight": "57",
+          "reps": "8"
+        }]
+      }, {
+        "id": 2,
+        "exercises": [{
+          "id": 2,
+          "weight": "",
+          "reps": ""
+        }, {
+          "id": 3,
+          "weight": "",
+          "reps": ""
+        }]
+      }, {
+        "id": 3,
+        "exercises": [{
+          "id": 4,
+          "weight": "",
+          "reps": ""
+        }, {
+          "id": 5,
+          "weight": "",
+          "reps": ""
+        }]
+      }]
+    }, {
+      "id": 3,
+      "exerciseGroups": [{
+        "id": 1,
+        "exercises": [{
+          "id": 0,
+          "weight": "2",
+          "reps": "8"
+        }, {
+          "id": 1,
+          "weight": "57",
+          "reps": "8"
+        }]
+      }, {
+        "id": 2,
+        "exercises": [{
+          "id": 2,
+          "weight": "",
+          "reps": ""
+        }, {
+          "id": 3,
+          "weight": "",
+          "reps": ""
+        }]
+      }, {
+        "id": 3,
+        "exercises": [{
+          "id": 4,
+          "weight": "",
+          "reps": ""
+        }, {
+          "id": 5,
+          "weight": "",
+          "reps": ""
+        }]
+      }]
+    }, {
+      "id": 4,
+      "exerciseGroups": [{
+        "id": 1,
+        "exercises": [{
+          "id": 0,
+          "weight": "",
+          "reps": ""
+        }, {
+          "id": 1,
+          "weight": "",
+          "reps": ""
+        }]
+      }, {
+        "id": 2,
+        "exercises": [{
+          "id": 2,
+          "weight": "",
+          "reps": ""
+        }, {
+          "id": 3,
+          "weight": "",
+          "reps": ""
+        }]
+      }, {
+        "id": 3,
+        "exercises": [{
+          "id": 4,
+          "weight": "",
+          "reps": ""
+        }, {
+          "id": 5,
+          "weight": "",
+          "reps": ""
+        }]
+      }]
+    }]
+  }
+}, {
+  "id": 12,
+  "date": {
+    "day": "27",
+    "month": "8",
+    "year": "2020"
+  },
+  "goals": "",
+  "weight": "",
+  "energy": 50,
+  "sleep": 50,
+  "cardio": {
+    "headers": ["type", "duration", "distance", "heart rate"],
+    "exercises": [{
+      "id": 0,
+      "type": "",
+      "duration": "50 minutes",
+      "distance": "n/a",
+      "heartRate": "? bpm"
+    }]
+  },
+  "wo": {
+    "exerciseGroups": [{
+      "id": 0,
+      "exercises": []
+    }],
+    "sets": [{
+      "id": 0,
+      "exerciseGroups": [{
+        "id": 0,
+        "exercises": []
+      }]
+    }]
+  }
+}, {
+  "id": 13,
+  "date": {
+    "day": "27",
+    "month": "8",
+    "year": "2020"
+  },
+  "goals": "none",
+  "weight": "143",
+  "energy": 4,
+  "sleep": 8,
+  "cardio": {
+    "headers": ["type", "duration", "distance", "heart rate"],
+    "exercises": [{
+      "id": 0,
+      "type": "",
+      "duration": "50",
+      "distance": "n/a",
+      "heartRate": "? bpm",
+      "heart rate": "? bp"
+    }]
+  },
+  "wo": {
+    "exerciseGroups": [{
+      "id": 0,
+      "exercises": []
+    }],
+    "sets": [{
+      "id": 0,
+      "exerciseGroups": [{
+        "id": 0,
+        "exercises": []
+      }]
+    }]
+  }
+}, {
+  "id": 14,
+  "date": {
+    "day": "27",
+    "month": "8",
+    "year": "2020"
+  },
+  "goals": "",
+  "weight": "",
+  "energy": 50,
+  "sleep": 50,
+  "cardio": {
+    "headers": ["delete", "type", "duration", "distance", "heart rate"],
+    "exercises": [{
+      "id": 0,
+      "type": "walk",
+      "duration": "30 min",
+      "distance": "",
+      "heartRate": "? bpm"
+    }]
+  },
+  "wo": {
+    "name": "8x8 L1",
+    "description": "n/a",
+    "id": 4,
+    "exerciseGroups": [{
+      "id": 0,
+      "exercises": [{
+        "id": 0,
+        "name": "squats",
+        "reps": ""
+      }, {
+        "id": 1,
+        "name": "jammer",
+        "reps": ""
+      }]
+    }, {
+      "id": 1,
+      "exercises": [{
+        "id": 2,
+        "name": "lat raise",
+        "reps": ""
+      }, {
+        "id": 3,
+        "name": "shrugs",
+        "reps": ""
+      }]
+    }],
+    "exGroup": [{
+      "id": 0,
+      "exercises": [{
+        "id": 0,
+        "name": "squats",
+        "reps": ""
+      }, {
+        "id": 1,
+        "name": "jammer",
+        "reps": ""
+      }]
+    }, {
+      "id": 1,
+      "exercises": [{
+        "id": 2,
+        "name": "lat raise",
+        "reps": ""
+      }, {
+        "id": 3,
+        "name": "shrugs",
+        "reps": ""
+      }]
+    }],
+    "sets": [{
+      "id": 0,
+      "exerciseGroups": [{
+        "id": 0,
+        "exercises": [{
+          "id": 0,
+          "name": "squats",
+          "reps": 0,
+          "weight": 0
+        }, {
+          "id": 1,
+          "name": "jammer",
+          "reps": 0,
+          "weight": 0
+        }]
+      }, {
+        "id": 1,
+        "exercises": [{
+          "id": 2,
+          "name": "lat raise",
+          "reps": 0,
+          "weight": 0
+        }, {
+          "id": 3,
+          "name": "shrugs",
+          "reps": 0,
+          "weight": 0
+        }]
+      }]
+    }, {
+      "id": 1,
+      "exerciseGroups": [{
+        "id": 0,
+        "exercises": [{
+          "id": 0,
+          "weight": "",
+          "reps": ""
+        }, {
+          "id": 1,
+          "weight": "",
+          "reps": ""
+        }]
+      }, {
+        "id": 1,
+        "exercises": [{
+          "id": 2,
+          "weight": "",
+          "reps": ""
+        }, {
+          "id": 3,
+          "weight": "",
+          "reps": ""
+        }]
+      }]
+    }]
+  }
+}, {
+  "id": 15,
+  "date": {
+    "day": 29,
+    "month": 8,
+    "year": 2020
+  },
+  "goals": "none",
+  "weight": "143",
+  "energy": 6,
+  "sleep": 7,
+  "cardio": {
+    "headers": ["delete", "type", "duration", "distance", "heart rate"],
+    "exercises": [{
+      "id": 0,
+      "type": "walking",
+      "duration": "25 min",
+      "distance": "",
+      "heartRate": "? bpm"
+    }]
+  },
+  "wo": {
+    "name": "8x8 U2",
+    "description": "upper workout 2 in 8x8 routine",
+    "exerciseGroups": [{
+      "exercises": [{
+        "id": 0,
+        "name": "chins",
+        "reps": "8"
+      }, {
+        "id": 20,
+        "name": "incline bench press",
+        "reps": "8"
+      }],
+      "id": 1
+    }, {
+      "exercises": [{
+        "id": 0,
+        "name": "dips",
+        "reps": "8"
+      }, {
+        "id": 24,
+        "name": "row, cable (narrow)",
+        "reps": "8"
+      }],
+      "id": 2
+    }, {
+      "exercises": [{
+        "id": 11,
+        "name": "bb curl",
+        "reps": "8"
+      }, {
+        "id": 23,
+        "name": "tricep pushdown (straight bar)",
+        "reps": "8"
+      }],
+      "id": 3
+    }],
+    "sets": [{
+      "id": 0,
+      "exerciseGroups": [{
+        "id": 1,
+        "exercises": [{
+          "id": 0,
+          "name": "chins",
+          "reps": "8",
+          "weight": "2"
+        }, {
+          "id": 20,
+          "name": "incline bench press",
+          "reps": "8",
+          "weight": "43"
+        }]
+      }, {
+        "id": 2,
+        "exercises": [{
+          "id": 0,
+          "name": "chins",
+          "reps": "8",
+          "weight": "25"
+        }, {
+          "id": 24,
+          "name": "row, cable (narrow)",
+          "reps": "8",
+          "weight": "100"
+        }]
+      }, {
+        "id": 3,
+        "exercises": [{
+          "id": 11,
+          "name": "bb curl",
+          "reps": "8",
+          "weight": "15"
+        }, {
+          "id": 23,
+          "name": "tricep pushdown (straight bar)",
+          "reps": "8",
+          "weight": "62"
+        }]
+      }]
+    }, {
+      "id": 1,
+      "exerciseGroups": [{
+        "id": 1,
+        "exercises": [{
+          "id": 0,
+          "weight": "2",
+          "reps": "8"
+        }, {
+          "id": 20,
+          "weight": "43",
+          "reps": "8"
+        }]
+      }, {
+        "id": 2,
+        "exercises": [{
+          "id": 0,
+          "weight": "25",
+          "reps": "8"
+        }, {
+          "id": 24,
+          "weight": "100",
+          "reps": "8"
+        }]
+      }, {
+        "id": 3,
+        "exercises": [{
+          "id": 11,
+          "weight": "15",
+          "reps": "8"
+        }, {
+          "id": 23,
+          "weight": "62",
+          "reps": "8"
+        }]
+      }]
+    }, {
+      "id": 2,
+      "exerciseGroups": [{
+        "id": 1,
+        "exercises": [{
+          "id": 0,
+          "weight": "2",
+          "reps": "8"
+        }, {
+          "id": 20,
+          "weight": "43",
+          "reps": "8"
+        }]
+      }, {
+        "id": 2,
+        "exercises": [{
+          "id": 0,
+          "weight": "25",
+          "reps": "8"
+        }, {
+          "id": 24,
+          "weight": "100",
+          "reps": "8"
+        }]
+      }, {
+        "id": 3,
+        "exercises": [{
+          "id": 11,
+          "weight": "15",
+          "reps": "8"
+        }, {
+          "id": 23,
+          "weight": "62",
+          "reps": "8"
+        }]
+      }]
+    }, {
+      "id": 3,
+      "exerciseGroups": [{
+        "id": 1,
+        "exercises": [{
+          "id": 0,
+          "weight": "2",
+          "reps": "8"
+        }, {
+          "id": 20,
+          "weight": "43",
+          "reps": "8"
+        }]
+      }, {
+        "id": 2,
+        "exercises": [{
+          "id": 0,
+          "weight": "25",
+          "reps": "8"
+        }, {
+          "id": 24,
+          "weight": "100",
+          "reps": "8"
+        }]
+      }, {
+        "id": 3,
+        "exercises": [{
+          "id": 11,
+          "weight": "15",
+          "reps": "8"
+        }, {
+          "id": 23,
+          "weight": "62",
+          "reps": "8"
+        }]
+      }]
+    }, {
+      "id": 4,
+      "exerciseGroups": [{
+        "id": 1,
+        "exercises": [{
+          "id": 0,
+          "weight": "2",
+          "reps": "8"
+        }, {
+          "id": 20,
+          "weight": "43",
+          "reps": "8"
+        }]
+      }, {
+        "id": 2,
+        "exercises": [{
+          "id": 0,
+          "weight": "25",
+          "reps": "8"
+        }, {
+          "id": 24,
+          "weight": "100",
+          "reps": "8"
+        }]
+      }, {
+        "id": 3,
+        "exercises": [{
+          "id": 11,
+          "weight": "15",
+          "reps": "8"
+        }, {
+          "id": 23,
+          "weight": "62",
+          "reps": "8"
+        }]
+      }]
+    }, {
+      "id": 5,
+      "exerciseGroups": [{
+        "id": 1,
+        "exercises": [{
+          "id": 0,
+          "weight": "2",
+          "reps": "0"
+        }, {
+          "id": 20,
+          "weight": "43",
+          "reps": "0"
+        }]
+      }, {
+        "id": 2,
+        "exercises": [{
+          "id": 0,
+          "weight": "25",
+          "reps": "8"
+        }, {
+          "id": 24,
+          "weight": "100",
+          "reps": "8"
+        }]
+      }, {
+        "id": 3,
+        "exercises": [{
+          "id": 11,
+          "weight": "15",
+          "reps": "0"
+        }, {
+          "id": 23,
+          "weight": "62",
+          "reps": "0"
+        }]
+      }]
+    }],
+    "id": 2,
+    "exGroup": [{
+      "exercises": [{
+        "id": 0,
+        "name": "chins",
+        "reps": "8"
+      }, {
+        "id": 20,
+        "name": "incline bench press",
+        "reps": "8"
+      }],
+      "id": 1
+    }, {
+      "exercises": [{
+        "id": 0,
+        "name": "chins",
+        "reps": "8"
+      }, {
+        "id": 24,
+        "name": "row, cable (narrow)",
+        "reps": "8"
+      }],
+      "id": 2
+    }, {
+      "exercises": [{
+        "id": 11,
+        "name": "bb curl",
+        "reps": "8"
+      }, {
+        "id": 23,
+        "name": "tricep pushdown (straight bar)",
+        "reps": "8"
+      }],
+      "id": 3
+    }]
+  }
+}, {
+  "id": 16,
+  "date": {
+    "day": 1,
+    "month": 9,
+    "year": 2020
+  },
+  "goals": "10:13",
+  "weight": "142",
+  "energy": 8,
+  "sleep": 8,
+  "cardio": {
+    "headers": ["delete", "type", "duration", "distance", "heart rate"],
+    "exercises": [{
+      "id": 0,
+      "type": "walking",
+      "duration": "50 min",
+      "distance": "",
+      "heartRate": "? bpm"
+    }]
+  },
+  "wo": {
+    "name": "shoulders only 8x8",
+    "description": "",
+    "exerciseGroups": [{
+      "exercises": [{
+        "id": 2,
+        "name": "lat raise",
+        "reps": "8x8"
+      }, {
+        "id": 12,
+        "name": "shrugs",
+        "reps": "8x8"
+      }],
+      "id": 1
+    }, {
+      "exercises": [{
+        "id": 3,
+        "name": "jammer",
+        "reps": "8x8"
+      }],
+      "id": 2
+    }],
+    "sets": [{
+      "id": 0,
+      "exerciseGroups": [{
+        "id": 1,
+        "exercises": [{
+          "id": 2,
+          "name": "lat raise",
+          "reps": "8",
+          "weight": "27"
+        }, {
+          "id": 12,
+          "name": "shrugs",
+          "reps": "8",
+          "weight": "115"
+        }]
+      }, {
+        "id": 2,
+        "exercises": [{
+          "id": 3,
+          "name": "jammer",
+          "reps": 0,
+          "weight": 0
+        }]
+      }]
+    }, {
+      "id": 1,
+      "exerciseGroups": [{
+        "id": 1,
+        "exercises": [{
+          "id": 2,
+          "weight": "27",
+          "reps": "8"
+        }, {
+          "id": 12,
+          "weight": "115",
+          "reps": "8"
+        }]
+      }, {
+        "id": 2,
+        "exercises": [{
+          "id": 3,
+          "weight": "",
+          "reps": ""
+        }]
+      }]
+    }, {
+      "id": 2,
+      "exerciseGroups": [{
+        "id": 1,
+        "exercises": [{
+          "id": 2,
+          "weight": "27",
+          "reps": "8"
+        }, {
+          "id": 12,
+          "weight": "115",
+          "reps": "8"
+        }]
+      }, {
+        "id": 2,
+        "exercises": [{
+          "id": 3,
+          "weight": "",
+          "reps": ""
+        }]
+      }]
+    }, {
+      "id": 3,
+      "exerciseGroups": [{
+        "id": 1,
+        "exercises": [{
+          "id": 2,
+          "weight": "27",
+          "reps": "8"
+        }, {
+          "id": 12,
+          "weight": "115",
+          "reps": "8"
+        }]
+      }, {
+        "id": 2,
+        "exercises": [{
+          "id": 3,
+          "weight": "",
+          "reps": ""
+        }]
+      }]
+    }, {
+      "id": 4,
+      "exerciseGroups": [{
+        "id": 1,
+        "exercises": [{
+          "id": 2,
+          "weight": "27",
+          "reps": "8"
+        }, {
+          "id": 12,
+          "weight": "115",
+          "reps": "8"
+        }]
+      }, {
+        "id": 2,
+        "exercises": [{
+          "id": 3,
+          "weight": "",
+          "reps": ""
+        }]
+      }]
+    }, {
+      "id": 5,
+      "exerciseGroups": [{
+        "id": 1,
+        "exercises": [{
+          "id": 2,
+          "weight": "27",
+          "reps": "8"
+        }, {
+          "id": 12,
+          "weight": "115",
+          "reps": "8"
+        }]
+      }, {
+        "id": 2,
+        "exercises": [{
+          "id": 3,
+          "weight": "",
+          "reps": ""
+        }]
+      }]
+    }, {
+      "id": 6,
+      "exerciseGroups": [{
+        "id": 1,
+        "exercises": [{
+          "id": 2,
+          "weight": "27",
+          "reps": "8"
+        }, {
+          "id": 12,
+          "weight": "115",
+          "reps": "8"
+        }]
+      }, {
+        "id": 2,
+        "exercises": [{
+          "id": 3,
+          "weight": "",
+          "reps": ""
+        }]
+      }]
+    }, {
+      "id": 7,
+      "exerciseGroups": [{
+        "id": 1,
+        "exercises": [{
+          "id": 2,
+          "weight": "27",
+          "reps": "8"
+        }, {
+          "id": 12,
+          "weight": "115",
+          "reps": "8"
+        }]
+      }, {
+        "id": 2,
+        "exercises": [{
+          "id": 3,
+          "weight": "",
+          "reps": ""
+        }]
+      }]
+    }],
+    "id": 3,
+    "exGroup": [{
+      "exercises": [{
+        "id": 2,
+        "name": "lat raise",
+        "reps": "8x8"
+      }, {
+        "id": 12,
+        "name": "shrugs",
+        "reps": "8x8"
+      }],
+      "id": 1
+    }, {
+      "exercises": [{
+        "id": 3,
+        "name": "jammer",
+        "reps": "8x8"
+      }],
+      "id": 2
+    }]
+  }
+}, {
+  "id": 17,
+  "date": {
+    "day": 2,
+    "month": 9,
+    "year": 2020
+  },
+  "goals": "26:48 min",
+  "weight": "142.5",
+  "energy": 7,
+  "sleep": 7,
+  "cardio": {
+    "headers": ["delete", "type", "duration", "distance", "heart rate"],
+    "exercises": [{
+      "id": 0,
+      "type": "walking",
+      "duration": "25 min",
+      "distance": "",
+      "heartRate": "? bpm"
+    }]
+  },
+  "wo": {
+    "id": 1,
+    "name": "8x8 U1",
+    "description": "8x8 DAY 1",
+    "type": "",
+    "exerciseGroups": [{
+      "id": 1,
+      "exercises": [{
+        "id": 0,
+        "name": "chins",
+        "reps": "8x8"
+      }, {
+        "id": 1,
+        "name": "bench press",
+        "reps": "8x8"
+      }]
+    }, {
+      "id": 2,
+      "exercises": [{
+        "id": 2,
+        "name": "row",
+        "reps": "8x8"
+      }, {
+        "id": 3,
+        "name": "dips",
+        "reps": "8x8"
+      }]
+    }, {
+      "id": 3,
+      "exercises": [{
+        "id": 4,
+        "name": "curls",
+        "reps": "8x8"
+      }, {
+        "id": 5,
+        "name": "tricep pushdowns",
+        "reps": "8x8"
+      }]
+    }],
+    "exGroup": [{
+      "id": 1,
+      "exercises": [{
+        "id": 0,
+        "name": "chins",
+        "reps": "8x8"
+      }, {
+        "id": 1,
+        "name": "bench press",
+        "reps": "8x8"
+      }]
+    }, {
+      "id": 2,
+      "exercises": [{
+        "id": 2,
+        "name": "row",
+        "reps": "8x8"
+      }, {
+        "id": 3,
+        "name": "dips",
+        "reps": "8x8"
+      }]
+    }, {
+      "id": 3,
+      "exercises": [{
+        "id": 4,
+        "name": "curls",
+        "reps": "8x8"
+      }, {
+        "id": 5,
+        "name": "tricep pushdowns",
+        "reps": "8x8"
+      }]
+    }],
+    "sets": [{
+      "id": 0,
+      "exerciseGroups": [{
+        "id": 1,
+        "exercises": [{
+          "id": 0,
+          "name": "chins",
+          "reps": "8",
+          "weight": "0"
+        }, {
+          "id": 1,
+          "name": "bench press",
+          "reps": "8",
+          "weight": "60"
+        }]
+      }, {
+        "id": 2,
+        "exercises": [{
+          "id": 2,
+          "name": "row",
+          "reps": "8",
+          "weight": "100"
+        }, {
+          "id": 3,
+          "name": "dips",
+          "reps": "8",
+          "weight": "25"
+        }]
+      }, {
+        "id": 3,
+        "exercises": [{
+          "id": 4,
+          "name": "curls",
+          "reps": "8",
+          "weight": "15"
+        }, {
+          "id": 5,
+          "name": "tricep pushdowns",
+          "reps": "8",
+          "weight": "62"
+        }]
+      }]
+    }, {
+      "id": 1,
+      "exerciseGroups": [{
+        "id": 1,
+        "exercises": [{
+          "id": 0,
+          "weight": "0",
+          "reps": "8"
+        }, {
+          "id": 1,
+          "weight": "60",
+          "reps": "8"
+        }]
+      }, {
+        "id": 2,
+        "exercises": [{
+          "id": 2,
+          "weight": "100",
+          "reps": "8"
+        }, {
+          "id": 3,
+          "weight": "25",
+          "reps": "8"
+        }]
+      }, {
+        "id": 3,
+        "exercises": [{
+          "id": 4,
+          "weight": "15",
+          "reps": "8"
+        }, {
+          "id": 5,
+          "weight": "62",
+          "reps": "8"
+        }]
+      }]
+    }, {
+      "id": 2,
+      "exerciseGroups": [{
+        "id": 1,
+        "exercises": [{
+          "id": 0,
+          "weight": "0",
+          "reps": "8"
+        }, {
+          "id": 1,
+          "weight": "60",
+          "reps": "8"
+        }]
+      }, {
+        "id": 2,
+        "exercises": [{
+          "id": 2,
+          "weight": "100",
+          "reps": "8"
+        }, {
+          "id": 3,
+          "weight": "25",
+          "reps": "8"
+        }]
+      }, {
+        "id": 3,
+        "exercises": [{
+          "id": 4,
+          "weight": "15",
+          "reps": "8"
+        }, {
+          "id": 5,
+          "weight": "62",
+          "reps": "8"
+        }]
+      }]
+    }, {
+      "id": 3,
+      "exerciseGroups": [{
+        "id": 1,
+        "exercises": [{
+          "id": 0,
+          "weight": "0",
+          "reps": "8"
+        }, {
+          "id": 1,
+          "weight": "60",
+          "reps": "8"
+        }]
+      }, {
+        "id": 2,
+        "exercises": [{
+          "id": 2,
+          "weight": "100",
+          "reps": "8"
+        }, {
+          "id": 3,
+          "weight": "25",
+          "reps": "8"
+        }]
+      }, {
+        "id": 3,
+        "exercises": [{
+          "id": 4,
+          "weight": "15",
+          "reps": "8"
+        }, {
+          "id": 5,
+          "weight": "62",
+          "reps": "8"
+        }]
+      }]
+    }, {
+      "id": 4,
+      "exerciseGroups": [{
+        "id": 1,
+        "exercises": [{
+          "id": 0,
+          "weight": "0",
+          "reps": "8"
+        }, {
+          "id": 1,
+          "weight": "60",
+          "reps": "7"
+        }]
+      }, {
+        "id": 2,
+        "exercises": [{
+          "id": 2,
+          "weight": "100",
+          "reps": "8"
+        }, {
+          "id": 3,
+          "weight": "25",
+          "reps": "8"
+        }]
+      }, {
+        "id": 3,
+        "exercises": [{
+          "id": 4,
+          "weight": "15",
+          "reps": "8"
+        }, {
+          "id": 5,
+          "weight": "62",
+          "reps": "8"
+        }]
+      }]
+    }, {
+      "id": 5,
+      "exerciseGroups": [{
+        "id": 1,
+        "exercises": [{
+          "id": 0,
+          "weight": "0",
+          "reps": "7"
+        }, {
+          "id": 1,
+          "weight": "60",
+          "reps": "6"
+        }]
+      }, {
+        "id": 2,
+        "exercises": [{
+          "id": 2,
+          "weight": "100",
+          "reps": "7"
+        }, {
+          "id": 3,
+          "weight": "25",
+          "reps": "6"
+        }]
+      }, {
+        "id": 3,
+        "exercises": [{
+          "id": 4,
+          "weight": "15",
+          "reps": "6"
+        }, {
+          "id": 5,
+          "weight": "62",
+          "reps": "7"
+        }]
+      }]
+    }]
+  }
+}, {
+  "id": 18,
+  "date": {
+    "day": "4",
+    "month": "9",
+    "year": "2020"
+  },
+  "goals": "28:20",
+  "weight": "144.6",
+  "energy": 5,
+  "sleep": 5,
+  "cardio": {
+    "headers": ["delete", "type", "duration", "distance", "heart rate"],
+    "exercises": []
+  },
+  "wo": {
+    "name": "8x8 U2",
+    "description": "upper workout 2 in 8x8 routine",
+    "exerciseGroups": [{
+      "exercises": [{
+        "id": 0,
+        "name": "chins",
+        "reps": "8"
+      }, {
+        "id": 20,
+        "name": "incline bench press",
+        "reps": "8"
+      }],
+      "id": 1
+    }, {
+      "exercises": [{
+        "id": 0,
+        "name": "dips",
+        "reps": "8"
+      }, {
+        "id": 24,
+        "name": "row, cable (narrow)",
+        "reps": "8"
+      }],
+      "id": 2
+    }, {
+      "exercises": [{
+        "id": 11,
+        "name": "bb curl",
+        "reps": "8"
+      }, {
+        "id": 23,
+        "name": "tricep pushdown (straight bar)",
+        "reps": "8"
+      }],
+      "id": 3
+    }],
+    "sets": [{
+      "id": 0,
+      "exerciseGroups": [{
+        "id": 1,
+        "exercises": [{
+          "id": 0,
+          "name": "chins",
+          "reps": "8",
+          "weight": "0"
+        }, {
+          "id": 20,
+          "name": "incline bench press",
+          "reps": "8",
+          "weight": "45"
+        }]
+      }, {
+        "id": 2,
+        "exercises": [{
+          "id": 0,
+          "name": "chins",
+          "reps": "8",
+          "weight": "25"
+        }, {
+          "id": 24,
+          "name": "row, cable (narrow)",
+          "reps": "8",
+          "weight": "100"
+        }]
+      }, {
+        "id": 3,
+        "exercises": [{
+          "id": 11,
+          "name": "bb curl",
+          "reps": "8",
+          "weight": "15"
+        }, {
+          "id": 23,
+          "name": "tricep pushdown (straight bar)",
+          "reps": "8",
+          "weight": "62"
+        }]
+      }]
+    }, {
+      "id": 1,
+      "exerciseGroups": [{
+        "id": 1,
+        "exercises": [{
+          "id": 0,
+          "weight": "0",
+          "reps": "8"
+        }, {
+          "id": 20,
+          "weight": "45",
+          "reps": "8"
+        }]
+      }, {
+        "id": 2,
+        "exercises": [{
+          "id": 0,
+          "weight": "25",
+          "reps": "8"
+        }, {
+          "id": 24,
+          "weight": "100",
+          "reps": "8"
+        }]
+      }, {
+        "id": 3,
+        "exercises": [{
+          "id": 11,
+          "weight": "15",
+          "reps": "8"
+        }, {
+          "id": 23,
+          "weight": "65",
+          "reps": "8"
+        }]
+      }]
+    }, {
+      "id": 2,
+      "exerciseGroups": [{
+        "id": 1,
+        "exercises": [{
+          "id": 0,
+          "weight": "0",
+          "reps": "8"
+        }, {
+          "id": 20,
+          "weight": "45",
+          "reps": "8"
+        }]
+      }, {
+        "id": 2,
+        "exercises": [{
+          "id": 0,
+          "weight": "25",
+          "reps": "8"
+        }, {
+          "id": 24,
+          "weight": "100",
+          "reps": "8"
+        }]
+      }, {
+        "id": 3,
+        "exercises": [{
+          "id": 11,
+          "weight": "15",
+          "reps": "8"
+        }, {
+          "id": 23,
+          "weight": "65",
+          "reps": "8"
+        }]
+      }]
+    }, {
+      "id": 3,
+      "exerciseGroups": [{
+        "id": 1,
+        "exercises": [{
+          "id": 0,
+          "weight": "0",
+          "reps": "8"
+        }, {
+          "id": 20,
+          "weight": "45",
+          "reps": "8"
+        }]
+      }, {
+        "id": 2,
+        "exercises": [{
+          "id": 0,
+          "weight": "25",
+          "reps": "8"
+        }, {
+          "id": 24,
+          "weight": "100",
+          "reps": "8"
+        }]
+      }, {
+        "id": 3,
+        "exercises": [{
+          "id": 11,
+          "weight": "15",
+          "reps": "8"
+        }, {
+          "id": 23,
+          "weight": "65",
+          "reps": "8"
+        }]
+      }]
+    }, {
+      "id": 4,
+      "exerciseGroups": [{
+        "id": 1,
+        "exercises": [{
+          "id": 0,
+          "weight": "0",
+          "reps": "8"
+        }, {
+          "id": 20,
+          "weight": "45",
+          "reps": "8"
+        }]
+      }, {
+        "id": 2,
+        "exercises": [{
+          "id": 0,
+          "weight": "25",
+          "reps": "8"
+        }, {
+          "id": 24,
+          "weight": "100",
+          "reps": "8"
+        }]
+      }, {
+        "id": 3,
+        "exercises": [{
+          "id": 11,
+          "weight": "15",
+          "reps": "8"
+        }, {
+          "id": 23,
+          "weight": "65",
+          "reps": "8"
+        }]
+      }]
+    }],
+    "id": 2,
+    "exGroup": [{
+      "exercises": [{
+        "id": 0,
+        "name": "chins",
+        "reps": "8"
+      }, {
+        "id": 20,
+        "name": "incline bench press",
+        "reps": "8"
+      }],
+      "id": 1
+    }, {
+      "exercises": [{
+        "id": 0,
+        "name": "chins",
+        "reps": "8"
+      }, {
+        "id": 24,
+        "name": "row, cable (narrow)",
+        "reps": "8"
+      }],
+      "id": 2
+    }, {
+      "exercises": [{
+        "id": 11,
+        "name": "bb curl",
+        "reps": "8"
+      }, {
+        "id": 23,
+        "name": "tricep pushdown (straight bar)",
+        "reps": "8"
+      }],
+      "id": 3
+    }]
+  }
+}, {
+  "id": 19,
+  "date": {
+    "day": "7",
+    "month": "9",
+    "year": "2020"
+  },
+  "goals": "9:37",
+  "weight": "144",
+  "energy": 7,
+  "sleep": 8,
+  "cardio": {
+    "headers": ["delete", "type", "duration", "distance", "heart rate"],
+    "exercises": [{
+      "id": 0,
+      "type": "walk",
+      "duration": "50 + 25 minutes",
+      "distance": "",
+      "heartRate": "? bpm"
+    }, {
+      "id": 0,
+      "type": "",
+      "duration": "",
+      "distance": "",
+      "heartRate": "? bpm"
+    }]
+  },
+  "wo": {
+    "name": "8x8 L1",
+    "description": "n/a",
+    "id": 4,
+    "exerciseGroups": [{
+      "id": 0,
+      "exercises": [{
+        "id": 0,
+        "name": "squats",
+        "reps": "8"
+      }, {
+        "id": 1,
+        "name": "jammer",
+        "reps": "8"
+      }]
+    }, {
+      "id": 1,
+      "exercises": [{
+        "id": 2,
+        "name": "lat raise",
+        "reps": "8"
+      }, {
+        "id": 3,
+        "name": "shrugs",
+        "reps": "8"
+      }]
+    }],
+    "exGroup": [{
+      "id": 0,
+      "exercises": [{
+        "id": 0,
+        "name": "squats",
+        "reps": ""
+      }, {
+        "id": 1,
+        "name": "jammer",
+        "reps": ""
+      }]
+    }, {
+      "id": 1,
+      "exercises": [{
+        "id": 2,
+        "name": "lat raise",
+        "reps": ""
+      }, {
+        "id": 3,
+        "name": "shrugs",
+        "reps": ""
+      }]
+    }],
+    "sets": [{
+      "id": 0,
+      "exerciseGroups": [{
+        "id": 0,
+        "exercises": [{
+          "id": 0,
+          "name": "squats",
+          "reps": 0,
+          "weight": 0
+        }, {
+          "id": 1,
+          "name": "jammer",
+          "reps": 0,
+          "weight": 0
+        }]
+      }, {
+        "id": 1,
+        "exercises": [{
+          "id": 2,
+          "name": "lat raise",
+          "reps": "8",
+          "weight": "27"
+        }, {
+          "id": 3,
+          "name": "shrugs",
+          "reps": "8",
+          "weight": "115"
+        }]
+      }]
+    }, {
+      "id": 1,
+      "exerciseGroups": [{
+        "id": 0,
+        "exercises": [{
+          "id": 0,
+          "weight": "",
+          "reps": ""
+        }, {
+          "id": 1,
+          "weight": "",
+          "reps": ""
+        }]
+      }, {
+        "id": 1,
+        "exercises": [{
+          "id": 2,
+          "weight": "27",
+          "reps": "8"
+        }, {
+          "id": 3,
+          "weight": "115",
+          "reps": "8"
+        }]
+      }]
+    }, {
+      "id": 2,
+      "exerciseGroups": [{
+        "id": 0,
+        "exercises": [{
+          "id": 0,
+          "weight": "",
+          "reps": ""
+        }, {
+          "id": 1,
+          "weight": "",
+          "reps": ""
+        }]
+      }, {
+        "id": 1,
+        "exercises": [{
+          "id": 2,
+          "weight": "27",
+          "reps": "8"
+        }, {
+          "id": 3,
+          "weight": "115",
+          "reps": "8"
+        }]
+      }]
+    }, {
+      "id": 3,
+      "exerciseGroups": [{
+        "id": 0,
+        "exercises": [{
+          "id": 0,
+          "weight": "",
+          "reps": ""
+        }, {
+          "id": 1,
+          "weight": "",
+          "reps": ""
+        }]
+      }, {
+        "id": 1,
+        "exercises": [{
+          "id": 2,
+          "weight": "27",
+          "reps": "8"
+        }, {
+          "id": 3,
+          "weight": "115",
+          "reps": "8"
+        }]
+      }]
+    }, {
+      "id": 4,
+      "exerciseGroups": [{
+        "id": 0,
+        "exercises": [{
+          "id": 0,
+          "weight": "",
+          "reps": ""
+        }, {
+          "id": 1,
+          "weight": "",
+          "reps": ""
+        }]
+      }, {
+        "id": 1,
+        "exercises": [{
+          "id": 2,
+          "weight": "27",
+          "reps": "8"
+        }, {
+          "id": 3,
+          "weight": "115",
+          "reps": "8"
+        }]
+      }]
+    }, {
+      "id": 5,
+      "exerciseGroups": [{
+        "id": 0,
+        "exercises": [{
+          "id": 0,
+          "weight": "",
+          "reps": ""
+        }, {
+          "id": 1,
+          "weight": "",
+          "reps": ""
+        }]
+      }, {
+        "id": 1,
+        "exercises": [{
+          "id": 2,
+          "weight": "27",
+          "reps": "8"
+        }, {
+          "id": 3,
+          "weight": "115",
+          "reps": "8"
+        }]
+      }]
+    }]
+  }
+}, {
+  "id": 20,
+  "date": {
+    "day": "8",
+    "month": "9",
+    "year": "2020"
+  },
+  "goals": "28:54",
+  "weight": "144",
+  "energy": 8,
+  "sleep": 8,
+  "cardio": {
+    "headers": ["delete", "type", "duration", "distance", "heart rate"],
+    "exercises": []
+  },
+  "wo": {
+    "name": "8x8 U2",
+    "description": "upper workout 2 in 8x8 routine",
+    "exerciseGroups": [{
+      "exercises": [{
+        "id": 0,
+        "name": "chins",
+        "reps": "8"
+      }, {
+        "id": 20,
+        "name": "incline bench press",
+        "reps": "8"
+      }],
+      "id": 1
+    }, {
+      "exercises": [{
+        "id": 0,
+        "name": "dips",
+        "reps": "8"
+      }, {
+        "id": 24,
+        "name": "row, cable (narrow)",
+        "reps": "8"
+      }],
+      "id": 2
+    }, {
+      "exercises": [{
+        "id": 11,
+        "name": "bb curl",
+        "reps": "8"
+      }, {
+        "id": 23,
+        "name": "tricep pushdown (straight bar)",
+        "reps": "8"
+      }],
+      "id": 3
+    }],
+    "sets": [{
+      "id": 0,
+      "exerciseGroups": [{
+        "id": 1,
+        "exercises": [{
+          "id": 0,
+          "name": "chins",
+          "reps": "8",
+          "weight": 0
+        }, {
+          "id": 20,
+          "name": "incline bench press",
+          "reps": "8",
+          "weight": "45"
+        }]
+      }, {
+        "id": 2,
+        "exercises": [{
+          "id": 0,
+          "name": "dips",
+          "reps": "8",
+          "weight": "25"
+        }, {
+          "id": 24,
+          "name": "row, cable (narrow)",
+          "reps": "8",
+          "weight": "100"
+        }]
+      }, {
+        "id": 3,
+        "exercises": [{
+          "id": 11,
+          "name": "bb curl",
+          "reps": "8",
+          "weight": "15"
+        }, {
+          "id": 23,
+          "name": "tricep pushdown (straight bar)",
+          "reps": "8",
+          "weight": "62"
+        }]
+      }]
+    }, {
+      "id": 1,
+      "exerciseGroups": [{
+        "id": 1,
+        "exercises": [{
+          "id": 0,
+          "weight": "0",
+          "reps": "8"
+        }, {
+          "id": 20,
+          "weight": "45",
+          "reps": "8"
+        }]
+      }, {
+        "id": 2,
+        "exercises": [{
+          "id": 0,
+          "weight": "25",
+          "reps": "8"
+        }, {
+          "id": 24,
+          "weight": "100",
+          "reps": "8"
+        }]
+      }, {
+        "id": 3,
+        "exercises": [{
+          "id": 11,
+          "weight": "15",
+          "reps": "8"
+        }, {
+          "id": 23,
+          "weight": "62",
+          "reps": "8"
+        }]
+      }]
+    }, {
+      "id": 2,
+      "exerciseGroups": [{
+        "id": 1,
+        "exercises": [{
+          "id": 0,
+          "weight": "0",
+          "reps": "8"
+        }, {
+          "id": 20,
+          "weight": "45",
+          "reps": "8"
+        }]
+      }, {
+        "id": 2,
+        "exercises": [{
+          "id": 0,
+          "weight": "25",
+          "reps": "8"
+        }, {
+          "id": 24,
+          "weight": "100",
+          "reps": "8"
+        }]
+      }, {
+        "id": 3,
+        "exercises": [{
+          "id": 11,
+          "weight": "15",
+          "reps": "8"
+        }, {
+          "id": 23,
+          "weight": "62",
+          "reps": "8"
+        }]
+      }]
+    }, {
+      "id": 3,
+      "exerciseGroups": [{
+        "id": 1,
+        "exercises": [{
+          "id": 0,
+          "weight": "0",
+          "reps": "8"
+        }, {
+          "id": 20,
+          "weight": "45",
+          "reps": "8"
+        }]
+      }, {
+        "id": 2,
+        "exercises": [{
+          "id": 0,
+          "weight": "25",
+          "reps": "8"
+        }, {
+          "id": 24,
+          "weight": "100",
+          "reps": "8"
+        }]
+      }, {
+        "id": 3,
+        "exercises": [{
+          "id": 11,
+          "weight": "15",
+          "reps": "8"
+        }, {
+          "id": 23,
+          "weight": "62",
+          "reps": "8"
+        }]
+      }]
+    }, {
+      "id": 4,
+      "exerciseGroups": [{
+        "id": 1,
+        "exercises": [{
+          "id": 0,
+          "weight": "0",
+          "reps": "8"
+        }, {
+          "id": 20,
+          "weight": "45",
+          "reps": "8"
+        }]
+      }, {
+        "id": 2,
+        "exercises": [{
+          "id": 0,
+          "weight": "25",
+          "reps": "8"
+        }, {
+          "id": 24,
+          "weight": "100",
+          "reps": "8"
+        }]
+      }, {
+        "id": 3,
+        "exercises": [{
+          "id": 11,
+          "weight": "15",
+          "reps": "8"
+        }, {
+          "id": 23,
+          "weight": "62",
+          "reps": "8"
+        }]
+      }]
+    }, {
+      "id": 5,
+      "exerciseGroups": [{
+        "id": 1,
+        "exercises": [{
+          "id": 0,
+          "weight": "0",
+          "reps": "8"
+        }, {
+          "id": 20,
+          "weight": "45",
+          "reps": "7"
+        }]
+      }, {
+        "id": 2,
+        "exercises": [{
+          "id": 0,
+          "weight": "25",
+          "reps": "8"
+        }, {
+          "id": 24,
+          "weight": "100",
+          "reps": "8"
+        }]
+      }, {
+        "id": 3,
+        "exercises": [{
+          "id": 11,
+          "weight": "15",
+          "reps": "8"
+        }, {
+          "id": 23,
+          "weight": "62",
+          "reps": "8"
+        }]
+      }]
+    }],
+    "id": 2,
+    "exGroup": [{
+      "exercises": [{
+        "id": 0,
+        "name": "chins",
+        "reps": "8"
+      }, {
+        "id": 20,
+        "name": "incline bench press",
+        "reps": "8"
+      }],
+      "id": 1
+    }, {
+      "exercises": [{
+        "id": 0,
+        "name": "dips",
+        "reps": "8"
+      }, {
+        "id": 24,
+        "name": "row, cable (narrow)",
+        "reps": "8"
+      }],
+      "id": 2
+    }, {
+      "exercises": [{
+        "id": 11,
+        "name": "bb curl",
+        "reps": "8"
+      }, {
+        "id": 23,
+        "name": "tricep pushdown (straight bar)",
+        "reps": "8"
+      }],
+      "id": 3
+    }]
+  }
+}, {
+  "id": 21,
+  "date": {
+    "day": "8",
+    "month": "9",
+    "year": "2020"
+  },
+  "goals": "",
+  "weight": "",
+  "energy": 10,
+  "sleep": 10,
+  "cardio": {
+    "headers": ["delete", "type", "duration", "distance", "heart rate"],
+    "exercises": [{
+      "id": 0,
+      "type": "walk",
+      "duration": "25",
+      "distance": "",
+      "heartRate": "? bpm"
+    }]
+  },
+  "wo": {
+    "name": "8x8 L1",
+    "description": "n/a",
+    "id": 4,
+    "exerciseGroups": [{
+      "id": 0,
+      "exercises": [{
+        "id": 0,
+        "name": "squats",
+        "reps": ""
+      }, {
+        "id": 1,
+        "name": "jammer",
+        "reps": ""
+      }]
+    }, {
+      "id": 1,
+      "exercises": [{
+        "id": 2,
+        "name": "lat raise",
+        "reps": ""
+      }, {
+        "id": 3,
+        "name": "shrugs",
+        "reps": ""
+      }]
+    }],
+    "exGroup": [{
+      "id": 0,
+      "exercises": [{
+        "id": 0,
+        "name": "squats",
+        "reps": ""
+      }, {
+        "id": 1,
+        "name": "jammer",
+        "reps": ""
+      }]
+    }, {
+      "id": 1,
+      "exercises": [{
+        "id": 2,
+        "name": "lat raise",
+        "reps": ""
+      }, {
+        "id": 3,
+        "name": "shrugs",
+        "reps": ""
+      }]
+    }],
+    "sets": [{
+      "id": 0,
+      "exerciseGroups": [{
+        "id": 0,
+        "exercises": [{
+          "id": 0,
+          "name": "squats",
+          "reps": "8",
+          "weight": "90"
+        }, {
+          "id": 1,
+          "name": "jammer",
+          "reps": 0,
+          "weight": 0
+        }]
+      }, {
+        "id": 1,
+        "exercises": [{
+          "id": 2,
+          "name": "lat raise",
+          "reps": "8",
+          "weight": "25"
+        }, {
+          "id": 3,
+          "name": "shrugs",
+          "reps": "10",
+          "weight": "115"
+        }]
+      }]
+    }, {
+      "id": 1,
+      "exerciseGroups": [{
+        "id": 0,
+        "exercises": [{
+          "id": 0,
+          "weight": "90",
+          "reps": "8"
+        }, {
+          "id": 1,
+          "weight": "",
+          "reps": ""
+        }]
+      }, {
+        "id": 1,
+        "exercises": [{
+          "id": 2,
+          "weight": "25",
+          "reps": "8"
+        }, {
+          "id": 3,
+          "weight": "115",
+          "reps": "10"
+        }]
+      }]
+    }, {
+      "id": 2,
+      "exerciseGroups": [{
+        "id": 0,
+        "exercises": [{
+          "id": 0,
+          "weight": "90",
+          "reps": "8"
+        }, {
+          "id": 1,
+          "weight": "",
+          "reps": ""
+        }]
+      }, {
+        "id": 1,
+        "exercises": [{
+          "id": 2,
+          "weight": "25",
+          "reps": "8"
+        }, {
+          "id": 3,
+          "weight": "115",
+          "reps": "10"
+        }]
+      }]
+    }, {
+      "id": 3,
+      "exerciseGroups": [{
+        "id": 0,
+        "exercises": [{
+          "id": 0,
+          "weight": "90",
+          "reps": "8"
+        }, {
+          "id": 1,
+          "weight": "",
+          "reps": ""
+        }]
+      }, {
+        "id": 1,
+        "exercises": [{
+          "id": 2,
+          "weight": "25",
+          "reps": "8"
+        }, {
+          "id": 3,
+          "weight": "115",
+          "reps": "10"
+        }]
+      }]
+    }, {
+      "id": 4,
+      "exerciseGroups": [{
+        "id": 0,
+        "exercises": [{
+          "id": 0,
+          "weight": "",
+          "reps": ""
+        }, {
+          "id": 1,
+          "weight": "",
+          "reps": ""
+        }]
+      }, {
+        "id": 1,
+        "exercises": [{
+          "id": 2,
+          "weight": "25",
+          "reps": "8"
+        }, {
+          "id": 3,
+          "weight": "115",
+          "reps": "10"
+        }]
+      }]
+    }]
+  },
+  "duration": "13:22"
+}, {
+  "id": 22,
+  "date": {
+    "day": 7,
+    "month": 9,
+    "year": 2020
+  },
+  "goals": "",
+  "weight": "",
+  "energy": 10,
+  "sleep": 10,
+  "cardio": {
+    "headers": ["delete", "type", "duration", "distance", "heart rate"],
+    "exercises": [{
+      "id": 0,
+      "type": "walking",
+      "duration": "45 + 25 min",
+      "distance": "",
+      "heartRate": "? bpm"
+    }]
+  },
+  "wo": {
+    "exerciseGroups": [{
+      "id": 0,
+      "exercises": []
+    }],
+    "sets": [{
+      "id": 0,
+      "exerciseGroups": [{
+        "id": 0,
+        "exercises": []
+      }]
+    }]
+  }
+}, {
+  "id": 23,
+  "date": {
+    "day": "10",
+    "month": "9",
+    "year": "2020"
+  },
+  "duration": "0",
+  "goals": "test",
+  "weight": "143.6",
+  "energy": 8,
+  "sleep": 7,
+  "cardio": {
+    "headers": ["delete", "type", "duration", "distance", "heart rate"],
+    "exercises": []
+  },
+  "wo": {
+    "exerciseGroups": [{
+      "id": 0,
+      "exercises": []
+    }],
+    "sets": [{
+      "id": 0,
+      "exerciseGroups": [{
+        "id": 0,
+        "exercises": []
+      }]
+    }]
+  }
+}, {
+  "id": 24,
+  "date": {
+    "day": "11",
+    "month": "9",
+    "year": "2020"
+  },
+  "duration": "0",
+  "goals": "",
+  "weight": "",
+  "energy": 6,
+  "sleep": 6,
+  "cardio": {
+    "headers": ["delete", "type", "duration", "distance", "heart rate"],
+    "exercises": [{
+      "id": 0,
+      "type": "walk",
+      "duration": "50 min",
+      "distance": "",
+      "heartRate": "? bpm"
+    }]
+  },
+  "wo": {
+    "exerciseGroups": [{
+      "id": 0,
+      "exercises": []
+    }],
+    "sets": [{
+      "id": 0,
+      "exerciseGroups": [{
+        "id": 0,
+        "exercises": []
+      }]
+    }]
+  }
+}, {
+  "id": 25,
+  "date": {
+    "day": "12",
+    "month": "9",
+    "year": "2020"
+  },
+  "duration": "19:44",
+  "goals": "",
+  "weight": "143.6",
+  "energy": 6,
+  "sleep": 5,
+  "cardio": {
+    "headers": ["delete", "type", "duration", "distance", "heart rate"],
+    "exercises": []
+  },
+  "wo": {
+    "name": "5x10 U1",
+    "description": "",
+    "exerciseGroups": [{
+      "id": 0,
+      "exercises": [{
+        "id": 1,
+        "name": "dips",
+        "type": "compound",
+        "reps": "10"
+      }, {
+        "name": "row, cable (narrow)",
+        "type": "compound",
+        "id": 24,
+        "reps": "10"
+      }]
+    }, {
+      "exercises": [{
+        "name": "bb curl",
+        "type": "isolation",
+        "id": 11,
+        "reps": "10"
+      }, {
+        "name": "tricep pushdown (straight bar)",
+        "type": "isolation",
+        "id": 23,
+        "reps": "10"
+      }],
+      "id": 1
+    }],
+    "sets": [{
+      "id": 0,
+      "exerciseGroups": [{
+        "id": 0,
+        "exercises": [{
+          "id": 1,
+          "name": "dips",
+          "reps": "10",
+          "weight": "25"
+        }, {
+          "name": "row, cable (narrow)",
+          "id": 24,
+          "reps": "10",
+          "weight": "100"
+        }]
+      }, {
+        "id": 1,
+        "exercises": [{
+          "name": "bb curl",
+          "id": 11,
+          "reps": "10",
+          "weight": "15"
+        }, {
+          "name": "tricep pushdown (straight bar)",
+          "id": 23,
+          "reps": "10",
+          "weight": "65"
+        }]
+      }]
+    }, {
+      "id": 1,
+      "exerciseGroups": [{
+        "id": 0,
+        "exercises": [{
+          "id": 1,
+          "weight": "25",
+          "reps": "10"
+        }, {
+          "id": 24,
+          "weight": "100",
+          "reps": "10"
+        }]
+      }, {
+        "id": 1,
+        "exercises": [{
+          "id": 11,
+          "weight": "15",
+          "reps": "10"
+        }, {
+          "id": 23,
+          "weight": "65",
+          "reps": "10"
+        }]
+      }]
+    }, {
+      "id": 2,
+      "exerciseGroups": [{
+        "id": 0,
+        "exercises": [{
+          "id": 1,
+          "weight": "25",
+          "reps": "10"
+        }, {
+          "id": 24,
+          "weight": "100",
+          "reps": "10"
+        }]
+      }, {
+        "id": 1,
+        "exercises": [{
+          "id": 11,
+          "weight": "15",
+          "reps": "10"
+        }, {
+          "id": 23,
+          "weight": "65",
+          "reps": "10"
+        }]
+      }]
+    }, {
+      "id": 3,
+      "exerciseGroups": [{
+        "id": 0,
+        "exercises": [{
+          "id": 1,
+          "weight": "25",
+          "reps": "10"
+        }, {
+          "id": 24,
+          "weight": "100",
+          "reps": "10"
+        }]
+      }, {
+        "id": 1,
+        "exercises": [{
+          "id": 11,
+          "weight": "15",
+          "reps": "10"
+        }, {
+          "id": 23,
+          "weight": "65",
+          "reps": "10"
+        }]
+      }]
+    }, {
+      "id": 4,
+      "exerciseGroups": [{
+        "id": 0,
+        "exercises": [{
+          "id": 1,
+          "weight": "25",
+          "reps": "9"
+        }, {
+          "id": 24,
+          "weight": "100",
+          "reps": "9"
+        }]
+      }, {
+        "id": 1,
+        "exercises": [{
+          "id": 11,
+          "weight": "15",
+          "reps": "8"
+        }, {
+          "id": 23,
+          "weight": "65",
+          "reps": "8"
+        }]
+      }]
+    }],
+    "id": 6
+  }
+}, {
+  "id": 26,
+  "date": {
+    "day": 10,
+    "month": 9,
+    "year": 2020
+  },
+  "duration": "0",
+  "goals": "",
+  "weight": "144",
+  "energy": 7,
+  "sleep": 7,
+  "cardio": {
+    "headers": ["delete", "type", "duration", "distance", "heart rate"],
+    "exercises": [{
+      "id": 0,
+      "type": "walk",
+      "duration": "50 min",
+      "distance": "",
+      "heartRate": "? bpm"
+    }]
+  },
+  "wo": {
+    "name": "5x10 L2",
+    "description": " legs, shoulders",
+    "exerciseGroups": [{
+      "exercises": [{
+        "name": "leg-ext",
+        "type": "isolation",
+        "id": 16,
+        "reps": "10"
+      }, {
+        "name": "lat raise",
+        "type": "isolation",
+        "id": 2,
+        "reps": "10"
+      }],
+      "id": 0
+    }, {
+      "exercises": [{
+        "name": "leg curl",
+        "type": "isolation",
+        "id": 10,
+        "reps": "10"
+      }, {
+        "name": "shrugs",
+        "type": "isolation",
+        "id": 12,
+        "reps": "10"
+      }],
+      "id": 1
+    }, {
+      "id": 2,
+      "exercises": [{
+        "id": 0,
+        "name": "jammers",
+        "reps": "10",
+        "weight": 0
+      }]
+    }],
+    "sets": [{
+      "id": 0,
+      "exerciseGroups": [{
+        "id": 0,
+        "exercises": [{
+          "name": "leg-ext",
+          "id": 16,
+          "reps": "10",
+          "weight": "45"
+        }, {
+          "name": "lat raise",
+          "id": 2,
+          "reps": "10",
+          "weight": "25"
+        }]
+      }, {
+        "id": 1,
+        "exercises": [{
+          "name": "leg curl",
+          "id": 10,
+          "reps": "10",
+          "weight": "15"
+        }, {
+          "name": "shrugs",
+          "id": 12,
+          "reps": "10",
+          "weight": "115"
+        }]
+      }, {
+        "id": 2,
+        "exercises": [{
+          "id": 0,
+          "name": "",
+          "reps": "10",
+          "weight": "35"
+        }]
+      }]
+    }, {
+      "id": 1,
+      "exerciseGroups": [{
+        "id": 0,
+        "exercises": [{
+          "id": 16,
+          "weight": "45",
+          "reps": "10"
+        }, {
+          "id": 2,
+          "weight": "25",
+          "reps": "10"
+        }]
+      }, {
+        "id": 1,
+        "exercises": [{
+          "id": 10,
+          "weight": "15",
+          "reps": "10"
+        }, {
+          "id": 12,
+          "weight": "115",
+          "reps": "10"
+        }]
+      }, {
+        "id": 2,
+        "exercises": [{
+          "id": 0,
+          "weight": "35",
+          "reps": "10"
+        }]
+      }]
+    }, {
+      "id": 2,
+      "exerciseGroups": [{
+        "id": 0,
+        "exercises": [{
+          "id": 16,
+          "weight": "45",
+          "reps": "10"
+        }, {
+          "id": 2,
+          "weight": "25",
+          "reps": "10"
+        }]
+      }, {
+        "id": 1,
+        "exercises": [{
+          "id": 10,
+          "weight": "15",
+          "reps": "10"
+        }, {
+          "id": 12,
+          "weight": "115",
+          "reps": "10"
+        }]
+      }, {
+        "id": 2,
+        "exercises": [{
+          "id": 0,
+          "weight": "35",
+          "reps": "10"
+        }]
+      }]
+    }, {
+      "id": 3,
+      "exerciseGroups": [{
+        "id": 0,
+        "exercises": [{
+          "id": 16,
+          "weight": "45",
+          "reps": "10"
+        }, {
+          "id": 2,
+          "weight": "25",
+          "reps": "10"
+        }]
+      }, {
+        "id": 1,
+        "exercises": [{
+          "id": 10,
+          "weight": "15",
+          "reps": "10"
+        }, {
+          "id": 12,
+          "weight": "115",
+          "reps": "10"
+        }]
+      }, {
+        "id": 2,
+        "exercises": [{
+          "id": 0,
+          "weight": "35",
+          "reps": "10"
+        }]
+      }]
+    }, {
+      "id": 4,
+      "exerciseGroups": [{
+        "id": 0,
+        "exercises": [{
+          "id": 16,
+          "weight": "45",
+          "reps": "10"
+        }, {
+          "id": 2,
+          "weight": "25",
+          "reps": "10"
+        }]
+      }, {
+        "id": 1,
+        "exercises": [{
+          "id": 10,
+          "weight": "15",
+          "reps": "10"
+        }, {
+          "id": 12,
+          "weight": "115",
+          "reps": "10"
+        }]
+      }, {
+        "id": 2,
+        "exercises": [{
+          "id": 0,
+          "weight": "35",
+          "reps": "10"
+        }]
+      }]
+    }],
+    "id": 9
+  }
+}, {
+  "id": 27,
+  "date": {
+    "day": "11",
+    "month": "9",
+    "year": "2020"
+  },
+  "duration": "18:34",
+  "goals": "",
+  "weight": "144.4",
+  "energy": 8,
+  "sleep": 8,
+  "cardio": {
+    "headers": ["delete", "type", "duration", "distance", "heart rate"],
+    "exercises": [{
+      "id": 0,
+      "type": "walk",
+      "duration": "50 min + 40 min",
+      "distance": "",
+      "heartRate": "? bpm"
+    }]
+  },
+  "wo": {
+    "name": "5x10 U2",
+    "description": " five sets, 10 reps",
+    "exerciseGroups": [{
+      "id": 0,
+      "exercises": [{
+        "name": "incline bench press",
+        "type": "compound",
+        "id": 20,
+        "reps": "10"
+      }, {
+        "id": 0,
+        "name": "chins",
+        "type": "compound",
+        "reps": "10"
+      }]
+    }, {
+      "exercises": [{
+        "name": "bb curl",
+        "type": "isolation",
+        "id": 11,
+        "reps": "10"
+      }, {
+        "name": "tricep pushdown (straight bar)",
+        "type": "isolation",
+        "id": 23,
+        "reps": "10"
+      }],
+      "id": 1
+    }],
+    "sets": [{
+      "id": 0,
+      "exerciseGroups": [{
+        "id": 0,
+        "exercises": [{
+          "name": "incline bench press",
+          "id": 20,
+          "reps": "10",
+          "weight": "45"
+        }, {
+          "id": 0,
+          "name": "chins",
+          "reps": "10",
+          "weight": "bw"
+        }]
+      }, {
+        "id": 1,
+        "exercises": [{
+          "name": "bb curl",
+          "id": 11,
+          "reps": "10",
+          "weight": "15"
+        }, {
+          "name": "tricep pushdown (straight bar)",
+          "id": 23,
+          "reps": "10",
+          "weight": "65"
+        }]
+      }]
+    }, {
+      "id": 1,
+      "exerciseGroups": [{
+        "id": 0,
+        "exercises": [{
+          "id": 20,
+          "weight": "45",
+          "reps": "10"
+        }, {
+          "id": 0,
+          "weight": "bw",
+          "reps": "10"
+        }]
+      }, {
+        "id": 1,
+        "exercises": [{
+          "id": 11,
+          "weight": "15",
+          "reps": "10"
+        }, {
+          "id": 23,
+          "weight": "65",
+          "reps": "10"
+        }]
+      }]
+    }, {
+      "id": 2,
+      "exerciseGroups": [{
+        "id": 0,
+        "exercises": [{
+          "id": 20,
+          "weight": "45",
+          "reps": "10"
+        }, {
+          "id": 0,
+          "weight": "bw",
+          "reps": "10"
+        }]
+      }, {
+        "id": 1,
+        "exercises": [{
+          "id": 11,
+          "weight": "15",
+          "reps": "10"
+        }, {
+          "id": 23,
+          "weight": "65",
+          "reps": "10"
+        }]
+      }]
+    }, {
+      "id": 3,
+      "exerciseGroups": [{
+        "id": 0,
+        "exercises": [{
+          "id": 20,
+          "weight": "45",
+          "reps": "8"
+        }, {
+          "id": 0,
+          "weight": "bw",
+          "reps": "10"
+        }]
+      }, {
+        "id": 1,
+        "exercises": [{
+          "id": 11,
+          "weight": "15",
+          "reps": "10"
+        }, {
+          "id": 23,
+          "weight": "65",
+          "reps": "10"
+        }]
+      }]
+    }, {
+      "id": 4,
+      "exerciseGroups": [{
+        "id": 0,
+        "exercises": [{
+          "id": 20,
+          "weight": "45",
+          "reps": "6"
+        }, {
+          "id": 0,
+          "weight": "bw",
+          "reps": "10"
+        }]
+      }, {
+        "id": 1,
+        "exercises": [{
+          "id": 11,
+          "weight": "15",
+          "reps": "10"
+        }, {
+          "id": 23,
+          "weight": "65",
+          "reps": "10"
+        }]
+      }]
+    }],
+    "id": 7
+  }
+}]

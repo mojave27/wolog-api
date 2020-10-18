@@ -1,0 +1,111 @@
+[{
+    "id": 0,
+    "date": {
+        "day": 5,
+        "month": 6,
+        "year": 2020
+    },
+    "goals": "cut",
+    "weight": "152",
+    "energy": 3,
+    "sleep": 3,
+    "cardio": {
+        "headers": ["type", "duration", "distance", "heart rate"],
+        "exercises": [{
+            "id": 0,
+            "type": "steady state jog",
+            "duration": "30 min",
+            "distance": "",
+            "heartRate": "120 bpm"
+        }, {
+            "id": 1,
+            "type": "HIIT",
+            "duration": "20 min",
+            "distance": "",
+            "heartRate": "150 bpm"
+        }]
+    },
+    "wo": {
+        "id": 1,
+        "name": "WD2",
+        "description": "8x8 DAY 1",
+        "type": "",
+        "exerciseGroups": [{
+            "id": 1,
+            "exercises": [{
+                "id": 0,
+                "name": "incline press",
+                "reps": "8x8",
+                "weight": 0
+            }, {
+                "id": 1,
+                "name": "chins",
+                "reps": "8x8",
+                "weight": 0
+            }]
+        }, {
+            "id": 2,
+            "exercises": [{
+                "id": 2,
+                "name": "rows",
+                "reps": "8x8",
+                "weight": 0
+            }, {
+                "id": 3,
+                "name": "dips",
+                "reps": "8x8",
+                "weight": 0
+            }]
+        }, {
+            "id": 3,
+            "exercises": [{
+                "id": 4,
+                "name": "curls",
+                "reps": "8x8",
+                "weight": 0
+            }, {
+                "id": 5,
+                "name": "tricep pushdown",
+                "reps": "8x8",
+                "weight": 0
+            }]
+        }],
+        "sets": [{
+            "id": 0,
+            "exerciseGroups": [{
+                "id": 1,
+                "exercises": [{
+                    "id": 0,
+                    "reps": "8",
+                    "weight": "15"
+                }, {
+                    "id": 1,
+                    "reps": 0,
+                    "weight": 0
+                }]
+            }, {
+                "id": 2,
+                "exercises": [{
+                    "id": 2,
+                    "reps": 0,
+                    "weight": 0
+                }, {
+                    "id": 3,
+                    "reps": 0,
+                    "weight": 0
+                }]
+            }, {
+                "id": 3,
+                "exercises": [{
+                    "id": 4,
+                    "reps": 0,
+                    "weight": 0
+                }, {
+                    "id": 5,
+                    "reps": 0,
+                    "weight": 0
+                }]
+            }]
+        }]
+    }
+}]

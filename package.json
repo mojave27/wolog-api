@@ -7,7 +7,7 @@
     "build": "babel src -d dist --source-maps",
     "debug": "nodemon src/index.js --inspect --exec babel-node",
     "start": "npm run build && node dist/index.js",
-    "start:dev": "nodemon --exec babel-node src/index.js",
+    "start:dev": "nodemon src/index.js --ignore 'src/persistence/local-datastore/*.json' --exec babel-node",
     "serve": "npm run build && node dist/index.js",
     "test": "jest"
   },
