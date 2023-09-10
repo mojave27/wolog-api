@@ -52,30 +52,42 @@ class WoDaysDao {
   }
 
   addWoDay = woday => {
-    if (woday.id !== -1) {
-      throw new Error(
-        `woday already has an id ${woday.id}, will not add. try updating instead.`
-      )
+    let result = {}
+    if (this.validateId(woday.id) === false) {
+      log.info(`adding new woday ${JSON.stringify(woday)}`)
+      woday.id = this.dbUtils.assignId(woday)
+      log.info(`  assigning id ${woday.id} to woday.`)
+      var wodays = this.getWoDays()
+      wodays.push(woday)
+      this._updateDb(wodays)
+      log.info(`  added new woday ${JSON.stringify(woday)}`)
+      result = woday
+    } else {
+      log.info('woday has valid id, updating instead of adding...')
+      result = this.updateWoDay(woday)
     }
-    log.info(`adding new woday ${JSON.stringify(woday)}`)
-    woday.id = this.dbUtils.assignId(woday)
-    log.info(`  assigning id ${woday.id} to woday.`)
-    var wodays = this.getWoDays()
-    wodays.push(woday)
-    this._updateDb(wodays)
-    log.info(`  added new woday ${JSON.stringify(woday)}`)
-    return woday
+    return result
+  }
+
+  validateId = id => {
+    if (typeof id === 'undefined') return false
+    if (id === null) return false
+    if (id === '') return false
+    if (id === -1) return false
+    return true
   }
 
   updateWoDay = update => {
     log.info(`updating existing woday with id ${update.id}`)
     let wodays = this.getWoDays()
     let index = wodays.findIndex(woday => {
-      return Number(woday.id) === Number(update.id)
+      // return Number(woday.id) === Number(update.id)
+      return woday.id === update.id
     })
-    if (index === -1) {
-      this.addWoDay(update)
-    }
+    // if (index === -1) {
+    //   this.addWoDay(update)
+    //   return update
+    // }
     let currentWoday = { ...wodays[index] }
     let merged = { ...currentWoday, ...update }
     wodays[index] = merged
@@ -88,7 +100,7 @@ class WoDaysDao {
     // TODO: validate the id
     let wodays = this.getWoDays()
     let index = wodays.findIndex(woday => {
-      return Number(woday.id) === Number(id)
+      return woday.id === id
     })
     log.info(`found index ${index} for woday id ${id}`)
     let deletedWoday = wodays.splice(index, 1)

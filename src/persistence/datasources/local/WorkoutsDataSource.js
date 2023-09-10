@@ -95,10 +95,12 @@ class WorkoutsDao {
   }
 
   addWorkout = workout => {
+    console.log(workout)
     if (workout.id) {
       // TODO: do a real lookup of the id to verify whether it exists.
-      log(NAME,`workout already has an id ${workout.id}, will not add.`)
-      return workout
+      log.info(`workout already has an id ${workout.id}, will not add.  updating instead.`)
+      // return workout
+      return this.updateWorkout(workout)
     }
     log.info(`adding new workout ${JSON.stringify(workout)}`)
     workout.id = this.dbUtils.assignId(workout)
@@ -116,10 +118,19 @@ class WorkoutsDao {
     let updatedWorkout = this.clearExercisesFromSets(update)
     let workouts = this.getWorkouts()
     let index = workouts.findIndex(workout => {
-      return Number(workout.id) === Number(update.id)
+      // console.log(Number(workout.id))
+      // console.log(Number(update.id))
+      // return Number(workout.id) === Number(update.id)
+      return workout.id === update.id
     })
+    console.log('index:', index)
+    // log.info('found workout index:|', index, '|')
     let currentWorkout = { ...workouts[index] }
     let merged = { ...currentWorkout, ...updatedWorkout }
+
+    log.info('merged workout:')
+    console.log(JSON.stringify(merged))
+
     workouts[index] = merged
     // this.saveSets(updatedWorkout.sets)
     this._updateDb(workouts)
@@ -127,7 +138,8 @@ class WorkoutsDao {
   }
 
   clearExercisesFromSets = workout => {
-    console.log(JSON.stringify(workout))
+    log.info('clearExercisesFromSets for workout with id: ' + workout.id)
+    // console.log(JSON.stringify(workout))
     let cleanedExGroups = []
     workout.exerciseGroups.forEach(exGroup => {
       if (exGroup.exercises) {
@@ -151,6 +163,10 @@ class WorkoutsDao {
     let index = workouts.findIndex(workout => {
       return Number(workout.id) === Number(id)
     })
+    if( index === -1 ) {
+      log.info(`no workout found with id: ${id}`)
+      return {}
+    }
     log.info(`found index ${index} for workout id ${id}`)
     let deletedWorkout = workouts.splice(index, 1)
     this._updateDb(workouts)

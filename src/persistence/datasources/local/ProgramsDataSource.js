@@ -37,7 +37,7 @@ class ProgramsDataSourceLocal {
   addProgram = program => {
     if (program.id){
       log.info(`program with id ${program.id} already exists, not adding.`)
-      return program
+      return this.updateProgram(program)
     }
     log.info(`adding new program ${JSON.stringify(program)}`)
     program.id = this.dbUtils.assignId(program)
@@ -52,7 +52,8 @@ class ProgramsDataSourceLocal {
     log.info(`  program is: ${JSON.stringify(update)}`)
     let programs = this.getPrograms()
     let index = programs.findIndex(program => {
-      return Number(program.id) === Number(update.id)
+      // return Number(program.id) === Number(update.id)
+      return program.id === update.id
     })
     let currentProgram = { ...programs[index] }
     let merged = { ...currentProgram, ...update }

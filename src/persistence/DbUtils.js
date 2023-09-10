@@ -1,3 +1,5 @@
+import { isNaN } from 'lodash'
+
 var fs = require('fs')
 
 class DbUtils {
@@ -16,20 +18,34 @@ class DbUtils {
   }
 
   generateNewId = () => {
-    let currentIds = this.getUniqueIds()
-    var newId = Math.max(...currentIds) + 1
+    let newId = this.uuidv4()
     return newId
+  }
+
+  uuidv4 = () => {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+      var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8)
+      return v.toString(16)
+    })
   }
 
   assignId = item => {
     // if id is invalid, generate one.
-    if (typeof item.id === 'undefined' || item.id < 0) {
+    if (this.validateId(item.id) === false) {
       return this.generateNewId()
     } else if (this.isIdInUse(item.id)) {
       return this.generateNewId()
     } else {
       return item.id
     }
+  }
+
+  validateId = id => {
+    if (typeof id === 'undefined') return false
+    if (id === null) return false
+    if (id === '') return false
+    if (id < 0) return false
+    return true
   }
 
   isIdInUse = id => {
@@ -45,6 +61,7 @@ class DbUtils {
   }
 
   updateDb = (items, dbPath) => {
+    console.log('updating db with changes')
     fs.writeFileSync(dbPath, JSON.stringify(items), 'utf8', function(err) {
       if (err) throw err
       console.log(`updated ${dbPath}`)

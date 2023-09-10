@@ -17,6 +17,8 @@ exports.getWorkoutById = id => {
 }
 
 exports.updateWorkout = workout => {
+  console.log('updating workout')
+  console.log(JSON.stringify(workout))
   return dataSource.updateWorkout(workout)
 }
 

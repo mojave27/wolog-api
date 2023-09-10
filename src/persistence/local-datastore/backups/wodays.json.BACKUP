@@ -1,0 +1,496 @@
+[{
+  "date": {
+    "day": "25",
+    "month": "5",
+    "year": "2021"
+  },
+  "notes": "testing an update",
+  "duration": "0",
+  "goals": "",
+  "weight": "",
+  "energy": 10,
+  "sleep": 10,
+  "cardio": {
+    "headers": ["delete", "type", "targets", "duration", "distance", "heart rate"],
+    "exercises": []
+  },
+  "workouts": [{
+    "name": "5x10 U1",
+    "description": "",
+    "exerciseGroups": [{
+      "id": 0,
+      "exercises": [{
+        "id": 1,
+        "name": "dips",
+        "type": "compound",
+        "dev-comment": "change from reps to targets eventually",
+        "reps": "10",
+        "sets": [{
+          "reps": "5",
+          "weight": "62"
+        }, {
+          "weight": "62",
+          "reps": "4"
+        }]
+      }, {
+        "name": "row, cable (narrow)",
+        "type": "compound",
+        "id": 24,
+        "reps": "10",
+        "sets": [{
+          "reps": "5",
+          "weight": "115"
+        }, {
+          "weight": "115",
+          "reps": "5"
+        }]
+      }]
+    }, {
+      "exercises": [{
+        "name": "bb curl",
+        "type": "isolation",
+        "id": 11,
+        "reps": "10",
+        "sets": [{
+          "reps": "",
+          "weight": ""
+        }]
+      }, {
+        "name": "tricep pushdown (straight bar)",
+        "type": "isolation",
+        "id": 23,
+        "reps": "10",
+        "sets": [{
+          "reps": "",
+          "weight": ""
+        }]
+      }],
+      "id": 1
+    }],
+    "sets": [{
+      "id": 0,
+      "exerciseGroups": [{
+        "id": 0,
+        "exercises": [{
+          "id": 1,
+          "name": "dips",
+          "reps": "1",
+          "weight": "1"
+        }, {
+          "name": "row, cable (narrow)",
+          "id": 24,
+          "reps": "1",
+          "weight": "1"
+        }]
+      }, {
+        "id": 1,
+        "exercises": [{
+          "name": "bb curl",
+          "id": 11,
+          "reps": "",
+          "weight": ""
+        }, {
+          "name": "tricep pushdown (straight bar)",
+          "id": 23,
+          "reps": "",
+          "weight": ""
+        }]
+      }]
+    }, {
+      "id": 1,
+      "exerciseGroups": [{
+        "id": 0,
+        "exercises": [{
+          "id": 1,
+          "weight": "2",
+          "reps": "2"
+        }, {
+          "id": 24,
+          "weight": "2",
+          "reps": "2"
+        }]
+      }, {
+        "id": 1,
+        "exercises": [{
+          "id": 11,
+          "weight": "",
+          "reps": ""
+        }, {
+          "id": 23,
+          "weight": "",
+          "reps": ""
+        }]
+      }]
+    }],
+    "id": 6
+  }],
+  "activeWo": -1,
+  "id": 4
+}, {
+  "id": "99999999-aabb-1122-defg-123456789ab0",
+  "date": {
+    "day": "10",
+    "month": "6",
+    "year": "2021"
+  },
+  "notes": "stuff",
+  "duration": "0",
+  "goals": "",
+  "weight": "",
+  "energy": 10,
+  "sleep": 10,
+  "cardio": {
+    "headers": ["delete", "type", "targets", "duration", "distance", "heart rate"],
+    "exercises": [{
+      "id": 0,
+      "type": "walky walky",
+      "duration": "",
+      "distance": "",
+      "heartRate": "? bpm"
+    }]
+  },
+  "workouts": [],
+  "activeWo": -1
+}, {
+  "id": 5,
+  "date": {
+    "day": "26",
+    "month": "5",
+    "year": "2021"
+  },
+  "notes": "increase cardio to 40 minutes\n\nincrease chins to 20",
+  "duration": "0",
+  "goals": "",
+  "weight": "",
+  "energy": 10,
+  "sleep": 10,
+  "cardio": {
+    "headers": ["delete", "type", "targets", "duration", "distance", "heart rate"],
+    "exercises": [{
+      "id": 0,
+      "type": "walk",
+      "duration": "30 min",
+      "distance": "",
+      "heartRate": ""
+    }]
+  },
+  "workouts": [{
+    "name": "5x10 U1",
+    "description": "",
+    "exerciseGroups": [{
+      "id": 0,
+      "exercises": [{
+        "id": 1,
+        "name": "dips",
+        "type": "compound",
+        "targets": "10",
+        "sets": [{
+          "reps": "5",
+          "weight": "62"
+        }, {
+          "weight": "62",
+          "reps": "5"
+        }]
+      }, {
+        "name": "row, cable (narrow)",
+        "type": "compound",
+        "id": 24,
+        "targets": "10",
+        "sets": [{
+          "reps": "5",
+          "weight": "115"
+        }]
+      }]
+    }, {
+      "exercises": [{
+        "name": "bb curl",
+        "type": "isolation",
+        "id": 11,
+        "targets": "10",
+        "sets": [{
+          "reps": "10",
+          "weight": "10"
+        }, {
+          "weight": "10",
+          "reps": "9"
+        }]
+      }, {
+        "name": "tricep pushdown (straight bar)",
+        "type": "isolation",
+        "id": 23,
+        "targets": "10",
+        "sets": [{
+          "reps": "10",
+          "weight": "60"
+        }, {
+          "weight": "60",
+          "reps": "9"
+        }, {
+          "weight": "60",
+          "reps": ""
+        }]
+      }],
+      "id": 1
+    }],
+    "sets": [{
+      "id": 0,
+      "exerciseGroups": [{
+        "id": 0,
+        "exercises": [{
+          "id": 1,
+          "name": "dips",
+          "targets": "10",
+          "sets": [{
+            "reps": "",
+            "weight": ""
+          }],
+          "weight": "",
+          "reps": ""
+        }, {
+          "name": "row, cable (narrow)",
+          "id": 24,
+          "targets": "10",
+          "sets": [{
+            "reps": "",
+            "weight": ""
+          }],
+          "weight": "",
+          "reps": ""
+        }]
+      }, {
+        "id": 1,
+        "exercises": [{
+          "name": "bb curl",
+          "id": 11,
+          "targets": "10",
+          "sets": [{
+            "reps": "",
+            "weight": ""
+          }],
+          "weight": "",
+          "reps": ""
+        }, {
+          "name": "tricep pushdown (straight bar)",
+          "id": 23,
+          "targets": "10",
+          "sets": [{
+            "reps": "",
+            "weight": ""
+          }],
+          "weight": "",
+          "reps": ""
+        }]
+      }]
+    }],
+    "id": 6
+  }],
+  "activeWo": -1
+}, {
+  "id": "a95187b0-aa8f-11eb-842a-7d300bf19ca8",
+  "date": {
+    "month": "4",
+    "day": "1",
+    "year": "2021"
+  },
+  "workouts": [{
+    "name": "5x5 DELTS A",
+    "description": "delts only - workout A",
+    "id": "588c30a0-a120-11eb-95df-31b9b8505e78",
+    "exerciseGroups": [{
+      "exercises": [{
+        "name": "shrugs",
+        "id": "12",
+        "reps": "5x10",
+        "type": "isolation",
+        "sets": [{
+          "weight": "122"
+        }, {
+          "weight": "122",
+          "reps": "10"
+        }, {
+          "weight": "122",
+          "reps": "10"
+        }, {
+          "weight": "122",
+          "reps": "10"
+        }, {
+          "weight": "122",
+          "reps": "10"
+        }],
+        "targets": "5x10"
+      }, {
+        "name": "lat raise",
+        "id": "2",
+        "reps": "5x10",
+        "type": "isolation",
+        "sets": [{
+          "weight": "25"
+        }, {
+          "weight": "25",
+          "reps": "10"
+        }, {
+          "weight": "25",
+          "reps": "10"
+        }, {
+          "weight": "25",
+          "reps": "10"
+        }, {
+          "weight": "25",
+          "reps": "10"
+        }],
+        "targets": "5x10"
+      }],
+      "id": 1
+    }]
+  }, {
+    "name": "5x5 DELTS B",
+    "description": "delts only - b",
+    "id": "695b2b20-a120-11eb-95df-31b9b8505e78",
+    "exerciseGroups": [{
+      "exercises": [{
+        "name": "OHP, BB",
+        "reps": "5x5",
+        "id": "f4749640-609f-11eb-abc8-4152269e8437",
+        "type": "compound",
+        "sets": [{
+          "weight": "37",
+          "reps": "5"
+        }, {
+          "weight": "37",
+          "reps": "5"
+        }, {
+          "weight": "37",
+          "reps": "5"
+        }, {
+          "weight": "37",
+          "reps": "5"
+        }, {
+          "weight": "37",
+          "reps": "5"
+        }],
+        "targets": "5x5"
+      }, {
+        "name": "rear delt raises",
+        "id": "17",
+        "reps": "5x10",
+        "type": "isolation",
+        "sets": [{
+          "weight": "25",
+          "reps": "10"
+        }, {
+          "weight": "25",
+          "reps": "10"
+        }, {
+          "weight": "25",
+          "reps": "10"
+        }, {
+          "weight": "25",
+          "reps": "10"
+        }, {
+          "weight": "25",
+          "reps": "10"
+        }],
+        "targets": "5x10"
+      }],
+      "id": 2
+    }]
+  }, {
+    "name": "DEADS ONLY",
+    "description": "deadlift only",
+    "id": "7cc2ee20-9589-11eb-b91b-85d6eb82c849",
+    "exerciseGroups": [{
+      "exercises": [{
+        "name": "deadlift",
+        "id": "5",
+        "reps": "2x2 - with rampup",
+        "type": "compound",
+        "sets": [{
+          "weight": "0",
+          "reps": "5"
+        }, {
+          "weight": "50",
+          "reps": "5"
+        }, {
+          "weight": "90",
+          "reps": "5"
+        }, {
+          "weight": "90",
+          "reps": "5"
+        }, {
+          "weight": "90",
+          "reps": "5"
+        }],
+        "targets": "2x2 - with rampup"
+      }],
+      "id": 0
+    }]
+  }],
+  "energy": 8,
+  "cardio": {
+    "exercises": [{
+      "duration": "30:18",
+      "id": 0,
+      "type": "exercise bike",
+      "distance": "3.71 miles ",
+      "heartRate": "120",
+      "targets": "120 bpm, 30 minutes"
+    }],
+    "headers": ["delete", "type", "targets", "duration", "distance", "heart rate"]
+  },
+  "notes": "increase ohp to 40",
+  "sleep": 8,
+  "goals": "lean",
+  "duration": "00:28:30:10",
+  "weight": "138.2",
+  "activeWo": -1
+}, {
+  "id": "1001",
+  "date": {
+    "day": "10",
+    "month": "6",
+    "year": "2021"
+  },
+  "notes": "stuff",
+  "duration": "0",
+  "goals": "",
+  "weight": "",
+  "energy": 10,
+  "sleep": 10,
+  "cardio": {
+    "headers": ["delete", "type", "targets", "duration", "distance", "heart rate"],
+    "exercises": [{
+      "id": 0,
+      "type": "walky walky",
+      "duration": "",
+      "distance": "",
+      "heartRate": "? bpm"
+    }]
+  },
+  "workouts": [],
+  "activeWo": -1
+}, {
+  "id": "999",
+  "date": {
+    "day": "10",
+    "month": "6",
+    "year": "2021"
+  },
+  "notes": "",
+  "duration": "0",
+  "goals": "TESTING",
+  "weight": "140.2",
+  "energy": 7,
+  "sleep": 7,
+  "cardio": {
+    "headers": ["delete", "type", "targets", "duration", "distance", "heart rate"],
+    "exercises": [{
+      "id": 0,
+      "type": "jump rope",
+      "duration": "",
+      "distance": "",
+      "heartRate": ""
+    }]
+  },
+  "workouts": [],
+  "activeWo": -1
+}]
